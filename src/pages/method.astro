@@ -18,9 +18,9 @@ const meta = doc.meta;
     <p class="pull">不说废话。先过滤再打分，你关心什么它就比什么。</p>
 
     <h3 style="margin-top:2.5rem">一、先过两道筛</h3>
-    <div class="formula">通过条件：价格 ≤ ¥{meta.price_cap} AND 模型能力 ≥ {meta.capability_floor}（国内前 3 强模型）</div>
+    <div class="formula">通过条件：价格 ≤ ¥{meta.price_cap} AND 模型排名国内前 3</div>
     <p>超预算（>¥{meta.price_cap}/月）的一律不入榜——不是它们不好，是大多数人不需要。模型低于国内前三强的也不入——省那十几块用弱模型不值。</p>
-    <p>国内前 3 强模型参考 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis Intelligence Index</a> v4.1 榜单：GLM-5.2(#7)、DeepSeek V4 Pro(#13)、MiniMax-M3(#12)、Kimi K2.7 Code(#17)、Qwen-3.7-Max(#11)、MiMo-V2.5-Pro(#16) 等。</p>
+    <p>国内前 3 强模型参考 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis Intelligence Index</a> v4.1 榜单：国内第1=GLM-5.2(全球#7)，国内第2=Qwen-3.7-Max(全球#11)，国内第3=MiniMax-M3/DeepSeek V4 Pro(全球#12-13)。旗舰模型不在国内前3的不入榜。</p>
 
     <h3 style="margin-top:2.5rem">二、过了筛的怎么比</h3>
     <div class="formula">综合分 = 能力分 × 40% + 价格分 × 30% + 用量分 × 30%（满分 100）</div>

@@ -18,7 +18,7 @@ function pricePts(p) { const c = cnyPrice(p); return c <= 50 ? 50 : c <= 100 ? 3
 const maxRefill = Math.max(...doc.plans.map(p => p.refill_month ?? 0), 1);
 function quotaPts(p) { return ((p.refill_month ?? 0) / maxRefill) * 50; }
 
-let filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && p.capability_score >= (doc.meta.capability_floor || 7.5));
+let filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank));
 
 const scored = filtered
   .map(p => {
@@ -28,7 +28,7 @@ const scored = filtered
   })
   .sort((a, b) => b.total_score - a.total_score);
 
-const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'xunfei-pro', 'glm-pro'];
+const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'glm-pro', 'minimax-plus'];
 const featured = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
 for (const s of scored) { if (!featured.find(p => p.id === s.id)) featured.push(s); }
 const top = featured[0];

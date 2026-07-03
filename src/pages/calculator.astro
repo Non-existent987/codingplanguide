@@ -264,7 +264,7 @@ const USD2CNY = 7.2;
       if (region === 'global' && p.region === 'cn') return false;
       if (multimodal && !p.multimodal) return false;
       if (!grab && p.purchase_difficulty === 'hard') return false;
-      if (capfloor && p.capability_score < 7.5) return false;
+      if (capfloor && ![1, 2, 3].includes(p.capability_rank)) return false;
       return true;
     });
 

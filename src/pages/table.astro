@@ -10,7 +10,6 @@ const root = join(__dirname, '..', '..');
 const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
 const PRICE_CAP = doc.meta.price_cap || 150;
-const CAPA_FLOOR = doc.meta.capability_floor || 7.5;
 const USD2CNY = 7.2;
 function cnyPrice(p) { return p.currency === 'usd' ? p.price_monthly * USD2CNY : p.price_monthly; }
 
@@ -19,7 +18,7 @@ function pricePts(p) { const c = cnyPrice(p); return c <= 50 ? 50 : c <= 100 ? 3
 const maxRefill = Math.max(...doc.plans.map(p => p.refill_month ?? 0), 1);
 function quotaPts(p) { return ((p.refill_month ?? 0) / maxRefill) * 50; }
 
-const filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && p.capability_score >= CAPA_FLOOR);
+const filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank));
 
 const scored = filtered
   .map(p => {
@@ -30,15 +29,15 @@ const scored = filtered
   .sort((a, b) => b.total_score - a.total_score);
 
 const outOfBand = doc.plans
-  .filter(p => !(cnyPrice(p) <= PRICE_CAP && p.capability_score >= CAPA_FLOOR))
+  .filter(p => !(cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank)))
   .map(p => {
     const reasons = [];
     if (cnyPrice(p) > PRICE_CAP) reasons.push(`超¥${PRICE_CAP}`);
-    if (p.capability_score < CAPA_FLOOR) reasons.push(`能力未达`);
+    if (![1, 2, 3].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
     return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, total_score: 0 };
   });
 
-const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'xunfei-pro', 'glm-pro'];
+const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'glm-pro', 'minimax-plus'];
 const scoredSorted = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
 for (const s of scored) { if (!scoredSorted.find(p => p.id === s.id)) scoredSorted.push(s); }
 
