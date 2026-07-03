@@ -89,6 +89,8 @@ lines.push('---');
 lines.push('');
 lines.push('## 模型能力排名 Top 25');
 lines.push('');
+lines.push('| # | 模型 | 分数 |');
+lines.push('|---|---|---|');
 const top25 = [
   { name: 'Claude Fable 5', score: 60, flag: '🇺🇸' },
   { name: 'Claude Opus 4.8', score: 56, flag: '🇺🇸' },
@@ -120,7 +122,7 @@ const barMax = 30;
 top25.forEach((m, i) => {
   const bar = '█'.repeat(Math.round((m.score / 60) * barMax));
   const nameStr = m.cn ? `**${m.flag} ${m.name}**` : `${m.flag} ${m.name}`;
-  lines.push(`${String(i + 1).padStart(2)} ${nameStr} ${bar} ${m.score}  `);
+  lines.push(`| ${i + 1} | ${nameStr} ${bar} | ${m.score} |`);
 });
 lines.push('');
 lines.push('> 来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index v4.1');
