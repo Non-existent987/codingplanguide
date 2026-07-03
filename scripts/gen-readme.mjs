@@ -60,30 +60,30 @@ lines.push(`> 全部套餐（含未过线 ${doc.plans.length - featured.length} 
 lines.push('');
 lines.push('---');
 lines.push('');
-lines.push('## 特别推荐：各模型月请求数对比');
+lines.push('## OpenCode Go 专属：模型用量详情');
 lines.push('');
-lines.push('| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA排名 |');
+lines.push('OpenCode Go 包含 7 大模型，各模型独立请求配额如下：');
+lines.push('');
+lines.push('| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA全球排名 |');
 lines.push('|---|---|---|---|---|');
-const modelTable = [
+const ocModels = [
   { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 7 },
-  { name: 'GLM-5.1', h5: 880, week: 2150, month: 4300, aa: 25 },
-  { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 15 },
-  { name: 'Kimi K2.7 Code', h5: 1350, week: 4630, month: 9250, aa: 17 },
-  { name: 'MiMo-V2.5', h5: 30100, week: 75200, month: 150400, aa: 16 },
-  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 16 },
-  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 12 },
-  { name: 'MiniMax M2.7', h5: 3400, week: 8500, month: 17000, aa: 33 },
-  { name: 'Qwen3.7 Max', h5: 950, week: 2390, month: 4770, aa: 11 },
-  { name: 'Qwen3.7 Plus', h5: 4300, week: 10800, month: 21600, aa: 30 },
-  { name: 'Qwen3.6 Plus', h5: 3300, week: 8200, month: 16300, aa: 30 },
   { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 13 },
   { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 20 },
+  { name: 'Kimi K2.7 Code', h5: 1350, week: 4630, month: 9250, aa: 17 },
+  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 12 },
+  { name: 'Qwen3.7 Max', h5: 950, week: 2390, month: 4770, aa: 11 },
+  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 16 },
 ];
-modelTable.forEach(m => {
+ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | #${m.aa} |`);
 });
 lines.push('');
-lines.push('> AA排名 = Artificial Analysis Intelligence Index v4.1 全球排名（2026-07-03）');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index v4.1（2026-07-03）');
+lines.push('>');
+lines.push('> DeepSeek V4 Flash 月请求 15.8 万次，搭配 GLM-5.2 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。');
+lines.push('>');
+lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=F3C3Y1MVK0)`);
 lines.push('');
 lines.push('---');
 lines.push('');

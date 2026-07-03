@@ -16,32 +16,34 @@
 | # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 结论 |
 |---|---|---|---|---|---|---|---|
 | 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 1.8万 | 35.45 | 推荐 |
-| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 15.8万 | 32.95 | 推荐 |
+| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 29.11 | 推荐 |
 | 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 35.11 | 推荐 |
 | 4 | [讯飞·星火 · 专业版](https://maas.xfyun.cn/packageSubscription?tab=month) | ¥39 | GLM-5.1 | 国内第2 | 4,300 | 27.11 | 推荐 |
 | 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 29 | 平替 |
 
+> 全部套餐（含未过线 24 款）见 [codingplanguide.com/table](https://codingplanguide.com/table)
+
 ---
 
-## 特别推荐：各模型月请求数对比
+## OpenCode Go 专属：模型用量详情
 
-| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA排名 |
+OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
+
+| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA全球排名 |
 |---|---|---|---|---|
 | GLM-5.2 | 880 | 2,150 | 4,300 | #7 |
-| GLM-5.1 | 880 | 2,150 | 4,300 | #25 |
-| Kimi K2.6 | 1,150 | 2,880 | 5,750 | #15 |
-| Kimi K2.7 Code | 1,350 | 4,630 | 9,250 | #17 |
-| MiMo-V2.5 | 30,100 | 75,200 | 150,400 | #16 |
-| MiMo-V2.5-Pro | 3,250 | 8,150 | 16,300 | #16 |
-| MiniMax M3 | 3,200 | 8,000 | 16,000 | #12 |
-| MiniMax M2.7 | 3,400 | 8,500 | 17,000 | #33 |
-| Qwen3.7 Max | 950 | 2,390 | 4,770 | #11 |
-| Qwen3.7 Plus | 4,300 | 10,800 | 21,600 | #30 |
-| Qwen3.6 Plus | 3,300 | 8,200 | 16,300 | #30 |
 | DeepSeek V4 Pro | 3,450 | 8,550 | 17,150 | #13 |
 | DeepSeek V4 Flash | 31,650 | 79,050 | 158,150 | #20 |
+| Kimi K2.7 Code | 1,350 | 4,630 | 9,250 | #17 |
+| MiniMax M3 | 3,200 | 8,000 | 16,000 | #12 |
+| Qwen3.7 Max | 950 | 2,390 | 4,770 | #11 |
+| MiMo-V2.5-Pro | 3,250 | 8,150 | 16,300 | #16 |
 
-> AA排名 = Artificial Analysis Intelligence Index v4.1 全球排名（2026-07-03）
+> AA全球排名 = Artificial Analysis Intelligence Index v4.1（2026-07-03）
+>
+> DeepSeek V4 Flash 月请求 15.8 万次，搭配 GLM-5.2 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。
+>
+> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=F3C3Y1MVK0)
 
 ---
 

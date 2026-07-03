@@ -131,7 +131,7 @@ plans:
     multimodal: false
     refill_5h: null
     refill_week: null
-    refill_month: 158150
+    refill_month: 4300
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
@@ -141,7 +141,7 @@ plans:
     purchase_difficulty: easy
     official_url: https://opencode.ai/go
     affiliate_url: https://opencode.ai/go?ref=F3C3Y1MVK0
-    note: DeepSeek V4 Flash月15万次请求+GLM-5.2旗舰，流畅无中断，首月$5。性价比国外国产通吃。
+    note: GLM-5.2旗舰+DeepSeek V4 Flash等7大模型，流畅无中断，首月$5。性价比国外国产通吃。
     verdict: 推荐
     featured: true
     updated: 2026-07-03

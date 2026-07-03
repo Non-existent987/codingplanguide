@@ -68,6 +68,49 @@ const minScore = models[models.length - 1].score;
       评分截至 2026-07-03。完整榜单见 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>。
     </p>
   </section>
+
+  <section class="wrap" style="padding-bottom:3rem">
+    <p class="eyebrow"><span class="bar"></span>OpenCode Go 模型用量</p>
+    <h2>7 大模型，各有多少请求？</h2>
+    <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
+      OpenCode Go 包含 7 大模型，各模型独立请求配额。DeepSeek V4 Flash 月 15.8 万次，搭配 GLM-5.2 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。
+    </p>
+    <div style="overflow-x:auto">
+      <table class="thin-table">
+        <thead>
+          <tr>
+            <th>模型</th>
+            <th>每5小时</th>
+            <th>每周</th>
+            <th>每月</th>
+            <th>AA全球排名</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 7 },
+            { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 13 },
+            { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 20 },
+            { name: 'Kimi K2.7 Code', h5: 1350, week: 4630, month: 9250, aa: 17 },
+            { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 12 },
+            { name: 'Qwen3.7 Max', h5: 950, week: 2390, month: 4770, aa: 11 },
+            { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 16 },
+          ].map(m => (
+            <tr>
+              <td><b>{m.name}</b></td>
+              <td class="num">{m.h5.toLocaleString()}</td>
+              <td class="num">{m.week.toLocaleString()}</td>
+              <td class="num">{m.month.toLocaleString()}</td>
+              <td class="num">#{m.aa}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:1.5rem">
+      <a class="goto" href="https://opencode.ai/go?ref=F3C3Y1MVK0" target="_blank" rel="noopener sponsored">官方订阅 OpenCode Go →</a>
+    </div>
+  </section>
 </Base>
 
 <style>
