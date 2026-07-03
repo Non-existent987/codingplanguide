@@ -87,9 +87,8 @@ lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=F3C3Y1MV
 lines.push('');
 lines.push('---');
 lines.push('');
-lines.push('## 模型能力排名 Top 25（条形图）');
+lines.push('## 模型能力排名 Top 25');
 lines.push('');
-lines.push('```');
 const top25 = [
   { name: 'Claude Fable 5', score: 60, flag: '🇺🇸' },
   { name: 'Claude Opus 4.8', score: 56, flag: '🇺🇸' },
@@ -97,32 +96,32 @@ const top25 = [
   { name: 'Claude Opus 4.7', score: 54, flag: '🇺🇸' },
   { name: 'Claude Sonnet 5', score: 53, flag: '🇺🇸' },
   { name: 'GPT-5.5 (high)', score: 53, flag: '🇺🇸' },
-  { name: 'GLM-5.2', score: 51, flag: '🇨🇳' },
+  { name: 'GLM-5.2', score: 51, flag: '🇨🇳', cn: true },
   { name: 'GPT-5.5 (medium)', score: 50, flag: '🇺🇸' },
   { name: 'Gemini 3.5 Flash', score: 50, flag: '🇺🇸' },
   { name: 'Gemini 3.1 Pro', score: 46, flag: '🇺🇸' },
-  { name: 'Qwen3.7 Max', score: 46, flag: '🇨🇳' },
-  { name: 'MiniMax-M3', score: 44, flag: '🇨🇳' },
-  { name: 'DeepSeek V4 Pro', score: 44, flag: '🇨🇳' },
+  { name: 'Qwen3.7 Max', score: 46, flag: '🇨🇳', cn: true },
+  { name: 'MiniMax-M3', score: 44, flag: '🇨🇳', cn: true },
+  { name: 'DeepSeek V4 Pro', score: 44, flag: '🇨🇳', cn: true },
   { name: 'GPT-5.3 Codex', score: 44, flag: '🇺🇸' },
-  { name: 'Kimi K2.6', score: 43, flag: '🇨🇳' },
-  { name: 'MiMo-V2.5-Pro', score: 42, flag: '🇨🇳' },
-  { name: 'Kimi K2.7 Code', score: 42, flag: '🇨🇳' },
-  { name: 'Nex-N2-Pro', score: 41, flag: '🇨🇳' },
-  { name: 'DeepSeek V4 Pro (high)', score: 41, flag: '🇨🇳' },
-  { name: 'DeepSeek V4 Flash', score: 40, flag: '🇨🇳' },
-  { name: 'GLM-5.1', score: 40, flag: '🇨🇳' },
-  { name: 'MiMo-V2.5', score: 40, flag: '🇨🇳' },
+  { name: 'Kimi K2.6', score: 43, flag: '🇨🇳', cn: true },
+  { name: 'MiMo-V2.5-Pro', score: 42, flag: '🇨🇳', cn: true },
+  { name: 'Kimi K2.7 Code', score: 42, flag: '🇨🇳', cn: true },
+  { name: 'Nex-N2-Pro', score: 41, flag: '🇨🇳', cn: true },
+  { name: 'DeepSeek V4 Pro (high)', score: 41, flag: '🇨🇳', cn: true },
+  { name: 'DeepSeek V4 Flash', score: 40, flag: '🇨🇳', cn: true },
+  { name: 'GLM-5.1', score: 40, flag: '🇨🇳', cn: true },
+  { name: 'MiMo-V2.5', score: 40, flag: '🇨🇳', cn: true },
   { name: 'GPT-5.4 mini (xhigh)', score: 40, flag: '🇺🇸' },
   { name: 'Grok Build 0.1', score: 40, flag: '🇺🇸' },
-  { name: 'Qwen3.6 Plus', score: 40, flag: '🇨🇳' },
+  { name: 'Qwen3.6 Plus', score: 40, flag: '🇨🇳', cn: true },
 ];
-const barMax = 40;
+const barMax = 30;
 top25.forEach((m, i) => {
   const bar = '█'.repeat(Math.round((m.score / 60) * barMax));
-  lines.push(`${String(i + 1).padStart(2)} ${m.flag} ${m.name.padEnd(24)} ${bar} ${m.score}`);
+  const nameStr = m.cn ? `**${m.flag} ${m.name}**` : `${m.flag} ${m.name}`;
+  lines.push(`${String(i + 1).padStart(2)} ${nameStr} ${bar} ${m.score}  `);
 });
-lines.push('```');
 lines.push('');
 lines.push('> 来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index v4.1');
 lines.push('');

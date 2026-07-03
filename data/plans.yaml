@@ -108,7 +108,7 @@ plans:
     measured_monthly_tokens_M: 250
     yuan_per_M_token: 0.16
     capability_tier: T0
-    capability_rank: 2
+    capability_rank: 3
     capability_score: 8.2
     quota_score: null
     purchase_difficulty: easy
