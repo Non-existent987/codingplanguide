@@ -72,10 +72,7 @@ function firstPrice(note) {
         <div><div class="k">用量分</div><div class="v num">{top.quota_score}</div></div>
       </div>
       <div style="margin-top:1.2rem">
-        {top.affiliate_url
-          ? <a class="go-btn" href={top.affiliate_url} target="_blank" rel="noopener sponsored">去订阅（返你优惠）→</a>
-          : <a class="go-btn" href={top.official_url} target="_blank" rel="noopener nofollow">去官方看看 →</a>
-        }
+        <a class="go-btn" href={top.affiliate_url || top.official_url} target="_blank" rel={top.affiliate_url ? 'noopener sponsored' : 'noopener nofollow'}>官方订阅 →</a>
       </div>
     </div>
   </section>
@@ -101,10 +98,7 @@ function firstPrice(note) {
             <div class="score num"><span class="accent">{p.total_score}</span><span style="color:var(--ink-faint)"> / 10</span></div>
             <span class="verdict {p.verdict}">{p.verdict}</span>
           </div>
-          {p.affiliate_url
-            ? <a class="goto" href={p.affiliate_url} target="_blank" rel="noopener sponsored">去订阅 →</a>
-            : <a class="goto" href={p.official_url} target="_blank" rel="noopener nofollow">去官方 →</a>
-          }
+          <a class="goto" href={p.affiliate_url || p.official_url} target="_blank" rel={p.affiliate_url ? 'noopener sponsored' : 'noopener nofollow'}>官方订阅 →</a>
         </article>
       ))}
     </div>

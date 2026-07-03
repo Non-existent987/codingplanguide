@@ -303,8 +303,7 @@ const USD2CNY = 7.2;
     let buy = '';
     const url = top.affiliate_url || top.official_url;
     const rel = top.affiliate_url ? 'sponsored' : 'nofollow';
-    const label = top.affiliate_url ? '去订阅（带优惠）→' : '去官方看看 →';
-    buy = `<a class="buy-btn" href="${url}" target="_blank" rel="noopener ${rel}">${label}</a>`;
+    buy = `<a class="buy-btn" href="${url}" target="_blank" rel="noopener ${rel}">官方订阅 →</a>`;
 
     let altHtml = alts.map(a => `
       <div class="alt">

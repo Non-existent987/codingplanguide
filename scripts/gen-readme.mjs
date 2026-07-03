@@ -32,19 +32,18 @@ lines.push(`> 更新于 ${fdate} · 数据驱动：[方法说明](https://coding
 lines.push('');
 lines.push('---');
 lines.push('');
-lines.push(`## 最值的一单：${featured[0].platform} · ${featured[0].plan}`);
+lines.push(`## 最值的一单：[${featured[0].platform} · ${featured[0].plan}](${featured[0].affiliate_url || featured[0].official_url})`);
 lines.push('');
 lines.push(`${featured[0].note} — 综合分 ${featured[0].total_score}（价格 ${featured[0].price_score} + 能力 ${featured[0].capability_score} + 用量 ${featured[0].quota_score}）。`);
-if (featured[0].affiliate_url) {
-  lines.push(`[去订阅](${featured[0].affiliate_url})`);
-}
+lines.push(`[官方订阅 →](${featured[0].affiliate_url || featured[0].official_url})`);
 lines.push('');
 lines.push(`## 过线排名 Top ${featured.length}`);
 lines.push('');
 lines.push('| # | 平台 · 套餐 | 月费 | 旗舰模型 | 月 Token | 综合分 | 结论 |');
 lines.push('|---|---|---|---|---|---|---|');
 featured.forEach((p, i) => {
-  lines.push(`| ${i + 1} | ${p.platform} · ${p.plan} | ${fmtPrice(p)} | ${p.model_flagship} | ${fmtTokens(p.measured_monthly_tokens_M)} | ${p.total_score} | ${p.verdict} |`);
+  const link = p.affiliate_url || p.official_url;
+  lines.push(`| ${i + 1} | [${p.platform} · ${p.plan}](${link}) | ${fmtPrice(p)} | ${p.model_flagship} | ${fmtTokens(p.measured_monthly_tokens_M)} | ${p.total_score} | ${p.verdict} |`);
 });
 lines.push('');
 lines.push(`> 全部套餐（含未过线 ${doc.plans.length - featured.length} 款）见 [codingplanguide.com/table](https://codingplanguide.com/table)`);
@@ -57,7 +56,7 @@ lines.push(`先过滤：价格 ≤ ¥${cap}/月 + 模型能力 ≥ 国内前3(T0
 lines.push('');
 lines.push('## 中立声明');
 lines.push('');
-lines.push('部分链接为推荐链接（返利不增加你的花费）。数据以官方公布为准。');
+lines.push('数据以官方公布为准。');
 lines.push('');
 lines.push('## License');
 lines.push('');
