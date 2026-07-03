@@ -3,7 +3,7 @@
 #   id            : 唯一标识, 用于 URL 锚点 (小写连字符)
 #   platform      : 平台名（中文显示名）
 #   plan          : 套餐名
-#   price_monthly : 月费数字
+#   price_monthly : 月费数字（使用最常用价格，若首月优惠注明在 note）
 #   currency      : cny | usd
 #   region        : cn | global（国内能否买到/使用为准）
 #   type          : coding | token
@@ -14,23 +14,134 @@
 #   refill_week   : 周请求数（可空）
 #   refill_month  : 月请求数（可空）
 #   measured_monthly_tokens_M : 实测月可用 Token（百万，可空）
-#   yuan_per_M_token : 每百万 Token 等价人民币（核心指标；usd 按汇率 ~7.2 折算）
+#   yuan_per_M_token : 每百万 Token 等价人民币（usd 按汇率 ~7.2 折算）
 #   capability_tier  : T0 | T1 | T2（据 AA Agentic Index 粗档）
-#   capability_score : 0–10（据 AA Agentic Index 归一化，见 /method）
+#   capability_score : 0–10（据 AA Agentic Index 归一化）
+#   quota_score      : 0–10（已过滤集合内归一化，用量越多越高）
 #   purchase_difficulty : easy | normal | hard
 #   official_url  : 官方购买页（非联盟链接）
-#   note          : 一句中肯点评（≤60 字）
+#   affiliate_url : 推荐购买页（你的返利链接，可选）
+#   note          : 一句话点评（≤50 字）
 #   verdict       : 推荐 | 平替 | 谨慎
-#   featured      : true | false（首屏精选；V1 默认全部 true，featured 由打分自动生成）
+#   featured      : true | false
 #   updated       : YYYY-MM-DD
 
 meta:
-  version: 1
+  version: 2
   updated: 2026-07-03
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
-  capability_source: "Artificial Analysis Agentic Index 2026-06 公开榜单的归一化近似"
+  price_cap: 150
+  capability_floor: 7.5
+  scoring: "综合分 = 价格分×0.45 + 能力分×0.35 + 用量分×0.20；价格≤¥150且能力≥国内前3(T0)始入榜"
+  capability_source: "Artificial Analysis Agentic Index 2026-06 公开榜单映射近似"
 
 plans:
+  # ═══════ Featured ═══════
+  - id: volcengine-lite
+    platform: 字节·方舟
+    plan: Coding Plan Lite
+    price_monthly: 40
+    currency: cny
+    region: cn
+    type: coding
+    model_flagship: GLM-5.2（额度池共用）
+    models: [GLM-5.2, GLM-5.1, DeepSeek-V4-Pro, DeepSeek-V4-Flash, MiniMax-M3, Kimi-K2.6, Kimi-K2.7-Code, Doubao-Seed-2.0]
+    multimodal: false
+    refill_5h: 1200
+    refill_week: 9000
+    refill_month: 18000
+    measured_monthly_tokens_M: 250
+    yuan_per_M_token: 0.16
+    capability_tier: T0
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://www.volcengine.com/activity/codingplan
+    affiliate_url: null
+    note: 四家顶级模型随意切，首月¥9.4，在这买相当于白嫖一个月旗舰。
+    verdict: 推荐
+    featured: true
+    updated: 2026-07-03
+
+  - id: glm-lite
+    platform: 智谱 AI
+    plan: Coding Plan Lite
+    price_monthly: 49
+    currency: cny
+    region: cn
+    type: coding
+    model_flagship: GLM-5.2
+    models: [GLM-5.2, GLM-5.1, GLM-5-Turbo, GLM-5]
+    multimodal: false
+    refill_5h: 1200
+    refill_week: 6000
+    refill_month: 24000
+    measured_monthly_tokens_M: 120
+    yuan_per_M_token: 0.41
+    capability_tier: T0
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: hard
+    official_url: https://bigmodel.cn/glm-coding
+    affiliate_url: null
+    note: GLM-5.2直连，国内代码能力天花板。需抢购，但花¥49用T0旗舰值。
+    verdict: 推荐
+    featured: true
+    updated: 2026-07-03
+
+  - id: xunfei-pro
+    platform: 讯飞·星火
+    plan: 专业版
+    price_monthly: 39
+    currency: cny
+    region: cn
+    type: coding
+    model_flagship: GLM-5.1
+    models: [GLM-5.1, Kimi-K2.6, Qwen3.6-35B-A3B, MiniMax-M2.5, DeepSeek-V3.2]
+    multimodal: false
+    refill_5h: 1200
+    refill_week: 9000
+    refill_month: 18000
+    measured_monthly_tokens_M: 250
+    yuan_per_M_token: 0.16
+    capability_tier: T0
+    capability_score: 8.2
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://www.xfyun.cn/
+    affiliate_url: null
+    note: 39块没有之一最便宜的T0入口。不用抢，随时开随时用。
+    verdict: 推荐
+    featured: true
+    updated: 2026-07-03
+
+  - id: opencode-go
+    platform: OpenCode
+    plan: Go（首月 $5）
+    price_monthly: 10
+    currency: usd
+    region: cn
+    type: token
+    model_flagship: GLM-5.2
+    models: [GLM-5.2, DeepSeek-V4-Pro, DeepSeek-V4-Flash, Kimi-K2.7-Code, MiniMax-M3, Qwen-3.7-Max, MiMo-V2.5-Pro]
+    multimodal: false
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: null
+    capability_tier: T0
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://opencode.ai/go
+    affiliate_url: https://opencode.ai/go?ref=F3C3Y1MVK0
+    note: 全球旗舰模型随便切，首月半价只要$5，海外直连。性价比国外国产通吃。
+    verdict: 推荐
+    featured: true
+    updated: 2026-07-03
+
+  # ═══════ 备选 / 高预算 ═══════
   - id: volcengine-pro
     platform: 字节·方舟
     plan: Coding Plan Pro
@@ -38,7 +149,7 @@ plans:
     currency: cny
     region: cn
     type: coding
-    model_flagship: GLM-5.2
+    model_flagship: GLM-5.2（额度池共用）
     models: [GLM-5.2, GLM-5.1, DeepSeek-V4-Pro, DeepSeek-V4-Flash, MiniMax-M3, Kimi-K2.6, Kimi-K2.7-Code, Doubao-Seed-2.0]
     multimodal: false
     refill_5h: 6000
@@ -48,11 +159,13 @@ plans:
     yuan_per_M_token: 0.16
     capability_tier: T0
     capability_score: 8.5
+    quota_score: null
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/activity/codingplan
-    note: 唯一同时支持四家顶级模型的全家桶平台，叠加折扣期性价比拉满。
-    verdict: 推荐
-    featured: true
+    affiliate_url: null
+    note: 重度用户首选，全家桶额度大。超预算但的确最全。
+    verdict: 平替
+    featured: false
     updated: 2026-07-03
 
   - id: glm-pro
@@ -72,11 +185,13 @@ plans:
     yuan_per_M_token: 0.25
     capability_tier: T0
     capability_score: 8.5
+    quota_score: null
     purchase_difficulty: hard
     official_url: https://bigmodel.cn/glm-coding
-    note: 直连官方的 T0 万能模型，代码能力国内最强，但需抢购且 429 频繁。
-    verdict: 推荐
-    featured: true
+    affiliate_url: null
+    note: Lite不够用？Pro翻5倍额度，卡在¥150边缘。
+    verdict: 平替
+    featured: false
     updated: 2026-07-03
 
   - id: xunfei-efficient
@@ -92,15 +207,17 @@ plans:
     refill_5h: 6000
     refill_week: 45000
     refill_month: 90000
-    measured_monthly_tokens_M: 400
-    yuan_per_M_token: 0.50
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: null
     capability_tier: T0
     capability_score: 8.5
+    quota_score: null
     purchase_difficulty: easy
     official_url: https://www.xfyun.cn/
-    note: 智谱抢不到的最佳平替，无需蹲点，模型覆盖面最宽。
+    affiliate_url: null
+    note: 高效版加GLM-5.2，性价比不错的进阶选择。
     verdict: 平替
-    featured: true
+    featured: false
     updated: 2026-07-03
 
   - id: aliyun-bailian-pro
@@ -120,11 +237,13 @@ plans:
     yuan_per_M_token: 0.07
     capability_tier: T1
     capability_score: 7.0
+    quota_score: null
     purchase_difficulty: normal
     official_url: https://www.aliyun.com/benefit/scene/codingplan
-    note: 模型池够用，性价比数据峰值，但旗舰能力略逊 T0。
-    verdict: 推荐
-    featured: true
+    affiliate_url: null
+    note: Token量很大但旗舰模型非T0，适合高用量但对模型不苛求的。
+    verdict: 谨慎
+    featured: false
     updated: 2026-07-03
 
   - id: minimax-ultra
@@ -144,16 +263,18 @@ plans:
     yuan_per_M_token: 0.07
     capability_tier: T1
     capability_score: 7.0
+    quota_score: null
     purchase_difficulty: easy
     official_url: https://platform.minimaxi.com/subscribe/token-plan
-    note: 月度 Token 上限最高，独享多模态，养龙虾与重度任务基地。
-    verdict: 推荐
-    featured: true
+    affiliate_url: null
+    note: 多模态+海量额度，4百多值但超预算太多。
+    verdict: 谨慎
+    featured: false
     updated: 2026-07-03
 
   - id: deepseek-flash-200
     platform: DeepSeek
-    plan: 虚拟套餐 200（按量付费 Baseline）
+    plan: 虚拟套餐 200
     price_monthly: 200
     currency: cny
     region: cn
@@ -168,9 +289,37 @@ plans:
     yuan_per_M_token: 0.14
     capability_tier: T1
     capability_score: 7.2
+    quota_score: null
     purchase_difficulty: easy
     official_url: https://api-docs.deepseek.com/zh-cn/quick_start/pricing
-    note: 按量付费唯一推荐基准，速度稳、缓存命中即成本再降，无额度焦虑。
-    verdict: 推荐
-    featured: true
+    affiliate_url: null
+    note: 按量稳妥，速度稳无额度焦虑，但一次放¥200不如玩月包。
+    verdict: 谨慎
+    featured: false
+    updated: 2026-07-03
+
+  - id: moore-free
+    platform: 摩尔线程
+    plan: Free Trial
+    price_monthly: 1
+    currency: cny
+    region: cn
+    type: coding
+    model_flagship: GLM-4.7
+    models: [GLM-4.7]
+    multimodal: false
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: 0
+    capability_tier: T2
+    capability_score: 6.0
+    quota_score: null
+    purchase_difficulty: hard
+    official_url: https://www.mthreads.com/
+    affiliate_url: null
+    note: 白嫖福利。但限量、模型比T0差一档，只能应急。
+    verdict: 平替
+    featured: false
     updated: 2026-07-03

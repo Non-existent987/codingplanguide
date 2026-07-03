@@ -9,29 +9,54 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..', '..');
 const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
-const prices = doc.plans.map(p => p.yuan_per_M_token);
-const minP = Math.min(...prices);
-const maxP = Math.max(...prices);
-const span = Math.max(1e-9, maxP - minP);
+const PRICE_CAP = doc.meta.price_cap || 150;
+const CAPA_FLOOR = doc.meta.capability_floor || 7.5;
+const USD2CNY = 7.2;
+function cnyPrice(p) { return p.currency === 'usd' ? p.price_monthly * USD2CNY : p.price_monthly; }
 
-const ranked = doc.plans
-  .map(p => ({
-    ...p,
-    total_score: Number((p.capability_score + (span < 1e-6 ? 10 : (maxP - p.yuan_per_M_token) / span * 10)).toFixed(2))
-  }))
+const filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && p.capability_score >= CAPA_FLOOR);
+const prices = filtered.map(p => cnyPrice(p));
+const maxP = Math.max(...prices);
+const minP = Math.min(...prices);
+const pSpan = Math.max(1e-9, maxP - minP);
+const quotas = filtered.map(p => p.measured_monthly_tokens_M ?? 0);
+const maxQ = Math.max(...quotas);
+const qSpan = Math.max(1e-9, maxQ);
+
+const scored = filtered
+  .map(p => {
+    const priceScore = pSpan < 1e-6 ? 10 : ((maxP - cnyPrice(p)) / pSpan) * 10;
+    const quotaScore = qSpan < 1e-6 ? 10 : ((p.measured_monthly_tokens_M ?? 0) / qSpan) * 10;
+    const total = priceScore * 0.45 + p.capability_score * 0.35 + quotaScore * 0.20;
+    return { ...p, price_score: Number(priceScore.toFixed(2)), quota_score: Number(quotaScore.toFixed(2)), total_score: Number(total.toFixed(2)) };
+  })
   .sort((a, b) => b.total_score - a.total_score);
 
-const FEATURED_LIMIT = 6;
+const outOfBand = doc.plans
+  .filter(p => !(cnyPrice(p) <= PRICE_CAP && p.capability_score >= CAPA_FLOOR))
+  .map(p => {
+    const reasons = [];
+    if (cnyPrice(p) > PRICE_CAP) reasons.push(`超¥${PRICE_CAP}`);
+    if (p.capability_score < CAPA_FLOOR) reasons.push(`能力未达`);
+    return { ...p, oob_reason: reasons.join('；'), price_score: 0, quota_score: 0, total_score: 0 };
+  });
+
+// 过线按人工排序，未过线照旧
+const userOrder = ['volcengine-lite', 'glm-lite', 'xunfei-pro', 'opencode-go', 'glm-pro'];
+const scoredSorted = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
+for (const s of scored) { if (!scoredSorted.find(p => p.id === s.id)) scoredSorted.push(s); }
+
+const ranked = [...scoredSorted, ...outOfBand];
+
 function fmtTokens(m) { if (!m) return '—'; return m >= 1000 ? `${(m / 1000).toFixed(2)}B` : `${m}M`; }
 function fmtPrice(p) { return p.currency === 'usd' ? `$${p.price_monthly}` : `¥${p.price_monthly}`; }
-function diff(d) { return d === 'easy' ? '无需' : d === 'normal' ? '一般' : '需抢'; }
 ---
 
-<Base path="/table" title="全部套餐 · Coding Plan Guide" description="全部收录的 AI 编程订阅套餐一览，可按月费、评分、性价比排序。">
+<Base path="/table" title="全部套餐 · Coding Plan Guide">
   <section class="wrap" style="padding-top:3rem">
-    <p class="eyebrow"><span class="bar"></span>全部收录</p>
-    <h2>{ranked.length} 款可买的编程订阅。</h2>
-    <p style="color:var(--ink-soft);max-width:54ch">首 6 款为精选 Top（首页同款），其余按综合得分降序附下。点列头排序。</p>
+    <p class="eyebrow"><span class="bar"></span>全部套餐</p>
+    <h2>{ranked.length} 款，过线 {scored.length} 款。</h2>
+    <p style="color:var(--ink-soft);max-width:54ch">首 {scored.length} 款为过线排名（价格≤¥{PRICE_CAP} + 能力≥国内前3），其余按"未通过原因"附下。</p>
 
     <p style="margin:1.6rem 0 0">
       <button id="toggle-less" type="button"
@@ -48,39 +73,42 @@ function diff(d) { return d === 'easy' ? '无需' : d === 'normal' ? '一般' : 
             <th data-key="platform">平台 · 套餐</th>
             <th data-key="type">类型</th>
             <th data-key="price_monthly" data-num>月费</th>
-            <th data-key="model_flagship">旗舰模型</th>
-            <th data-key="measured" data-num>月 Token</th>
-            <th data-key="yuan_per_M_token" data-num>¥/M Token</th>
-            <th data-key="total_score" data-num>评分</th>
+            <th data-key="capability_score" data-num>能力</th>
+            <th data-key="total_score" data-num>综合分</th>
             <th data-key="verdict">结论</th>
+            <th>购买</th>
           </tr>
         </thead>
         <tbody>
           {ranked.map((p, i) => (
-            <tr class={i >= FEATURED_LIMIT ? 'extra' : ''} style={i >= FEATURED_LIMIT ? 'display:none' : ''}>
+            <tr class={i >= scored.length ? 'extra' : ''} style={i >= scored.length ? 'display:none' : ''}>
               <td class="num">{i + 1}</td>
               <td><b>{p.platform}</b> · {p.plan}</td>
               <td>{p.type === 'coding' ? 'Coding' : 'Token'}</td>
               <td class="num">{fmtPrice(p)}</td>
-              <td>{p.model_flagship}</td>
-              <td class="num">{fmtTokens(p.measured_monthly_tokens_M)}</td>
-              <td class="num">¥{p.yuan_per_M_token}</td>
-              <td class="num"><b style="color:var(--accent)">{p.total_score}</b></td>
-              <td><span class="verdict-dot {p.verdict}"></span>{p.verdict}</td>
+              <td class="num">{p.capability_score}</td>
+              <td class="num"><b style="color:var(--accent)">{p.total_score || '—'}</b></td>
+              <td>
+                <span class="verdict-dot {p.verdict}"></span>{p.verdict}
+                {p.oob_reason ? <span style="font-size:.7rem;color:var(--ink-faint);display:block">({p.oob_reason})</span> : ''}
+              </td>
+              <td>
+                {p.affiliate_url
+                  ? <a href={p.affiliate_url} target="_blank" rel="sponsored" style="font-size:.82rem;border:none">链接 →</a>
+                  : ''
+                }
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
 
-    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.4rem">
-      空缺字段表示官方未公开。
-      评分公式见 <a href="/method">方法说明</a>。不为任何平台返利。
-    </p>
+    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.4rem">评分公式见 <a href="/method">方法说明</a>。部分链接为推荐链接。</p>
   </section>
 </Base>
 
-<script is:inline define:vars={{ FEATURED_LIMIT }}>
+<script is:inline define:vars={{ scoredLen: scored.length }}>
   const btn = document.getElementById('toggle-less');
   const extras = document.querySelectorAll('tr.extra');
   let expanded = false;
@@ -88,16 +116,14 @@ function diff(d) { return d === 'easy' ? '无需' : d === 'normal' ? '一般' : 
     expanded = !expanded;
     extras.forEach(r => r.style.display = expanded ? '' : 'none');
     btn.innerHTML = expanded
-      ? '只显示精选 Top ' + FEATURED_LIMIT + ' <span style="color:var(--accent)">↑</span>'
+      ? '只显示过线 ' + scoredLen + ' 款 <span style="color:var(--accent)">↑</span>'
       : '显示全部 <span style="color:var(--accent)">↓</span>';
   });
 
   const table = document.getElementById('plan-table');
   const tbody = table.querySelector('tbody');
   let sortKey = 'rank', sortDir = 1;
-  const numKeys = new Set(['price_monthly', 'yuan_per_M_token', 'total_score', 'measured']);
-
-  table.querySelectorAll('th').forEach(th => {
+  table.querySelectorAll('th:not(:last-child)').forEach(th => {
     th.addEventListener('click', () => {
       const key = th.dataset.key;
       if (sortKey === key) sortDir = -sortDir; else { sortKey = key; sortDir = 1; }
@@ -106,19 +132,13 @@ function diff(d) { return d === 'easy' ? '无需' : d === 'normal' ? '一般' : 
       const rows = Array.from(tbody.querySelectorAll('tr'));
       rows.sort((a, b) => {
         let av, bv;
-        if (key === 'rank') { av = +a.cells[0].textContent; bv = +b.cells[0].textContent; return (av - bv) * sortDir; }
         if (key === 'platform') { av = a.cells[1].textContent; bv = b.cells[1].textContent; return av.localeCompare(bv, 'zh') * sortDir; }
-        if (key === 'model_flagship') { av = a.cells[4].textContent; bv = b.cells[4].textContent; return av.localeCompare(bv, 'zh') * sortDir; }
-        if (key === 'type') { av = a.cells[2].textContent; bv = b.cells[2].textContent; return av.localeCompare(bv) * sortDir; }
-        if (key === 'verdict') { av = a.cells[7].textContent.trim(); bv = b.cells[7].textContent.trim(); return av.localeCompare(bv, 'zh') * sortDir; }
-        if (key === 'price_monthly') { av = parseFloat(a.cells[3].textContent.replace(/[^\d.]/g,'')); bv = parseFloat(b.cells[3].textContent.replace(/[^\d.]/g,'')); }
-        else if (key === 'yuan_per_M_token') { av = parseFloat(a.cells[6].textContent.replace(/[^\d.]/g,'')); bv = parseFloat(b.cells[6].textContent.replace(/[^\d.]/g,'')); }
-        else if (key === 'total_score') { av = parseFloat(a.cells[7].textContent); bv = parseFloat(b.cells[7].textContent); }
-        else if (key === 'measured') {
-          const p = s => { if (!s || s === '—') return 0; const m = s.match(/([\d.]+)([MB])/); return m ? parseFloat(m[1]) * (m[2]==='B'?1000:1) : 0; };
-          av = p(a.cells[5].textContent); bv = p(b.cells[5].textContent);
+        else if (key === 'verdict') { av = a.cells[6].textContent.trim(); bv = b.cells[6].textContent.trim(); return av.localeCompare(bv, 'zh') * sortDir; }
+        else {
+          av = parseFloat(a.cells[key === 'rank' ? 0 : key === 'price_monthly' ? 3 : key === 'capability_score' ? 4 : 5].textContent) || 0;
+          bv = parseFloat(b.cells[key === 'rank' ? 0 : key === 'price_monthly' ? 3 : key === 'capability_score' ? 4 : 5].textContent) || 0;
+          return (av - bv) * sortDir;
         }
-        return ((isNaN(av)?-1:1) ? (av - bv) : 0) * sortDir;
       });
       rows.forEach(r => tbody.appendChild(r));
     });

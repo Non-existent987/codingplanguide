@@ -1,4 +1,3 @@
-// 校验 data/plans.yaml 字段规范，CI 中运行（npm run validate）
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -20,7 +19,7 @@ const ALLOW = {
 };
 const REQ = [
   'id', 'platform', 'plan', 'price_monthly', 'currency', 'region', 'type',
-  'model_flagship', 'multimodal', 'yuan_per_M_token', 'capability_tier',
+  'model_flagship', 'multimodal', 'capability_tier',
   'capability_score', 'purchase_difficulty', 'official_url', 'note', 'verdict', 'featured', 'updated'
 ];
 
@@ -37,7 +36,6 @@ for (const [i, p] of (doc.plans || []).entries()) {
     if (p[k] !== undefined && !vals.includes(p[k])) errors.push(`${ctx}: ${k}=${p[k]} 非法，允许 ${vals.join('|')}`);
   }
   if (typeof p.price_monthly !== 'number' || p.price_monthly <= 0) errors.push(`${ctx}: price_monthly 必须为正数`);
-  if (typeof p.yuan_per_M_token !== 'number' || p.yuan_per_M_token <= 0) errors.push(`${ctx}: yuan_per_M_token 必须为正数`);
   if (typeof p.capability_score !== 'number' || p.capability_score < 0 || p.capability_score > 10) errors.push(`${ctx}: capability_score 必须 0–10`);
   if (p.id) {
     if (!/^[a-z0-9-]+$/.test(p.id)) errors.push(`${ctx}: id 仅允许小写字母数字连字符`);
@@ -53,4 +51,4 @@ if (errors.length) {
   for (const e of errors) console.error('  - ' + e);
   process.exit(1);
 }
-console.log(`[validate] 通过，共 ${doc.plans.length} 条精选/全量套餐。`);
+console.log(`[validate] 通过，共 ${doc.plans.length} 条套餐（${doc.plans.filter(x => x.featured).length} featured）。`);

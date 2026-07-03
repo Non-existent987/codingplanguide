@@ -9,57 +9,80 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..', '..');
 const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
-const prices = doc.plans.map(p => p.yuan_per_M_token);
+const PRICE_CAP = doc.meta.price_cap || 150;
+const USD2CNY = 7.2;
+function cnyPrice(p) { return p.currency === 'usd' ? p.price_monthly * USD2CNY : p.price_monthly; }
+
+// 过线过滤
+let filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && p.capability_score >= (doc.meta.capability_floor || 7.5));
+const prices = filtered.map(p => cnyPrice(p));
 const minP = Math.min(...prices);
 const maxP = Math.max(...prices);
-const span = Math.max(1e-9, maxP - minP);
+const pSpan = Math.max(1e-9, maxP - minP);
+const quotas = filtered.map(p => p.measured_monthly_tokens_M ?? 0);
+const maxQ = Math.max(...quotas);
+const qSpan = Math.max(1e-9, maxQ);
 
-const ranked = doc.plans
-  .map(p => ({
-    ...p,
-    ability_score: p.capability_score,
-    cost_score: span < 1e-6 ? 10 : Number(((maxP - p.yuan_per_M_token) / span * 10).toFixed(2)),
-    total_score: Number((p.capability_score + (span < 1e-6 ? 10 : (maxP - p.yuan_per_M_token) / span * 10)).toFixed(2))
-  }))
+const scored = filtered
+  .map(p => {
+    const priceScore = pSpan < 1e-6 ? 10 : ((maxP - cnyPrice(p)) / pSpan) * 10;
+    const quotaScore = qSpan < 1e-6 ? 10 : ((p.measured_monthly_tokens_M ?? 0) / qSpan) * 10;
+    const total = priceScore * 0.45 + p.capability_score * 0.35 + quotaScore * 0.20;
+    return { ...p, price_score: Number(priceScore.toFixed(2)), quota_score: Number(quotaScore.toFixed(2)), total_score: Number(total.toFixed(2)) };
+  })
   .sort((a, b) => b.total_score - a.total_score);
 
-const featured = ranked.slice(0, 6);
+// 公式过滤 + 人工微调显示顺序(覆盖纯数学排名，反映真实使用体验)
+const userOrder = ['volcengine-lite', 'glm-lite', 'xunfei-pro', 'opencode-go', 'glm-pro'];
+const featured = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
+// 如果公式出来的但不在清单里的追加到尾部
+for (const s of scored) { if (!featured.find(p => p.id === s.id)) featured.push(s); }
 const top = featured[0];
 const meta = doc.meta;
 
 function fmtPrice(p) { return p.currency === 'usd' ? `$${p.price_monthly}` : `¥${p.price_monthly}`; }
 function fmtTokens(m) { if (!m) return '—'; return m >= 1000 ? `${(m / 1000).toFixed(2)}B` : `${m}M`; }
-const maxScore = featured[0].total_score;
-const minScore = featured[featured.length - 1].total_score;
+const maxScore = featured[0]?.total_score ?? 10;
+const minScore = featured[featured.length - 1]?.total_score ?? 0;
 function barWidth(s) { return ((s - minScore) / Math.max(1e-9, maxScore - minScore)) * 100; }
+function firstPrice(note) {
+  const m = note.match(/首月[¥$]?([\d.]+)/);
+  return m ? m[1] : null;
+}
 ---
 
-<Base path="/" title="AI 编程订阅精选 · Coding Plan Guide">
+<Base path="/" title="AI 编程订阅 · 选最值的">
   <section class="wrap hero">
-    <p class="eyebrow"><span class="bar"></span>2026 年最该买的 AI 编程订阅</p>
-    <h1>给一个<span class="accent">答案</span>，<br/>不是列一堆。</h1>
-    <p class="lede">各大模型的 Coding/Token Plan — 看完不知道该买什么？这里只精选真正值得买的，公开透明打分，让你 30 秒决定。</p>
-    <p class="meta">更新于 {meta.updated} · 能力评级来自 Artificial Analysis Agentic Index</p>
+    <p class="eyebrow"><span class="bar"></span>AI 编程 · 怎么选最值</p>
+    <h1>每月不超<span class="accent">¥{PRICE_CAP}</span>，<br/>模型就得用最强的。</h1>
+    <p class="lede">从几十款套餐里筛出真正值得买的——价格不超¥{PRICE_CAP}、模型T0、用量扛造。不藏着掖着，怎么算的写在<a href="/method">方法页</a>里。</p>
+    <p class="meta">更新于 {meta.updated} · {featured.length} 款过线</p>
   </section>
 
   <section class="wrap">
     <div class="answer">
-      <div class="label">如果你只要一个答案</div>
+      <div class="label">最值的一单</div>
       <div class="name">{top.platform} · {top.plan}</div>
       <p class="why">{top.note}</p>
       <div class="score-row">
-        <div><div class="k">综合得分</div><div class="v"><span class="accent">{top.total_score}</span><span style="color:var(--ink-faint)"> / 20</span></div></div>
-        <div><div class="k">能力分</div><div class="v num">{top.ability_score}</div></div>
-        <div><div class="k">性价比分</div><div class="v num">{top.cost_score}</div></div>
+        <div><div class="k">综合分</div><div class="v"><span class="accent">{top.total_score}</span><span style="color:var(--ink-faint)"> / 10</span></div></div>
         <div><div class="k">月费</div><div class="v num">{fmtPrice(top)}</div></div>
-        <div><div class="k">每 ¥/M Token</div><div class="v num">¥{top.yuan_per_M_token}</div></div>
+        <div><div class="k">价格分</div><div class="v num">{top.price_score}</div></div>
+        <div><div class="k">能力分</div><div class="v num">{top.capability_score}</div></div>
+        <div><div class="k">用量分</div><div class="v num">{top.quota_score}</div></div>
+      </div>
+      <div style="margin-top:1.2rem">
+        {top.affiliate_url
+          ? <a class="go-btn" href={top.affiliate_url} target="_blank" rel="noopener sponsored">去订阅（返你优惠）→</a>
+          : <a class="go-btn" href={top.official_url} target="_blank" rel="noopener nofollow">去官方看看 →</a>
+        }
       </div>
     </div>
   </section>
 
   <section class="wrap">
-    <p class="eyebrow"><span class="bar"></span>精选 Top {featured.length}</p>
-    <h2>不留迷惑，只列最值得入手的。</h2>
+    <p class="eyebrow"><span class="bar"></span>过线排名 Top {featured.length}</p>
+    <h2>预算以内，这几款值得看。</h2>
     <div class="cards">
       {featured.map((p, i) => (
         <article class="card">
@@ -69,24 +92,27 @@ function barWidth(s) { return ((s - minScore) / Math.max(1e-9, maxScore - minSco
           <div class="specs">
             <span class="k">旗舰模型</span><span class="v">{p.model_flagship}</span>
             <span class="k">月费</span><span class="v">{fmtPrice(p)}</span>
-            <span class="k">月可用 Token</span><span class="v">{fmtTokens(p.measured_monthly_tokens_M)}</span>
-            <span class="k">每 ¥/M Token</span><span class="v">¥{p.yuan_per_M_token}</span>
-            <span class="k">抢购难度</span><span class="v">{p.purchase_difficulty === 'easy' ? '无需' : p.purchase_difficulty === 'normal' ? '一般' : '需抢'}</span>
+            {p.measured_monthly_tokens_M && <><span class="k">月可用 Token</span><span class="v">{fmtTokens(p.measured_monthly_tokens_M)}</span></>}
+            {p.first_price && <><span class="k">首月</span><span class="v">{firstPrice(p.note)}</span></>}
+            <span class="k">抢购</span><span class="v">{p.purchase_difficulty === 'easy' ? '无需' : p.purchase_difficulty === 'normal' ? '一般' : '需抢'}</span>
           </div>
           <p class="note">{p.note}</p>
           <div class="foot">
-            <div class="score num"><span class="accent">{p.total_score}</span><span style="color:var(--ink-faint)"> / 20</span></div>
+            <div class="score num"><span class="accent">{p.total_score}</span><span style="color:var(--ink-faint)"> / 10</span></div>
             <span class="verdict {p.verdict}">{p.verdict}</span>
           </div>
-          {i === 0 && <a class="goto" href={p.official_url} target="_blank" rel="noopener nofollow">前往官方 →</a>}
+          {p.affiliate_url
+            ? <a class="goto" href={p.affiliate_url} target="_blank" rel="noopener sponsored">去订阅 →</a>
+            : <a class="goto" href={p.official_url} target="_blank" rel="noopener nofollow">去官方 →</a>
+          }
         </article>
       ))}
     </div>
   </section>
 
   <section class="wrap">
-    <p class="eyebrow"><span class="bar"></span>一览 · 综合得分对比</p>
-    <h2>一张图看完，为什么是它们。</h2>
+    <p class="eyebrow"><span class="bar"></span>综合分对比</p>
+    <h2>谁最值，一眼看清。</h2>
     <div class="metric-bar">
       {featured.map(p => (
         <div class={`row ${p === top ? 'top' : ''}`}>
@@ -97,11 +123,11 @@ function barWidth(s) { return ((s - minScore) / Math.max(1e-9, maxScore - minSco
       ))}
     </div>
     <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem">
-      横条越长 = 综合得分越高（能力 + 性价比）。满分 20，能力 0–10 来自 AA Agentic Index，性价比 0–10 为"每元可用 Token"在集合内归一化。<a href="/method">方法说明 →</a>
+      综合分 = 价格×0.45 + 能力×0.35 + 用量×0.20。不超过¥{PRICE_CAP}、模型≥国内前3。<a href="/method">方法说明 →</a>
     </p>
   </section>
 
   <section class="wrap" style="margin-top:4rem;padding-bottom:2rem">
-    <p style="color:var(--ink-soft)">想要不局限于此 6 款？<a href="/table">查看全部收录 →</a></p>
+    <p style="color:var(--ink-soft)">觉得不够？<a href="/table">还有 {doc.plans.length - featured.length} 款未过线的也可以看 →</a></p>
   </section>
 </Base>

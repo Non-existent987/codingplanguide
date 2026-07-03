@@ -8,46 +8,38 @@ import { parse } from 'yaml';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..', '..');
 const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
-const n = doc.plans.length;
-const minP = Math.min(...doc.plans.map(p => p.yuan_per_M_token));
-const maxP = Math.max(...doc.plans.map(p => p.yuan_per_M_token));
 const meta = doc.meta;
 ---
 
-<Base path="/method" title="评分方法 · Coding Plan Guide" description="Coding Plan Guide 的打分方法、数据来源与中立声明。">
+<Base path="/method" title="评分方法 · Coding Plan Guide" description="怎么挑的？公式全公开。">
   <section class="reading" style="padding-top:3rem">
     <p class="eyebrow"><span class="bar"></span>方法</p>
-    <h2>为什么是这几个？</h2>
-    <p class="pull">不靠直觉，让公式替我说话。任何套餐只要你信这个公式，排名就一致；不信，欢迎指出。</p>
+    <h2>为什么是这几款？</h2>
+    <p class="pull">不说废话。先过滤再打分，你关心什么它就比什么。</p>
 
-    <h3 style="margin-top:2.5rem">一、综合得分</h3>
-    <div class="formula">综合得分（满分 20）= 能力分（0–10）+ 性价比分（0–10）</div>
-    <p>能力分与性价比分各占一半 — 既不迷信顶级模型，也不被"每元 Token 最多"绑架。</p>
+    <h3 style="margin-top:2.5rem">一、先过两道筛</h3>
+    <div class="formula">通过条件：价格 ≤ ¥{meta.price_cap} AND 模型能力 ≥ {meta.capability_floor}（国内前 3 强模型）</div>
+    <p>超预算（>¥{meta.price_cap}/月）的一律不入榜——不是它们不好，是大多数人不需要。模型低于国内前三强的也不入——省那十几块用弱模型不值。</p>
+    <p>国内前 3 强模型（T0）参考 <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener">Artificial Analysis Agentic Index</a> 2026-06 榜单映射近似：GLM-5.2、DeepSeek V4 Pro、Kimi K2.7、Qwen-3.7-Max 等（凡额度池可调用的也算）。</p>
 
-    <h3 style="margin-top:2.5rem">二、能力分（0–10）</h3>
-    <p>取 Artificial Analysis 公布的 <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener">Agentic Index</a> 榜单（{meta.capability_source.replace('Artificial Analysis Agentic Index 2026-06 公开榜单的归一化近似', '2026 年 6 月版')}），对套餐所搭载的旗舰模型按 Coding / Agentic 表现归一化到 0–10。</p>
-    <p>对多模型套餐取其旗舰（如字节方舟取 GLM-5.2，DeepSeek 按量取 DS V4 Flash）。</p>
+    <h3 style="margin-top:2.5rem">二、过了筛的怎么比</h3>
+    <div class="formula">综合分 = 价格分 × 0.45 + 能力分 × 0.35 + 用量分 × 0.20</div>
+    <p><b>价格分（0–10）</b>：越低越好。过线集合内 min-max 归一化取倒序——最便宜的满分 10，最贵的（刚好卡在 ¥{meta.price_cap}）得 0。这样比"¥37 vs ¥140"拉开差距，弱化"¥37 vs ¥43"微差。</p>
+    <p><b>能力分（0–10）</b>：取旗舰模型的 AA Agentic Index 映射值。过线的都是 T0，差距不大（8.2–8.5），但足够区分"原生直连 vs 额度池共用"和"最新版 vs 上代"。</p>
+    <p><b>用量分（0–10）</b>：月度可用 Token 越多越好。同一集合内归一化，算的是"买了之后到底能扛多少次活儿"。</p>
 
-    <h3 style="margin-top:2.5rem">三、性价比分（0–10）</h3>
-    <p>以"每百万 Token 等价人民币"作为单一可比口径：</p>
-    <div class="formula">¥/M Token ≈ 月费 ÷ 实测月可用 Token 数（百万）</div>
-    <p>USD 按 1 USD ≈ {meta.currency_note.match(/[\d.]+ USD ≈ ([\d.]+) CNY/)?.[1] || '7.2'} CNY 折算。当前集合最低 ¥{minP}、最高 ¥{maxP}，在集合内 min-max 归一化后取倒序（越便宜分越高）。</p>
-    <p>"实测"以套餐 5h/周/月官方额度上限按普通使用强度折算 — 我们不假设养龙虾或极限刷量。</p>
+    <h3 style="margin-top:2.5rem">三、权重怎么来的</h3>
+    <p>价格 0.45 > 能力 0.35 > 用量 0.20。因为：大多数人最关心"花多少钱"，然后才是"模型够不够强"，最后是"能用多少"。权重比例参考了国内开发者的真实投票反馈。</p>
 
-    <h3 style="margin-top:2.5rem">四、Top 精选与全部</h3>
-    <p>首页精选 = 综合得分 Top {Math.min(6, n)} 首屏展示；"全部收录"放底表，按得分降序附列。数据逐周自行收集补充，更长远的"新厂家自动收录"见 V2 路线。</p>
+    <h3 style="margin-top:2.5rem">四、过线后的排序怎么来的</h3>
+    <p>公式算完综合分之后，由人工按实测体验微调最终显示顺序——纯数学比分不出"GLM-5.2原生 vs GLM-5.1"和"抢购难度"这种主观差距。过线名单的排名是<b>公式打分 + 实测判断</b>的结果，既是客观的也是负责的。</p>
+
+    <h3 style="margin-top:2.5rem">四、未过线的还看不看？</h3>
+    <p>"全部"页面照样列出来，标注了被筛原因（超预算 / 模型不够强）。也许你预算没上限，自己去对比就好。</p>
 
     <h3 style="margin-top:2.5rem">五、中立声明</h3>
-    <p>本项目<b>不含任何联盟（返利）链接</b>。所有 <code>official_url</code> 均为官方购买页直链。如怀疑有偏向，请对比同一套餐官方公布与我们展示的字段是否一致。</p>
+    <p>部分"去订阅"按钮使用了推荐链接（你买我不亏，你买你不亏）。价格和权益以各平台官方为最终准。每一条数据都手动核过，如果你发现错漏，<a href="https://github.com/Non-existent987/codingplan/issues">提 issue</a> 感谢感谢。</p>
 
-    <h3 style="margin-top:2.5rem">六、局限与诚实</h3>
-    <ul style="color:var(--ink-soft);font-size:.92rem">
-      <li>实测 Token 数受使用强度与缓存命中率影响，仅供横向比较参考。</li>
-      <li>"抢购难度""429 频率"等定性维度尚未纳入公式，未来若列入会单独说明。</li>
-      <li>能力评级为 AA 榜单的近似映射，官方榜单更精确。</li>
-      <li>价格与权益以各平台官方为最终准。</li>
-    </ul>
-
-    <p style="margin-top:3rem;color:var(--ink-faint);font-size:.85rem">数据更新:{meta.updated} · 数据源仓库 <a href="https://github.com/Non-existent987/codingplan">github.com/Non-existent987/codingplan</a></p>
+    <p style="margin-top:3rem;color:var(--ink-faint);font-size:.85rem">数据更新:{meta.updated} · 源码 <a href="https://github.com/Non-existent987/codingplan">github.com/Non-existent987/codingplan</a></p>
   </section>
 </Base>

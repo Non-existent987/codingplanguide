@@ -88,7 +88,7 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* hero */
 .hero { padding: clamp(4rem, 10vh, 7rem) 0 4rem; }
-.hero h1 .accent { color: var(--accent); font-style: italic; }
+.hero h1 .accent { color: var(--accent); }
 .hero .lede { font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.45; color: var(--ink-soft); max-width: 38ch; margin-top: 1.5rem; }
 .hero .meta { color: var(--ink-faint); font-size: 0.85rem; margin-top: 1.5rem; }
 
@@ -104,6 +104,19 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .answer .score-row .k { color: var(--ink-faint); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
 .answer .score-row .v { font-family: var(--serif); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
 .answer .score-row .v .accent { color: var(--accent); }
+
+/* go button */
+.go-btn {
+  display: inline-block;
+  padding: .6rem 1.4rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: .88rem;
+  font-family: var(--sans);
+  border-bottom: 1px solid var(--accent);
+  transition: background .15s, color .15s;
+}
+.go-btn:hover { background: var(--accent); color: #fff; }
 
 /* metric bar — the one and only chart */
 .metric-bar { margin: 4rem 0 1rem; }
@@ -130,7 +143,8 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .card .score .accent { color: var(--accent); }
 .card .verdict { font-size: .72rem; letter-spacing: .1em; color: var(--ink-faint); border: 1px solid var(--rule); padding: .15rem .5rem; }
 .card .verdict.推荐 { color: var(--accent); border-color: var(--accent); }
-.card a.goto { font-size: .8rem; color: var(--ink-faint); }
+.card a.goto { font-size: .8rem; color: var(--ink-faint); border-bottom: none; margin-top: .6rem; }
+.card a.goto:hover { color: var(--accent); }
 
 /* table */
 .thin-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
