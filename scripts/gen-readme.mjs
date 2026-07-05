@@ -3,20 +3,13 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { doc, scored } from './score.mjs';
 
-const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'glm-pro', 'minimax-plus'];
-const featured = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
-for (const s of scored) { if (!featured.find(p => p.id === s.id)) featured.push(s); }
+const featured = scored.slice(0, 6);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 
 function fmtPrice(p) {
   return p.currency === 'usd' ? `$${p.price_monthly}` : `¥${p.price_monthly}`;
-}
-function fmtTokens(m) {
-  if (!m) return '—';
-  if (m >= 1000) return `${(m / 1000).toFixed(2)}B`;
-  return `${m}M`;
 }
 function fmtRefill(n) {
   if (!n) return '—';
@@ -27,6 +20,7 @@ function rankLabel(r) {
   if (r === 1) return '国内第1';
   if (r === 2) return '国内第2';
   if (r === 3) return '国内第3';
+  if (r === 4) return '国内第4';
   return '—';
 }
 
@@ -44,19 +38,19 @@ lines.push('---');
 lines.push('');
 lines.push(`## 最值的一单：[${featured[0].platform} · ${featured[0].plan}](${featured[0].affiliate_url || featured[0].official_url})`);
 lines.push('');
-lines.push(`${featured[0].note} — 综合分 ${featured[0].total_score}（能力 ${featured[0].capa_pts} + 价格 ${featured[0].price_pts} + 用量 ${featured[0].quota_pts}）。`);
+lines.push(`${featured[0].note} — 综合分 ${featured[0].total_score}（能力 ${featured[0].capa_pts} + 价格 ${featured[0].price_pts} + 用量 ${featured[0].quota_pts} ${featured[0].bonus_pts > 0 ? '+ 加分 ' + featured[0].bonus_pts : ''}）。`);
 lines.push(`[官方订阅 →](${featured[0].affiliate_url || featured[0].official_url})`);
 lines.push('');
 lines.push(`## 过线排名 Top ${featured.length}`);
 lines.push('');
-lines.push('| # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 结论 |');
-lines.push('|---|---|---|---|---|---|---|---|');
+lines.push('| # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 加分 | 结论 |');
+lines.push('|---|---|---|---|---|---|---|---|---|');
 featured.forEach((p, i) => {
   const link = p.affiliate_url || p.official_url;
-  lines.push(`| ${i + 1} | [${p.platform} · ${p.plan}](${link}) | ${fmtPrice(p)} | ${p.model_flagship} | ${rankLabel(p.capability_rank)} | ${fmtRefill(p.refill_month)} | ${p.total_score} | ${p.verdict} |`);
+  lines.push(`| ${i + 1} | [${p.platform} · ${p.plan}](${link}) | ${fmtPrice(p)} | ${p.model_flagship} | ${rankLabel(p.capability_rank)} | ${fmtRefill(p.refill_month)} | ${p.total_score} | ${p.bonus_pts > 0 ? '+'+p.bonus_pts : ''} | ${p.verdict} |`);
 });
 lines.push('');
-lines.push(`> 全部套餐（含未过线 ${doc.plans.length - featured.length} 款）见 [codingplanguide.com/table](https://codingplanguide.com/table)`);
+lines.push(`> 未过线套餐（${doc.plans.length - featured.length} 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplan/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)`);
 lines.push('');
 lines.push('---');
 lines.push('');
@@ -131,7 +125,7 @@ lines.push('---');
 lines.push('');
 lines.push('## 评分方法');
 lines.push('');
-lines.push(`综合分 = 能力分×40% + 价格分×30% + 用量分×30%（满分100）。能力分：国内第1=50、第2=30、第3=20；价格分：≤¥50=50、¥50-100=30、>¥100=20；用量分：月请求数归一化0-50。详见 [/method](https://codingplanguide.com/method)。`);
+lines.push(`综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）。能力分梯队：国内第1=50、第2=25、第3=10、第4=5。价格分线性：50×(1−价格/¥150)。用量分线性：(月请求/200000)×50。体验加分：基于模型池大小、购买难度、首月优惠、厂商多样性等，上限20分。详见 [/method](https://codingplanguide.com/method)。`);
 lines.push('');
 lines.push('## 中立声明');
 lines.push('');

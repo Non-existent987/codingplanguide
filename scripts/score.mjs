@@ -9,84 +9,121 @@ const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
 const PRICE_CAP = doc.meta.price_cap || 150;
 const USD2CNY = 7.2;
-const FEATURED_MAX = 6;
+const MAX_REFILL = 200000;
 
 function cnyPrice(p) {
   return p.currency === 'usd' ? p.price_monthly * USD2CNY : p.price_monthly;
 }
 
-// ---------- 能力分：国内第1=50, 第2=30, 第3=20, 其他=0 ----------
 function capaPts(p) {
-  const rank = p.capability_rank;
-  if (rank === 1) return 50;
-  if (rank === 2) return 30;
-  if (rank === 3) return 20;
+  const r = p.capability_rank;
+  if (r === 1) return 50;
+  if (r === 2) return 25;
+  if (r === 3) return 10;
+  if (r === 4) return 5;
   return 0;
 }
 
-// ---------- 价格分：≤¥50=50, ¥50-100=30, >¥100=20 ----------
 function pricePts(p) {
-  const cny = cnyPrice(p);
-  if (cny <= 50) return 50;
-  if (cny <= 100) return 30;
-  return 20;
+  const c = cnyPrice(p);
+  const raw = 50 * (1 - c / PRICE_CAP);
+  return Math.max(0, Math.min(50, raw));
 }
-
-// ---------- 用量分：月请求数归一化 0-50 ----------
-const allRefillMonth = doc.plans.map(p => p.refill_month ?? 0);
-const maxRefill = Math.max(...allRefillMonth, 1);
 
 function quotaPts(p) {
   const m = p.refill_month ?? 0;
-  return (m / maxRefill) * 50;
+  return Math.min(50, (m / MAX_REFILL) * 50);
 }
 
-// ---------- 第 1 步: 过滤（价格 ≤ cap，国内排名前3）----------
+const PROVIDER_MAP = [
+  ['GLM', 'Z AI'], ['DeepSeek', 'DeepSeek'], ['Kimi', 'Kimi'],
+  ['MiniMax', 'MiniMax'], ['Qwen', 'Alibaba'], ['MiMo', 'Xiaomi'],
+  ['Doubao', 'ByteDance'], ['ERNIE', 'Baidu'], ['Hunyuan', 'Tencent'],
+  ['Pangu', 'Huawei'],
+];
+
+function modelProviders(models) {
+  if (!models || !models.length) return new Set();
+  const ps = new Set();
+  for (const m of models) {
+    for (const [prefix, name] of PROVIDER_MAP) {
+      if (m.startsWith(prefix)) { ps.add(name); break; }
+    }
+  }
+  return ps;
+}
+
+function calcBonus(p) {
+  let pts = 0;
+  const models = p.models || [];
+  const n = models.length;
+
+  if (n >= 8) pts += 4;
+  else if (n >= 6) pts += 3;
+  else if (n >= 4) pts += 2;
+  else if (n >= 2) pts += 1;
+
+  if (p.purchase_difficulty === 'easy') pts += 2;
+  else if (p.purchase_difficulty === 'normal') pts += 1;
+
+  if (p.note && /首月/.test(p.note)) pts += 2;
+
+  const pCount = modelProviders(models).size;
+  if (pCount >= 4) pts += 3;
+  else if (pCount >= 3) pts += 2;
+  else if (pCount >= 2) pts += 1;
+
+  if (p.capability_rank === 1) pts += 3;
+  else if (p.capability_rank === 2) pts += 2;
+  else if (p.capability_rank === 3) pts += 1;
+
+  if (p.region === 'cn') pts += 1;
+
+  return Math.min(pts, 20);
+}
+
 const filtered = doc.plans.filter(p => {
   const priceCNY = cnyPrice(p);
-  return priceCNY <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank);
+  return priceCNY <= PRICE_CAP && [1, 2, 3, 4].includes(p.capability_rank);
 });
 
-// ---------- 第 2 步: 算分 ----------
-// 综合分 = 能力分×40% + 价格分×30% + 用量分×30%，满分100
 const scored = filtered.map(p => {
-  const cs = capaPts(p);
-  const ps = pricePts(p);
-  const qs = quotaPts(p);
-  const total = cs * 0.40 + ps * 0.30 + qs * 0.30;
-
+  const cp = capaPts(p), pp = pricePts(p), qp = quotaPts(p);
+  const base = cp * 0.80 + pp * 0.60 + qp * 0.60;
+  const bonus = calcBonus(p);
+  const total = Math.min(100, base + bonus);
   return {
     ...p,
-    capa_pts: cs,
-    price_pts: ps,
-    quota_pts: Number(qs.toFixed(2)),
+    capa_pts: cp,
+    price_pts: Number(pp.toFixed(2)),
+    quota_pts: Number(qp.toFixed(2)),
+    bonus_pts: bonus,
     total_score: Number(total.toFixed(2)),
   };
 }).sort((a, b) => b.total_score - a.total_score);
 
-// ---------- 第 3 步: 全量排序（未过线也入，但标注原因）----------
 const outOfBand = doc.plans
-  .filter(p => !(cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank)))
+  .filter(p => !(cnyPrice(p) <= PRICE_CAP && [1, 2, 3, 4].includes(p.capability_rank)))
   .map(p => {
     const reasons = [];
     if (cnyPrice(p) > PRICE_CAP) reasons.push(`超预算(>¥${PRICE_CAP})`);
-    if (![1, 2, 3].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
-    return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, total_score: 0 };
+    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
+    return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, bonus_pts: 0, total_score: 0 };
   });
 
 const ranked = [...scored, ...outOfBand];
-const featured = scored.slice(0, Math.min(FEATURED_MAX, scored.length));
+const featured = scored.slice(0, 6);
 
-export { doc, ranked, featured, filtered, scored, USD2CNY, PRICE_CAP, maxRefill };
+export { doc, ranked, featured, filtered, scored, USD2CNY, PRICE_CAP, MAX_REFILL };
 
 if (process.argv[1] && process.argv[1].endsWith('score.mjs')) {
-  console.log('═══ 过线名单（价格≤¥150，能力≥国内前3）═══');
+  console.log('═══ 过线名单（价格≤¥150，模型国内前4）═══');
   for (const r of scored) {
     console.log(
       `#${(featured.indexOf(r) + 1).toString().padStart(2)} ` +
       `${r.total_score.toFixed(1).padStart(5)}分 | ` +
-      `${r.platform} ${r.plan} | ¥${cnyPrice(r).toFixed(0)} | ` +
-      `能力${r.capa_pts} 价格${r.price_pts} 用量${r.quota_pts.toFixed(1)}`
+      `${r.platform} ${r.plan} | ` +
+      `能力${r.capa_pts} 价格${r.price_pts} 用量${r.quota_pts} 加分${r.bonus_pts}`
     );
   }
   console.log(`\n- featured: ${featured.length} 款`);

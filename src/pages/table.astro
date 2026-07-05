@@ -11,41 +11,54 @@ const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
 const PRICE_CAP = doc.meta.price_cap || 150;
 const USD2CNY = 7.2;
+const MAX_REFILL = 200000;
 function cnyPrice(p) { return p.currency === 'usd' ? p.price_monthly * USD2CNY : p.price_monthly; }
+function capaPts(p) { const r = p.capability_rank; return r === 1 ? 50 : r === 2 ? 25 : r === 3 ? 10 : r === 4 ? 5 : 0; }
+function pricePts(p) { return Math.max(0, Math.min(50, 50 * (1 - cnyPrice(p) / 150))); }
+function quotaPts(p) { return Math.min(50, ((p.refill_month ?? 0) / MAX_REFILL) * 50); }
 
-function capaPts(p) { const r = p.capability_rank; return r === 1 ? 50 : r === 2 ? 30 : r === 3 ? 20 : 0; }
-function pricePts(p) { const c = cnyPrice(p); return c <= 50 ? 50 : c <= 100 ? 30 : 20; }
-const maxRefill = Math.max(...doc.plans.map(p => p.refill_month ?? 0), 1);
-function quotaPts(p) { return ((p.refill_month ?? 0) / maxRefill) * 50; }
+const PROVIDER_MAP = [
+  ['GLM','Z AI'],['DeepSeek','DeepSeek'],['Kimi','Kimi'],
+  ['MiniMax','MiniMax'],['Qwen','Alibaba'],['MiMo','Xiaomi'],
+  ['Doubao','ByteDance'],['ERNIE','Baidu'],['Hunyuan','Tencent'],['Pangu','Huawei'],
+];
+function modelProviders(models) {
+  if (!models||!models.length) return new Set();
+  const ps = new Set();
+  for (const m of models) { for (const [prefix, name] of PROVIDER_MAP) { if (m.startsWith(prefix)) { ps.add(name); break; } } }
+  return ps;
+}
+function calcBonus(p) {
+  let pts = 0; const n = (p.models||[]).length;
+  if (n >= 8) pts += 4; else if (n >= 6) pts += 3; else if (n >= 4) pts += 2; else if (n >= 2) pts += 1;
+  if (p.purchase_difficulty === 'easy') pts += 2; else if (p.purchase_difficulty === 'normal') pts += 1;
+  if (p.note && /首月/.test(p.note)) pts += 2;
+  const pCount = modelProviders(p.models||[]).size;
+  if (pCount >= 4) pts += 3; else if (pCount >= 3) pts += 2; else if (pCount >= 2) pts += 1;
+  if (p.capability_rank === 1) pts += 3; else if (p.capability_rank === 2) pts += 2; else if (p.capability_rank === 3) pts += 1;
+  if (p.region === 'cn') pts += 1;
+  return Math.min(pts, 20);
+}
 
-const filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank));
-
-const scored = filtered
-  .map(p => {
-    const cp = capaPts(p), pp = pricePts(p), qp = quotaPts(p);
-    const total = cp * 0.40 + pp * 0.30 + qp * 0.30;
-    return { ...p, capa_pts: cp, price_pts: pp, quota_pts: Number(qp.toFixed(2)), total_score: Number(total.toFixed(2)) };
-  })
-  .sort((a, b) => b.total_score - a.total_score);
+const filtered = doc.plans.filter(p => cnyPrice(p) <= PRICE_CAP && [1,2,3,4].includes(p.capability_rank));
+const scored = filtered.map(p => {
+  const cp = capaPts(p), pp = pricePts(p), qp = quotaPts(p);
+  const total = Math.min(100, cp * 0.80 + pp * 0.60 + qp * 0.60 + calcBonus(p));
+  return { ...p, capa_pts: cp, price_pts: Number(pp.toFixed(2)), quota_pts: Number(qp.toFixed(2)), bonus_pts: calcBonus(p), total_score: Number(total.toFixed(2)) };
+}).sort((a, b) => b.total_score - a.total_score);
 
 const outOfBand = doc.plans
-  .filter(p => !(cnyPrice(p) <= PRICE_CAP && [1, 2, 3].includes(p.capability_rank)))
+  .filter(p => !(cnyPrice(p) <= PRICE_CAP && [1, 2, 3, 4].includes(p.capability_rank)))
   .map(p => {
     const reasons = [];
     if (cnyPrice(p) > PRICE_CAP) reasons.push(`超¥${PRICE_CAP}`);
-    if (![1, 2, 3].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
-    return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, total_score: 0 };
+    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
+    return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, bonus_pts: 0, total_score: 0 };
   });
 
-const userOrder = ['volcengine-lite', 'opencode-go', 'glm-lite', 'glm-pro', 'minimax-plus'];
-const scoredSorted = userOrder.map(id => scored.find(p => p.id === id)).filter(Boolean);
-for (const s of scored) { if (!scoredSorted.find(p => p.id === s.id)) scoredSorted.push(s); }
+const ranked = [...scored, ...outOfBand];
 
-const ranked = [...scoredSorted, ...outOfBand];
-
-function fmtTokens(m) { if (!m) return '—'; return m >= 1000 ? `${(m / 1000).toFixed(2)}B` : `${m}M`; }
 function fmtPrice(p) { return p.currency === 'usd' ? `$${p.price_monthly}` : `¥${p.price_monthly}`; }
-function fmtRefill(n) { if (!n) return '—'; return n >= 10000 ? `${(n / 10000).toFixed(1)}万` : n.toLocaleString(); }
 ---
 
 <Base path="/table" title="全部套餐 · Coding Plan Guide">

@@ -32,9 +32,8 @@ meta:
   updated: 2026-07-03
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
   price_cap: 150
-  capability_floor: 7.5
-  scoring: "综合分 = 能力分×40% + 价格分×30% + 用量分×30%；能力分：国内第1=50、第2=30、第3=20；价格分：≤¥50=50、¥50-100=30、>¥100=20；用量分：月请求数归一化0-50"
-  capability_source: "Artificial Analysis Agentic Index 2026-06 公开榜单映射近似"
+  scoring: "综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）"
+  capability_source: "Artificial Analysis Intelligence Index v4.1 全球排名（2026-07-03）"
 
 plans:
   # ═══════ Featured ═══════
@@ -114,9 +113,9 @@ plans:
     purchase_difficulty: easy
     official_url: https://maas.xfyun.cn/packageSubscription?tab=month
     affiliate_url: null
-    note: 39块没有之一最便宜的T0入口。不用抢，随时开随时用。
-    verdict: 推荐
-    featured: true
+    note: GLM-5.1全球排名#21，国内不在前4，未入榜。¥39价格虽低但模型不够强。
+    verdict: 谨慎
+    featured: false
     updated: 2026-07-03
 
   - id: opencode-go

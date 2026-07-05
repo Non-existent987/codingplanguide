@@ -9,12 +9,23 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..', '..');
 const doc = parse(readFileSync(join(root, 'data', 'plans.yaml'), 'utf8'));
 
-// 把 plans 序列化给前端
+const PRICE_CAP = doc.meta.price_cap || 150;
+const USD2CNY = 7.2;
+const MAX_REFILL = 200000;
+
+const PROVIDER_MAP = [
+  ['GLM', 'Z AI'], ['DeepSeek', 'DeepSeek'], ['Kimi', 'Kimi'],
+  ['MiniMax', 'MiniMax'], ['Qwen', 'Alibaba'], ['MiMo', 'Xiaomi'],
+  ['Doubao', 'ByteDance'], ['ERNIE', 'Baidu'], ['Hunyuan', 'Tencent'],
+  ['Pangu', 'Huawei'],
+];
+
 const plans = doc.plans.map(p => ({
   id: p.id, platform: p.platform, plan: p.plan,
   price_monthly: p.price_monthly, currency: p.currency,
   region: p.region, type: p.type,
   model_flagship: p.model_flagship, multimodal: p.multimodal,
+  models: p.models || [],
   measured_monthly_tokens_M: p.measured_monthly_tokens_M ?? null,
   yuan_per_M_token: p.yuan_per_M_token ?? null,
   capability_score: p.capability_score, capability_tier: p.capability_tier,
@@ -24,8 +35,6 @@ const plans = doc.plans.map(p => ({
   official_url: p.official_url, affiliate_url: p.affiliate_url,
   note: p.note, verdict: p.verdict
 }));
-const PRICE_CAP = doc.meta.price_cap || 150;
-const USD2CNY = 7.2;
 ---
 
 <Base path="/calculator" title="选哪个？· Coding Plan Guide" description="输入你的预算和需求，秒给答案。">
@@ -269,17 +278,46 @@ const USD2CNY = 7.2;
     });
 
     // 在已过滤集合内打综合分
-    const allRefill = plans.map(p => p.refill_month ?? 0);
-    const maxRefill = Math.max(...allRefill, 1);
+    const maxRefillPlan = 200000;
 
-    function capaPts(p) { const r = p.capability_rank; return r === 1 ? 50 : r === 2 ? 30 : r === 3 ? 20 : 0; }
-    function pricePts(p) { const c = cnyPrice(p); return c <= 50 ? 50 : c <= 100 ? 30 : 20; }
-    function quotaPts(p) { return ((p.refill_month ?? 0) / maxRefill) * 50; }
+    function capaPts(p) { const r = p.capability_rank; return r === 1 ? 50 : r === 2 ? 25 : r === 3 ? 10 : r === 4 ? 5 : 0; }
+    function pricePts(p) { return Math.max(0, Math.min(50, 50 * (1 - cnyPrice(p) / 150))); }
+    function quotaPts(p) { return Math.min(50, ((p.refill_month ?? 0) / maxRefillPlan) * 50); }
+
+    const providerMap = [
+      ['GLM','Z AI'],['DeepSeek','DeepSeek'],['Kimi','Kimi'],
+      ['MiniMax','MiniMax'],['Qwen','Alibaba'],['MiMo','Xiaomi'],
+      ['Doubao','ByteDance'],['ERNIE','Baidu'],['Hunyuan','Tencent'],
+      ['Pangu','Huawei'],
+    ];
+    function modelProviders(models) {
+      if (!models||!models.length) return new Set();
+      const ps = new Set();
+      for (const m of models) {
+        for (const [prefix, name] of providerMap) {
+          if (m.startsWith(prefix)) { ps.add(name); break; }
+        }
+      }
+      return ps;
+    }
+    function calcBonus(p) {
+      let pts = 0; const n = (p.models||[]).length;
+      if (n >= 8) pts += 4; else if (n >= 6) pts += 3; else if (n >= 4) pts += 2; else if (n >= 2) pts += 1;
+      if (p.purchase_difficulty === 'easy') pts += 2; else if (p.purchase_difficulty === 'normal') pts += 1;
+      if (p.note && /首月/.test(p.note)) pts += 2;
+      const pCount = modelProviders(p.models||[]).size;
+      if (pCount >= 4) pts += 3; else if (pCount >= 3) pts += 2; else if (pCount >= 2) pts += 1;
+      if (p.capability_rank === 1) pts += 3; else if (p.capability_rank === 2) pts += 2; else if (p.capability_rank === 3) pts += 1;
+      if (p.region === 'cn') pts += 1;
+      return Math.min(pts, 20);
+    }
 
     const scored = filtered.map(p => {
       const cp = capaPts(p), pp = pricePts(p), qp = quotaPts(p);
-      const total = cp * 0.40 + pp * 0.30 + qp * 0.30;
-      return { ...p, total_score: +total.toFixed(2), capa_pts: cp, price_pts: pp, quota_pts: +qp.toFixed(2) };
+      const base = cp * 0.80 + pp * 0.60 + qp * 0.60;
+      const bonus = calcBonus(p);
+      const total = Math.min(100, base + bonus);
+      return { ...p, total_score: +total.toFixed(2), capa_pts: cp, price_pts: +pp.toFixed(2), quota_pts: +qp.toFixed(2), bonus_pts: bonus };
     }).sort((a, b) => b.total_score - a.total_score);
 
     render(scored, { budget, region, multimodal, grab, capfloor });

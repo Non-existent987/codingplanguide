@@ -8,21 +8,21 @@
 
 ## 最值的一单：[字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/)
 
-四家顶级模型随意切，首月¥9.4，在这买相当于白嫖一个月旗舰。 — 综合分 35.45（能力 50 + 价格 50 + 用量 1.5）。
+四家顶级模型随意切，首月¥9.4，在这买相当于白嫖一个月旗舰。 — 综合分 79.7（能力 50 + 价格 36.67 + 用量 4.5 + 加分 15）。
 [官方订阅 →](https://volcengine.com/L/ZggDsb8yNHE/)
 
 ## 过线排名 Top 6
 
-| # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 结论 |
-|---|---|---|---|---|---|---|---|
-| 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 1.8万 | 35.45 | 推荐 |
-| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 29.11 | 推荐 |
-| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 35.11 | 推荐 |
-| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 29 | 平替 |
-| 5 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 国内第3 | 6.0万 | 24.5 | 平替 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 国内第3 | 20.0万 | 19 | 平替 |
+| # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 加分 | 结论 |
+|---|---|---|---|---|---|---|---|---|
+| 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 1.8万 | 79.7 | +15 | 推荐 |
+| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 70.25 | +14 | 推荐 |
+| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 66.84 | +6 | 推荐 |
+| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 64.2 | +6 | 平替 |
+| 5 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 国内第3 | 20.0万 | 49.2 | +5 | 平替 |
+| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 国内第3 | 6.0万 | 42.2 | +5 | 平替 |
 
-> 全部套餐（含未过线 23 款）见 [codingplanguide.com/table](https://codingplanguide.com/table)
+> 未过线套餐（23 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplan/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
 
 ---
 
@@ -84,7 +84,7 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 
 ## 评分方法
 
-综合分 = 能力分×40% + 价格分×30% + 用量分×30%（满分100）。能力分：国内第1=50、第2=30、第3=20；价格分：≤¥50=50、¥50-100=30、>¥100=20；用量分：月请求数归一化0-50。详见 [/method](https://codingplanguide.com/method)。
+综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）。能力分梯队：国内第1=50、第2=25、第3=10、第4=5。价格分线性：50×(1−价格/¥150)。用量分线性：(月请求/200000)×50。体验加分：基于模型池大小、购买难度、首月优惠、厂商多样性等，上限20分。详见 [/method](https://codingplanguide.com/method)。
 
 ## 中立声明
 
