@@ -29,7 +29,7 @@
 
 meta:
   version: 2
-  updated: 2026-07-03
+  updated: 2026-07-14
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
   price_cap: 150
   scoring: "综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）"
@@ -200,6 +200,33 @@ plans:
     featured: false
     updated: 2026-07-03
 
+  - id: glm-max
+    platform: 智谱 AI
+    plan: Coding Plan Max
+    price_monthly: 469
+    currency: cny
+    region: cn
+    type: coding
+    model_flagship: GLM-5.2
+    models: [GLM-5.2, GLM-5.1, GLM-5-Turbo, GLM-5]
+    multimodal: false
+    refill_5h: 18000
+    refill_week: 90000
+    refill_month: 360000
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: null
+    capability_tier: T0
+    capability_rank: 1
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: hard
+    official_url: https://bigmodel.cn/glm-coding
+    affiliate_url: https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV
+    note: 20倍Lite用量，首发接入最新旗舰，高峰专属资源。需实名认证抢购，¥469远超预算但量管够。
+    verdict: 谨慎
+    featured: false
+    updated: 2026-07-14
+
   - id: xunfei-efficient
     platform: 讯飞·星火
     plan: 高效版
@@ -308,6 +335,33 @@ plans:
     featured: false
     updated: 2026-07-03
 
+  - id: glm-intl-lite
+    platform: 智谱国际版
+    plan: Coding Plan Lite
+    price_monthly: 18
+    currency: usd
+    region: global
+    type: coding
+    model_flagship: GLM-5.2
+    models: [GLM-5.2, GLM-5.1, GLM-5-Turbo]
+    multimodal: false
+    refill_5h: 880
+    refill_week: 2150
+    refill_month: 4300
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: null
+    capability_tier: T0
+    capability_rank: 1
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://z.ai/subscribe
+    affiliate_url: https://z.ai/subscribe?ic=SUYV1380ZT
+    note: 国际版Lite，首年$12.6/月(7折)。海外用户无需抢购，稳定支付通道。
+    verdict: 推荐
+    featured: false
+    updated: 2026-07-14
+
   - id: glm-intl-pro
     platform: 智谱国际版
     plan: Coding Plan Pro
@@ -330,10 +384,37 @@ plans:
     purchase_difficulty: easy
     official_url: https://z.ai/subscribe
     affiliate_url: https://z.ai/subscribe?ic=SUYV1380ZT
-    note: GLM-5.2海外版，无需抢购、稳定支付通道。比国内贵但海外用户友好。
+    note: GLM-5.2海外版Pro，5倍Lite用量，首年$50.4/月(7折)。海外用户友好。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-07-14
+
+  - id: glm-intl-max
+    platform: 智谱国际版
+    plan: Coding Plan Max
+    price_monthly: 160
+    currency: usd
+    region: global
+    type: coding
+    model_flagship: GLM-5.2
+    models: [GLM-5.2, GLM-5.1, GLM-5-Turbo]
+    multimodal: false
+    refill_5h: 18000
+    refill_week: 90000
+    refill_month: 360000
+    measured_monthly_tokens_M: null
+    yuan_per_M_token: null
+    capability_tier: T0
+    capability_rank: 1
+    capability_score: 8.5
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://z.ai/subscribe
+    affiliate_url: https://z.ai/subscribe?ic=SUYV1380ZT
+    note: 国际版Max，20倍Lite用量，首年$112/月(7折)。首发最新旗舰，高峰专属资源。
+    verdict: 谨慎
+    featured: false
+    updated: 2026-07-14
 
   - id: moore-free
     platform: 摩尔线程
