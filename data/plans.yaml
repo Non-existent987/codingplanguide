@@ -168,10 +168,10 @@ plans:
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/activity/codingplan
     affiliate_url: https://volcengine.com/L/ZggDsb8yNHE/
-    note: 重度用户首选，全家桶额度大。超预算但的确最全。
+    note: 重度用户首选，全家桶额度大。超预算但的确最全。Pro定价页面显示"价格查询中"，牌价待确认。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-07-22
 
   - id: glm-pro
     platform: 智谱 AI
