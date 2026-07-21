@@ -2,7 +2,7 @@
 
 > AI 编程 · 怎么选最值。每月不超 ¥150，模型就得用最强的。
 >
-> 更新于 2026-07-03 · 数据驱动：[方法说明](https://codingplanguide.com/method)
+> 更新于 2026-07-15 · 数据驱动：[方法说明](https://codingplanguide.com/method)
 
 ---
 
@@ -19,10 +19,10 @@
 | 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 70.25 | +14 | 推荐 |
 | 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 66.84 | +6 | 推荐 |
 | 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 64.2 | +6 | 平替 |
-| 5 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 国内第3 | 20.0万 | 49.2 | +5 | 平替 |
-| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 国内第3 | 6.0万 | 42.2 | +5 | 平替 |
+| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.2 | 国内第1 | 4,300 | 50.73 | +6 | 推荐 |
+| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 国内第3 | 20.0万 | 49.2 | +5 | 平替 |
 
-> 未过线套餐（23 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplanguide/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
+> 未过线套餐（26 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplanguide/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
 
 ---
 
@@ -94,19 +94,19 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 | 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 70.25 | 50 | 26 | 1.07 | +14 |
 | 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 66.84 | 50 | 33.67 | 1.07 | +6 |
 | 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 64.2 | 50 | 0.33 | 30 | +6 |
-| 5 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | 49.2 | 10 | 10.33 | 50 | +5 |
-| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | 42.2 | 10 | 33.67 | 15 | +5 |
+| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 50.73 | 50 | 6.8 | 1.07 | +6 |
+| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | 49.2 | 10 | 10.33 | 50 | +5 |
 
 ### 能力排名 TOP 6
 
 | # | 平台 · 套餐 | 月费 | 旗舰模型 | 能力分 |
 |---|---|---|---|---|
-| 1 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 50 |
-| 2 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 50 |
-| 3 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 50 |
-| 4 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 50 |
-| 5 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 10 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 10 |
+| 1 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.2 | 50 |
+| 2 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 50 |
+| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 50 |
+| 4 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 50 |
+| 5 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 50 |
+| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 10 |
 
 ### 性价比排名 TOP 6
 
@@ -115,9 +115,9 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 | 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 125.0 | 50 | 36.67 |
 | 2 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 102.0 | 50 | 33.67 |
 | 3 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 69.4 | 50 | 26 |
-| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 33.6 | 50 | 0.33 |
-| 5 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | 20.4 | 10 | 33.67 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | 8.4 | 10 | 10.33 |
+| 4 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 38.6 | 50 | 6.8 |
+| 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 33.6 | 50 | 0.33 |
+| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | 20.4 | 10 | 33.67 |
 
 ### 体验排名 TOP 6
 
@@ -127,8 +127,8 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 | 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | +14 | 7 | 简单 | 是 |
 | 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | +6 | 4 | 困难 | 否 |
 | 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | +6 | 4 | 困难 | 否 |
-| 5 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | +5 | 3 | 简单 | 否 |
-| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | +5 | 3 | 简单 | 否 |
+| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | +6 | 3 | 简单 | 否 |
+| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | +5 | 3 | 简单 | 否 |
 
 > 完整多维排名见 [codingplanguide.com/leaderboard](https://codingplanguide.com/leaderboard)
 

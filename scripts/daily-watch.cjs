@@ -3,7 +3,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const path = require('path');
 
-const REPO_DIR = '/home/helong/codingplanguide';
+const REPO_DIR = '/home/lighthouse/codingplanguide';
 const PLANS_PATH = path.join(REPO_DIR, 'data/plans.yaml');
 const LOG_PATH = '/tmp/daily-watch.log';
 
@@ -124,6 +124,23 @@ async function scrapeAll() {
       await page.close();
     }
 
+    // 6. DeepSeek (按量付费，追踪 token 单价)
+    {
+      const page = await browser.newPage();
+      await page.setViewport({width: 1440, height: 900});
+      try {
+        await page.goto('https://api-docs.deepseek.com/zh-cn/quick_start/pricing', {waitUntil:'networkidle2',timeout:30000});
+        await page.waitForTimeout(5000);
+        const text = await page.evaluate(() => document.body.innerText);
+        // DeepSeek uses 元 not ¥: "输入 1元/百万tokens", "输出 2元/百万tokens"
+        const matches = [...text.matchAll(/(?:输入|输出|缓存命中)\s*(\d[\d.]*)\s*元/g)];
+        const prices = [...new Set(matches.map(m => parseFloat(m[1])))].sort((a,b) => a-b);
+        results.deepseek = { prices, is_token: true };
+        log(`deepseek: ${results.deepseek.prices} (token pricing, not monthly)`);
+      } catch(e) { log(`deepseek ERROR: ${e.message}`); }
+      await page.close();
+    }
+
   } finally {
     await browser.close();
   }
@@ -143,9 +160,30 @@ function checkChanges(scraped) {
     minimax: { ids: ['minimax-plus', 'minimax-max', 'minimax-ultra'] },
     opencode: { ids: ['opencode-go'] },
     glm_intl: { ids: ['glm-intl-lite', 'glm-intl-pro', 'glm-intl-max'] },
+    // DeepSeek is pay-per-token, not monthly — track token prices separately
+    deepseek: { ids: [], is_token: true, last_prices_path: '/tmp/deepseek_prices.json' },
   };
 
   for (const [key, cfg] of Object.entries(configs)) {
+    const scrapedPrices = scraped[key]?.prices || [];
+    if (scrapedPrices.length === 0) continue;
+
+    // DeepSeek: track token prices separately (not monthly plan prices)
+    if (cfg.is_token) {
+      let lastPrices = [];
+      try { lastPrices = JSON.parse(fs.readFileSync(cfg.last_prices_path, 'utf8')); } catch(e) {}
+      if (JSON.stringify(lastPrices) !== JSON.stringify(scrapedPrices)) {
+        changes.push({
+          provider: key,
+          current: lastPrices,
+          scraped: scrapedPrices,
+          is_token: true
+        });
+        fs.writeFileSync(cfg.last_prices_path, JSON.stringify(scrapedPrices));
+      }
+      continue;
+    }
+
     const currentPrices = [];
     for (const id of cfg.ids) {
       const regex = new RegExp(`${id}\\b[\\s\\S]*?price_monthly:\\s*(\\d+)`);
@@ -153,9 +191,7 @@ function checkChanges(scraped) {
       if (m) currentPrices.push(parseInt(m[1]));
     }
 
-    const scrapedPrices = scraped[key]?.prices || [];
-    
-    if (scrapedPrices.length > 0 && JSON.stringify(currentPrices.sort()) !== JSON.stringify(scrapedPrices.sort())) {
+    if (JSON.stringify(currentPrices.sort()) !== JSON.stringify(scrapedPrices.sort())) {
       changes.push({
         provider: key,
         current: currentPrices.sort(),
@@ -177,7 +213,11 @@ function checkChanges(scraped) {
   if (changes.length > 0) {
     log(`⚠️ ${changes.length} provider(s) changed!`);
     for (const c of changes) {
-      log(`  ${c.provider}: YAML=${c.current} → LIVE=${c.scraped}`);
+      if (c.is_token) {
+        log(`  ${c.provider} (token): ${c.current.join(',') || '首次'} → ${c.scraped.join(',')}`);
+      } else {
+        log(`  ${c.provider}: YAML=${c.current} → LIVE=${c.scraped}`);
+      }
     }
     log('Manual update required.');
     process.exit(1);
