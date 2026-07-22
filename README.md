@@ -6,21 +6,21 @@
 
 ---
 
-## 最值的一单：[字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/)
+## 最值的一单：[字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/)
 
-四家顶级模型随意切，首月¥9.4，在这买相当于白嫖一个月旗舰。 — 综合分 79.7（能力 50 + 价格 36.67 + 用量 4.5 + 加分 15）。
+与 Lite 同价¥40，全家桶额度大。重度用户首选。 — 综合分 88.5（能力 50 + 价格 36.67 + 用量 22.5 + 加分 13）。
 [官方订阅 →](https://volcengine.com/L/ZggDsb8yNHE/)
 
 ## 过线排名 Top 6
 
 | # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 加分 | 结论 |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 1.8万 | 79.7 | +15 | 推荐 |
-| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 70.25 | +14 | 推荐 |
-| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 66.84 | +6 | 推荐 |
-| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 64.2 | +6 | 平替 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.2 | 国内第1 | 4,300 | 50.73 | +6 | 推荐 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | MiniMax-M3 | 国内第3 | 20.0万 | 49.2 | +5 | 平替 |
+| 1 | [字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 9.0万 | 88.5 | +13 | 平替 |
+| 2 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 国内第1 | 1.8万 | 79.7 | +15 | 推荐 |
+| 3 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 国内第1 | 4,300 | 70.25 | +14 | 推荐 |
+| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 国内第1 | 4,300 | 66.84 | +6 | 推荐 |
+| 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | GLM-5.2 | 国内第1 | 12.0万 | 64.2 | +6 | 平替 |
+| 6 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.2 | 国内第1 | 4,300 | 50.73 | +6 | 推荐 |
 
 > 未过线套餐（26 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplanguide/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
 
@@ -90,12 +90,12 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 
 | # | 平台 · 套餐 | 月费 | 综合分 | 能力分 | 价格分 | 用量分 | 体验加分 |
 |---|---|---|---|---|---|---|---|
-| 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 79.7 | 50 | 36.67 | 4.5 | +15 |
-| 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 70.25 | 50 | 26 | 1.07 | +14 |
-| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 66.84 | 50 | 33.67 | 1.07 | +6 |
-| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 64.2 | 50 | 0.33 | 30 | +6 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 50.73 | 50 | 6.8 | 1.07 | +6 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | 49.2 | 10 | 10.33 | 50 | +5 |
+| 1 | [字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 88.5 | 50 | 36.67 | 22.5 | +13 |
+| 2 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 79.7 | 50 | 36.67 | 4.5 | +15 |
+| 3 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 70.25 | 50 | 26 | 1.07 | +14 |
+| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 66.84 | 50 | 33.67 | 1.07 | +6 |
+| 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 64.2 | 50 | 0.33 | 30 | +6 |
+| 6 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 50.73 | 50 | 6.8 | 1.07 | +6 |
 
 ### 能力排名 TOP 6
 
@@ -106,18 +106,18 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 | 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | GLM-5.2 | 50 |
 | 4 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | GLM-5.2 | 50 |
 | 5 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 50 |
-| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | MiniMax-M3 | 10 |
+| 6 | [字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | GLM-5.2（额度池共用） | 50 |
 
 ### 性价比排名 TOP 6
 
 | # | 平台 · 套餐 | 月费 | 性价比分 | 能力分 | 价格分 |
 |---|---|---|---|---|---|
-| 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 125.0 | 50 | 36.67 |
-| 2 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 102.0 | 50 | 33.67 |
-| 3 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 69.4 | 50 | 26 |
-| 4 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 38.6 | 50 | 6.8 |
-| 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 33.6 | 50 | 0.33 |
-| 6 | [MiniMax · 新 Plus](https://platform.minimaxi.com/subscribe/token-plan) | ¥49 | 20.4 | 10 | 33.67 |
+| 1 | [字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 125.0 | 50 | 36.67 |
+| 2 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | 125.0 | 50 | 36.67 |
+| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | 102.0 | 50 | 33.67 |
+| 4 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | 69.4 | 50 | 26 |
+| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 38.6 | 50 | 6.8 |
+| 6 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | 33.6 | 50 | 0.33 |
 
 ### 体验排名 TOP 6
 
@@ -125,10 +125,10 @@ OpenCode Go 包含 7 大模型，各模型独立请求配额如下：
 |---|---|---|---|---|---|---|
 | 1 | [字节·方舟 · Coding Plan Lite](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | +15 | 8 | 简单 | 是 |
 | 2 | [OpenCode · Go（首月 $5）](https://opencode.ai/go?ref=F3C3Y1MVK0) | $10 | +14 | 7 | 简单 | 是 |
-| 3 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | +6 | 4 | 困难 | 否 |
-| 4 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | +6 | 4 | 困难 | 否 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | +6 | 3 | 简单 | 否 |
-| 6 | [MiniMax · 新 Max](https://platform.minimaxi.com/subscribe/token-plan) | ¥119 | +5 | 3 | 简单 | 否 |
+| 3 | [字节·方舟 · Coding Plan Pro](https://volcengine.com/L/ZggDsb8yNHE/) | ¥40 | +13 | 8 | 简单 | 否 |
+| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥49 | +6 | 4 | 困难 | 否 |
+| 5 | [智谱 AI · Coding Plan Pro](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥149 | +6 | 4 | 困难 | 否 |
+| 6 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | +6 | 3 | 简单 | 否 |
 
 > 完整多维排名见 [codingplanguide.com/leaderboard](https://codingplanguide.com/leaderboard)
 

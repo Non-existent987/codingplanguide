@@ -149,7 +149,7 @@ plans:
   - id: volcengine-pro
     platform: 字节·方舟
     plan: Coding Plan Pro
-    price_monthly: 200
+    price_monthly: 40
     currency: cny
     region: cn
     type: coding
@@ -160,7 +160,7 @@ plans:
     refill_week: 45000
     refill_month: 90000
     measured_monthly_tokens_M: 1249
-    yuan_per_M_token: 0.16
+    yuan_per_M_token: 0.03
     capability_tier: T0
     capability_rank: 1
     capability_score: 8.5
@@ -168,10 +168,10 @@ plans:
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/activity/codingplan
     affiliate_url: https://volcengine.com/L/ZggDsb8yNHE/
-    note: 重度用户首选，全家桶额度大。超预算但的确最全。Pro定价页面显示"价格查询中"，牌价待确认。
+    note: 与 Lite 同价¥40，全家桶额度大。重度用户首选。
     verdict: 平替
     featured: false
-    updated: 2026-07-22
+    updated: 2026-07-23
 
   - id: glm-pro
     platform: 智谱 AI
