@@ -73,7 +73,7 @@ lines.push('> AA全球排名 = Artificial Analysis Intelligence Index v4.1（202
 lines.push('>');
 lines.push('> DeepSeek V4 Flash 月请求 15.8 万次，搭配 GLM-5.2 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
-lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=F3C3Y1MVK0)`);
+lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
 lines.push('---');
 lines.push('');
