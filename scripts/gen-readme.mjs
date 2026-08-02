@@ -57,23 +57,38 @@ lines.push('');
 lines.push('| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA全球排名 |');
 lines.push('|---|---|---|---|---|');
 const ocModels = [
-  { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 7 },
-  { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 13 },
-  { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 20 },
-  { name: 'Kimi K2.7 Code', h5: 1350, week: 4630, month: 9250, aa: 17 },
-  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 12 },
-  { name: 'Qwen3.7 Max', h5: 950, week: 2390, month: 4770, aa: 11 },
-  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 16 },
+  { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 16 },
+  { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 31 },
+  { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 21 },
+  { name: 'Kimi K2.7 Code', h5: 1350, week: 4630, month: 9250, aa: 36 },
+  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 30 },
+  { name: 'Qwen3.7 Max', h5: 950, week: 2390, month: 4770, aa: 28 },
+  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 35 },
 ];
 ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | #${m.aa} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index v4.1（2026-07-03）');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-02）');
 lines.push('>');
 lines.push('> DeepSeek V4 Flash 月请求 15.8 万次，搭配 GLM-5.2 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
 lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
+lines.push('');
+lines.push('---');
+lines.push('');
+lines.push('## DeepSeek V4 直连 API');
+lines.push('');
+lines.push('DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #21（国内第3），V4 Pro 全球 #31（国内第6）。如果只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。');
+lines.push('');
+lines.push('| 模型 | 输入 / 百万 tokens（缓存命中） | 输入 / 百万 tokens（未命中） | 输出 / 百万 tokens | AA 全球排名 |');
+lines.push('|---|---|---|---|---|');
+lines.push('| **DeepSeek V4 Flash** | $0.0028 | $0.14 | $0.28 | #21 |');
+lines.push('| **DeepSeek V4 Pro** | $0.003625 | $0.435 | $0.87 | #31 |');
+lines.push('');
+lines.push('> 以 V4 Flash 为例：输出 100 万 tokens 只要 $0.28（约 ¥2），写一个月代码花不了几十块。而套餐里那些"月 ¥40 额度池"，大部分你根本用不完。');
+lines.push('>');
+lines.push('> [DeepSeek 官方 API 定价 →](https://api-docs.deepseek.com/zh-cn/quick_start/pricing)');
 lines.push('');
 lines.push('---');
 lines.push('');
@@ -82,40 +97,40 @@ lines.push('');
 lines.push('| # | 模型 | 图 | 分数 |');
 lines.push('|---|---|---|---|');
 const top25 = [
-  { name: 'Claude Fable 5', score: 60, flag: '🇺🇸' },
-  { name: 'Claude Opus 4.8', score: 56, flag: '🇺🇸' },
-  { name: 'GPT-5.5 (xhigh)', score: 55, flag: '🇺🇸' },
-  { name: 'Claude Opus 4.7', score: 54, flag: '🇺🇸' },
-  { name: 'Claude Sonnet 5', score: 53, flag: '🇺🇸' },
-  { name: 'GPT-5.5 (high)', score: 53, flag: '🇺🇸' },
-  { name: 'GLM-5.2', score: 51, flag: '🇨🇳', cn: true },
-  { name: 'GPT-5.5 (medium)', score: 50, flag: '🇺🇸' },
+  { name: 'Claude Opus 5 (max)', score: 61, flag: '🇺🇸' },
+  { name: 'Claude Fable 5 (with fallback)', score: 60, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Sol (max)', score: 59, flag: '🇺🇸' },
+  { name: 'Kimi K3 (max)', score: 57, flag: '🇨🇳', cn: true },
+  { name: 'GPT-5.6 Terra (max)', score: 55, flag: '🇺🇸' },
+  { name: 'Grok 4.5 (high)', score: 54, flag: '🇺🇸' },
+  { name: 'Claude Sonnet 5 (max)', score: 53, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Luna (max)', score: 51, flag: '🇺🇸' },
+  { name: 'GLM-5.2 (max)', score: 51, flag: '🇨🇳', cn: true },
+  { name: 'Muse Spark 1.1 (xhigh)', score: 51, flag: '🇺🇸' },
   { name: 'Gemini 3.5 Flash', score: 50, flag: '🇺🇸' },
-  { name: 'Gemini 3.1 Pro', score: 46, flag: '🇺🇸' },
+  { name: 'Gemini 3.6 Flash', score: 50, flag: '🇺🇸' },
+  { name: 'DeepSeek V4 Flash 0731 (max)', score: 50, flag: '🇨🇳', cn: true },
+  { name: 'Gemini 3.1 Pro Preview', score: 46, flag: '🇺🇸' },
   { name: 'Qwen3.7 Max', score: 46, flag: '🇨🇳', cn: true },
   { name: 'MiniMax-M3', score: 44, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4 Pro', score: 44, flag: '🇨🇳', cn: true },
-  { name: 'GPT-5.3 Codex', score: 44, flag: '🇺🇸' },
-  { name: 'Kimi K2.6', score: 43, flag: '🇨🇳', cn: true },
+  { name: 'DeepSeek V4 Pro (max)', score: 44, flag: '🇨🇳', cn: true },
+  { name: 'Motif 3 (Beta)', score: 44, flag: '🇺🇸' },
+  { name: 'Muse Spark', score: 43, flag: '🇺🇸' },
   { name: 'MiMo-V2.5-Pro', score: 42, flag: '🇨🇳', cn: true },
   { name: 'Kimi K2.7 Code', score: 42, flag: '🇨🇳', cn: true },
+  { name: 'Hy3', score: 41, flag: '🇨🇳', cn: true },
   { name: 'Nex-N2-Pro', score: 41, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4 Pro (high)', score: 41, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4 Flash', score: 40, flag: '🇨🇳', cn: true },
-  { name: 'GLM-5.1', score: 40, flag: '🇨🇳', cn: true },
-  { name: 'MiMo-V2.5', score: 40, flag: '🇨🇳', cn: true },
-  { name: 'GPT-5.4 mini (xhigh)', score: 40, flag: '🇺🇸' },
-  { name: 'Grok Build 0.1', score: 40, flag: '🇺🇸' },
-  { name: 'Qwen3.6 Plus', score: 40, flag: '🇨🇳', cn: true },
+  { name: 'Inkling', score: 41, flag: '🇺🇸' },
+  { name: 'Inkling Small', score: 40, flag: '🇺🇸' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {
-  const bar = '█'.repeat(Math.round((m.score / 60) * barMax));
+  const bar = '█'.repeat(Math.round((m.score / 61) * barMax));
   const nameStr = m.cn ? `**${m.flag} ${m.name}**` : `${m.flag} ${m.name}`;
   lines.push(`| ${i + 1} | ${nameStr} | ${bar} | ${m.score} |`);
 });
 lines.push('');
-lines.push('> 来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index v4.1');
+lines.push('> 来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index');
 lines.push('');
 lines.push('---');
 lines.push('');

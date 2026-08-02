@@ -72,14 +72,14 @@ git push
 
 ## 模型能力排名
 
-- 数据来源：`https://artificialanalysis.ai/leaderboards/models` Intelligence Index v4.1
+- 数据来源：`https://artificialanalysis.ai/leaderboards/models` Intelligence Index
 - 排名数据硬编码在：
   - `src/pages/index.astro:130`（首页前10）
   - `src/pages/rankings.astro:4`（排名页前25）
   - `scripts/gen-readme.mjs:99`（README前25）
   - **三处需同步更新**
 - 国内排名定义：按 AA Intelligence Index 分数降序
-  - 国内第1=GLM-5.2(#7), 第2=Qwen3.7 Max(#11), 第3=MiniMax-M3(#12), 第4=DeepSeek V4 Pro(#13)
+  - 国内第1=Kimi K3(#7), 第2=GLM-5.2(#16), 第3=DeepSeek V4 Flash 0731(#21), 第4=Qwen3.7 Max(#28)
 
 ## 重要约定
 

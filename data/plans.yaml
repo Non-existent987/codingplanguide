@@ -29,11 +29,11 @@
 
 meta:
   version: 2
-  updated: 2026-07-15
+  updated: 2026-08-02
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
   price_cap: 150
   scoring: "综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）"
-  capability_source: "Artificial Analysis Intelligence Index v4.1 全球排名（2026-07-03）"
+  capability_source: "Artificial Analysis Intelligence Index 全球排名（2026-08-02）"
 
 plans:
   # ═══════ Featured ═══════
@@ -53,7 +53,7 @@ plans:
     measured_monthly_tokens_M: 250
     yuan_per_M_token: 0.16
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -62,7 +62,7 @@ plans:
     note: 四家顶级模型随意切，首月¥9.4，在这买相当于白嫖一个月旗舰。
     verdict: 推荐
     featured: true
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: glm-lite
     platform: 智谱 AI
@@ -80,7 +80,7 @@ plans:
     measured_monthly_tokens_M: 120
     yuan_per_M_token: 0.41
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: hard
@@ -89,7 +89,7 @@ plans:
     note: GLM-5.2直连，国内代码能力天花板。需抢购，但花¥49用T0旗舰值。
     verdict: 推荐
     featured: true
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: xunfei-pro
     platform: 讯飞·星火
@@ -116,7 +116,7 @@ plans:
     note: GLM-5.1全球排名#21，国内不在前4，未入榜。¥39价格虽低但模型不够强。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: opencode-go
     platform: OpenCode
@@ -134,7 +134,7 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -143,7 +143,7 @@ plans:
     note: GLM-5.2旗舰+DeepSeek V4 Flash等7大模型，流畅无中断，首月$5。性价比国外国产通吃。
     verdict: 推荐
     featured: true
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   # ═══════ 备选 / 高预算 ═══════
   - id: volcengine-pro
@@ -162,7 +162,7 @@ plans:
     measured_monthly_tokens_M: 1249
     yuan_per_M_token: 0.03
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -189,7 +189,7 @@ plans:
     measured_monthly_tokens_M: 600
     yuan_per_M_token: 0.25
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: hard
@@ -198,7 +198,7 @@ plans:
     note: Lite不够用？Pro翻5倍额度，卡在¥150边缘。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: glm-max
     platform: 智谱 AI
@@ -216,7 +216,7 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: hard
@@ -243,7 +243,7 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -252,7 +252,7 @@ plans:
     note: 高效版加GLM-5.2，性价比不错的进阶选择。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: aliyun-bailian-pro
     platform: 阿里·百炼
@@ -279,7 +279,7 @@ plans:
     note: Token量很大但旗舰模型非T0，适合高用量但对模型不苛求的。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: minimax-ultra
     platform: MiniMax
@@ -297,7 +297,7 @@ plans:
     measured_monthly_tokens_M: 7100
     yuan_per_M_token: 0.07
     capability_tier: T1
-    capability_rank: 3
+    capability_rank: null
     capability_score: 7.0
     quota_score: null
     purchase_difficulty: easy
@@ -306,7 +306,7 @@ plans:
     note: 多模态+海量额度，4百多值但超预算太多。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: deepseek-flash-200
     platform: DeepSeek
@@ -324,7 +324,7 @@ plans:
     measured_monthly_tokens_M: 1462
     yuan_per_M_token: 0.14
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: easy
@@ -333,7 +333,7 @@ plans:
     note: 按量稳妥，速度稳无额度焦虑，但一次放¥200不如玩月包。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: glm-intl-lite
     platform: 智谱国际版
@@ -351,7 +351,7 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -378,7 +378,7 @@ plans:
     measured_monthly_tokens_M: 600
     yuan_per_M_token: 0.86
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -405,7 +405,7 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 1
+    capability_rank: 2
     capability_score: 8.5
     quota_score: null
     purchase_difficulty: easy
@@ -441,7 +441,7 @@ plans:
     note: 白嫖福利。但限量、模型比T0差一档，只能应急。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   # ═══════ 新增 2026-07-03 ═══════
   - id: aliyun-bailian-lite
@@ -469,7 +469,7 @@ plans:
     note: 百炼入门包，Qwen-3.7-Plus够用但非T0，¥40门槛低。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: aliyun-bailian-token-standard
     platform: 阿里·百炼
@@ -496,7 +496,7 @@ plans:
     note: 标准Token包，量大但旗舰非T0，超¥150预算。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: aliyun-bailian-token-advanced
     platform: 阿里·百炼
@@ -523,7 +523,7 @@ plans:
     note: 高级Token包，额度巨大但价格远超预算，企业用户考虑。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: volcengine-token-small
     platform: 字节·方舟
@@ -550,7 +550,7 @@ plans:
     note: 方舟Token入门，首月¥9.9，Doubao-2.0-Pro尚可但非T0。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: volcengine-token-medium
     platform: 字节·方舟
@@ -577,7 +577,7 @@ plans:
     note: 中档Token包，超预算但模型池比Coding Plan窄。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: minimax-plus
     platform: MiniMax
@@ -595,7 +595,7 @@ plans:
     measured_monthly_tokens_M: 710
     yuan_per_M_token: 0.07
     capability_tier: T1
-    capability_rank: 3
+    capability_rank: null
     capability_score: 7.0
     quota_score: null
     purchase_difficulty: easy
@@ -604,7 +604,7 @@ plans:
     note: MiniMax入门，多模态+M3，¥49性价比不错但非T0。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: minimax-max
     platform: MiniMax
@@ -622,7 +622,7 @@ plans:
     measured_monthly_tokens_M: 2367
     yuan_per_M_token: 0.05
     capability_tier: T1
-    capability_rank: 3
+    capability_rank: null
     capability_score: 7.0
     quota_score: null
     purchase_difficulty: easy
@@ -631,7 +631,7 @@ plans:
     note: Max额度是Plus三倍多，¥119在预算内，多模态加分。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: baidu-qianfan-lite
     platform: 百度·千帆
@@ -658,7 +658,7 @@ plans:
     note: 千帆入门，ERNIE-4.5代码能力偏弱，¥40不如方舟Lite。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: baidu-qianfan-pro
     platform: 百度·千帆
@@ -685,7 +685,7 @@ plans:
     note: 千帆Pro，超预算且旗舰偏弱，不推荐个人开发者。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: jdcloud-lite
     platform: 京东云
@@ -703,7 +703,7 @@ plans:
     measured_monthly_tokens_M: 300
     yuan_per_M_token: 0.13
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: normal
@@ -712,7 +712,7 @@ plans:
     note: 京东云入门，转售DeepSeek/Qwen，¥40还行但不如直连。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: jdcloud-pro
     platform: 京东云
@@ -730,7 +730,7 @@ plans:
     measured_monthly_tokens_M: 1500
     yuan_per_M_token: 0.13
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: normal
@@ -739,7 +739,7 @@ plans:
     note: 京东云Pro，超预算且转售无优势，不如方舟Coding Plan。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: tencentcloud-lite
     platform: 腾讯云
@@ -757,7 +757,7 @@ plans:
     measured_monthly_tokens_M: 300
     yuan_per_M_token: 0.13
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: normal
@@ -766,7 +766,7 @@ plans:
     note: 腾讯云入门，¥39最低档，转售模型无独特优势。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: tencentcloud-standard
     platform: 腾讯云
@@ -784,7 +784,7 @@ plans:
     measured_monthly_tokens_M: 800
     yuan_per_M_token: 0.12
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: normal
@@ -793,7 +793,7 @@ plans:
     note: 腾讯云标准，¥99在预算内，额度适中但模型池一般。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: tencentcloud-pro
     platform: 腾讯云
@@ -811,7 +811,7 @@ plans:
     measured_monthly_tokens_M: 2500
     yuan_per_M_token: 0.12
     capability_tier: T1
-    capability_rank: null
+    capability_rank: 3
     capability_score: 7.2
     quota_score: null
     purchase_difficulty: normal
@@ -820,7 +820,7 @@ plans:
     note: 腾讯云Pro，远超预算，转售无独特优势不推荐。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: huawei-lite
     platform: 华为云
@@ -847,7 +847,7 @@ plans:
     note: 华为云入门，盘古代码能力弱，¥59偏贵且开通繁琐。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: huawei-standard
     platform: 华为云
@@ -874,7 +874,7 @@ plans:
     note: 华为云标准，卡在¥150边缘但盘古偏弱，不如选方舟。
     verdict: 谨慎
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02
 
   - id: xiaomi-mimo-lite
     platform: 小米·MiMo
@@ -901,4 +901,4 @@ plans:
     note: 小米MiMo入门，¥39最低价之一，MiMo-V2.5-Pro代码能力尚可。
     verdict: 平替
     featured: false
-    updated: 2026-07-03
+    updated: 2026-08-02

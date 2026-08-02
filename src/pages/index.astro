@@ -141,22 +141,22 @@ function firstPrice(note) {
     <p class="eyebrow"><span class="bar"></span>模型能力排名</p>
     <h2>谁最强，一目了然。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      数据来自 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a> Intelligence Index v4.1，综合 9 项独立评测。前 10 名如下，<a href="/rankings">完整 25 名 →</a>
+      数据来自 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a> Intelligence Index，综合 9 项独立评测。前 10 名如下，<a href="/rankings">完整 25 名 →</a>
     </p>
     <div class="chart-home">
       {[
-        { rank: 1, name: 'Claude Fable 5', org: 'Anthropic', score: 60, flag: '🇺🇸' },
-        { rank: 2, name: 'Claude Opus 4.8', org: 'Anthropic', score: 56, flag: '🇺🇸' },
-        { rank: 3, name: 'GPT-5.5', org: 'OpenAI', score: 55, flag: '🇺🇸' },
-        { rank: 4, name: 'Claude Opus 4.7', org: 'Anthropic', score: 54, flag: '🇺🇸' },
-        { rank: 5, name: 'Claude Sonnet 5', org: 'Anthropic', score: 53, flag: '🇺🇸' },
-        { rank: 6, name: 'GPT-5.5 (high)', org: 'OpenAI', score: 53, flag: '🇺🇸' },
-        { rank: 7, name: 'GLM-5.2', org: 'Z AI', score: 51, flag: '🇨🇳' },
-        { rank: 8, name: 'GPT-5.5 (medium)', org: 'OpenAI', score: 50, flag: '🇺🇸' },
-        { rank: 9, name: 'Gemini 3.5 Flash', org: 'Google', score: 50, flag: '🇺🇸' },
-        { rank: 10, name: 'Gemini 3.1 Pro', org: 'Google', score: 46, flag: '🇺🇸' },
+        { rank: 1, name: 'Claude Opus 5', org: 'Anthropic', score: 61, flag: '🇺🇸' },
+        { rank: 2, name: 'Claude Fable 5', org: 'Anthropic', score: 60, flag: '🇺🇸' },
+        { rank: 3, name: 'GPT-5.6 Sol', org: 'OpenAI', score: 59, flag: '🇺🇸' },
+        { rank: 4, name: 'Kimi K3', org: 'Kimi', score: 57, flag: '🇨🇳' },
+        { rank: 5, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 55, flag: '🇺🇸' },
+        { rank: 6, name: 'Grok 4.5', org: 'xAI', score: 54, flag: '🇺🇸' },
+        { rank: 7, name: 'Claude Sonnet 5', org: 'Anthropic', score: 53, flag: '🇺🇸' },
+        { rank: 8, name: 'GPT-5.6 Luna', org: 'OpenAI', score: 51, flag: '🇺🇸' },
+        { rank: 9, name: 'GLM-5.2', org: 'Z AI', score: 51, flag: '🇨🇳' },
+        { rank: 10, name: 'Muse Spark 1.1', org: 'Meta', score: 51, flag: '🇺🇸' },
       ].map(m => {
-        const pct = (m.score / 60) * 100;
+        const pct = (m.score / 61) * 100;
         const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'Nex AGI'].includes(m.org);
         return (
           <div class="bar-row">
@@ -178,8 +178,51 @@ function firstPrice(note) {
       <span><span style="display:inline-block;width:.8rem;height:.8rem;background:var(--ink-faint);border-radius:2px;vertical-align:middle;margin-right:.3rem"></span>海外为主</span>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">
-      评分截至 2026-07-03 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
+      评分截至 2026-08-02 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
     </p>
+  </section>
+
+  <section class="wrap" style="padding-bottom:3rem">
+    <p class="eyebrow"><span class="bar"></span>DeepSeek V4 直连 API</p>
+    <h2>模型够强，就不用买套餐。</h2>
+    <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
+      DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #21（国内第3），V4 Pro 全球 #31（国内第6），都是开箱即用的推理模型。如果你只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
+    </p>
+    <div style="overflow-x:auto">
+      <table class="thin-table">
+        <thead>
+          <tr>
+            <th>模型</th>
+            <th>输入 / 百万 tokens（缓存命中）</th>
+            <th>输入 / 百万 tokens（未命中）</th>
+            <th>输出 / 百万 tokens</th>
+            <th>AA 全球排名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>DeepSeek V4 Flash</b></td>
+            <td class="num">$0.0028</td>
+            <td class="num">$0.14</td>
+            <td class="num">$0.28</td>
+            <td class="num">#21</td>
+          </tr>
+          <tr>
+            <td><b>DeepSeek V4 Pro</b></td>
+            <td class="num">$0.003625</td>
+            <td class="num">$0.435</td>
+            <td class="num">$0.87</td>
+            <td class="num">#31</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1rem">
+      以 V4 Flash 为例：输出 100 万 tokens 只要 $0.28（约 ¥2），写一个月代码花不了几十块。而套餐里那些"月 ¥40 额度池"，大部分你根本用不完。
+    </p>
+    <div style="margin-top:1.2rem">
+      <a class="goto" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing" target="_blank" rel="noopener nofollow">DeepSeek 官方 API 定价 →</a>
+    </div>
   </section>
 
   <section class="wrap" style="padding-bottom:3rem">
