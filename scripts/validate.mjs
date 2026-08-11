@@ -14,7 +14,7 @@ const ALLOW = {
   region: ['cn', 'global'],
   type: ['coding', 'token'],
   capability_tier: ['T0', 'T1', 'T2'],
-  capability_rank: [1, 2, 3, null],
+  capability_rank: [1, 2, 3, 4, null],
   purchase_difficulty: ['easy', 'normal', 'hard'],
   verdict: ['推荐', '平替', '谨慎']
 };

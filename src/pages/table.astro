@@ -52,7 +52,7 @@ const outOfBand = doc.plans
   .map(p => {
     const reasons = [];
     if (cnyPrice(p) > PRICE_CAP) reasons.push(`超¥${PRICE_CAP}`);
-    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
+    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前4`);
     return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, bonus_pts: 0, total_score: 0 };
   });
 
@@ -65,7 +65,7 @@ function fmtPrice(p) { return p.currency === 'usd' ? `$${p.price_monthly}` : `¥
   <section class="wrap" style="padding-top:3rem">
     <p class="eyebrow"><span class="bar"></span>全部套餐</p>
     <h2>{ranked.length} 款，过线 {scored.length} 款。</h2>
-    <p style="color:var(--ink-soft);max-width:54ch">首 {scored.length} 款为过线排名（价格≤¥{PRICE_CAP} + 能力≥国内前3），其余按"未通过原因"附下。</p>
+    <p style="color:var(--ink-soft);max-width:54ch">首 {scored.length} 款为过线排名（价格≤¥{PRICE_CAP} + 能力≥国内前4），其余按"未通过原因"附下。</p>
 
     <p style="margin:1.6rem 0 0">
       <button id="toggle-less" type="button"

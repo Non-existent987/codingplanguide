@@ -128,7 +128,7 @@ function firstPrice(note) {
       ))}
     </div>
     <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem">
-      综合分 = 能力×40% + 价格×30% + 用量×30%。不超过¥{PRICE_CAP}、模型≥国内前3。<a href="/method">方法说明 →</a>
+      综合分 = 能力×40% + 价格×30% + 用量×30%。不超过¥{PRICE_CAP}、模型≥国内前4。<a href="/method">方法说明 →</a>
     </p>
   </section>
 
@@ -145,18 +145,18 @@ function firstPrice(note) {
     </p>
     <div class="chart-home">
       {[
-        { rank: 1, name: 'Claude Opus 5', org: 'Anthropic', score: 61, flag: '🇺🇸' },
-        { rank: 2, name: 'Claude Fable 5', org: 'Anthropic', score: 60, flag: '🇺🇸' },
-        { rank: 3, name: 'GPT-5.6 Sol', org: 'OpenAI', score: 59, flag: '🇺🇸' },
-        { rank: 4, name: 'Kimi K3', org: 'Kimi', score: 57, flag: '🇨🇳' },
-        { rank: 5, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 55, flag: '🇺🇸' },
-        { rank: 6, name: 'Grok 4.5', org: 'xAI', score: 54, flag: '🇺🇸' },
-        { rank: 7, name: 'Claude Sonnet 5', org: 'Anthropic', score: 53, flag: '🇺🇸' },
-        { rank: 8, name: 'GPT-5.6 Luna', org: 'OpenAI', score: 51, flag: '🇺🇸' },
-        { rank: 9, name: 'GLM-5.2', org: 'Z AI', score: 51, flag: '🇨🇳' },
-        { rank: 10, name: 'Muse Spark 1.1', org: 'Meta', score: 51, flag: '🇺🇸' },
+        { rank: 1, name: 'Claude Opus 5', org: 'Anthropic', score: 63, flag: '🇺🇸' },
+        { rank: 2, name: 'Claude Fable 5', org: 'Anthropic', score: 62, flag: '🇺🇸' },
+        { rank: 3, name: 'GPT-5.6 Sol', org: 'OpenAI', score: 61, flag: '🇺🇸' },
+        { rank: 4, name: 'Kimi K3', org: 'Kimi', score: 60, flag: '🇨🇳' },
+        { rank: 5, name: 'Qwen3.8 Max', org: 'Alibaba', score: 58, flag: '🇨🇳' },
+        { rank: 6, name: 'Claude Opus 4.8', org: 'Anthropic', score: 57, flag: '🇺🇸' },
+        { rank: 7, name: 'Muse Spark 1.2', org: 'Meta', score: 57, flag: '🇺🇸' },
+        { rank: 8, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 57, flag: '🇺🇸' },
+        { rank: 9, name: 'GPT-5.5', org: 'OpenAI', score: 56, flag: '🇺🇸' },
+        { rank: 10, name: 'Grok 4.5', org: 'xAI', score: 56, flag: '🇺🇸' },
       ].map(m => {
-        const pct = (m.score / 61) * 100;
+        const pct = (m.score / 63) * 100;
         const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'Nex AGI'].includes(m.org);
         return (
           <div class="bar-row">
@@ -178,7 +178,7 @@ function firstPrice(note) {
       <span><span style="display:inline-block;width:.8rem;height:.8rem;background:var(--ink-faint);border-radius:2px;vertical-align:middle;margin-right:.3rem"></span>海外为主</span>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">
-      评分截至 2026-08-02 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
+      评分截至 2026-08-11 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
     </p>
   </section>
 
@@ -186,7 +186,7 @@ function firstPrice(note) {
     <p class="eyebrow"><span class="bar"></span>DeepSeek V4 直连 API</p>
     <h2>模型够强，就不用买套餐。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #21（国内第3），V4 Pro 全球 #31（国内第6），都是开箱即用的推理模型。如果你只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
+      DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #25（国内第7），都是开箱即用的推理模型。如果你只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
     </p>
     <div style="overflow-x:auto">
       <table class="thin-table">
@@ -205,14 +205,14 @@ function firstPrice(note) {
             <td class="num">$0.0028</td>
             <td class="num">$0.14</td>
             <td class="num">$0.28</td>
-            <td class="num">#21</td>
+            <td class="num">#18</td>
           </tr>
           <tr>
             <td><b>DeepSeek V4 Pro</b></td>
             <td class="num">$0.003625</td>
             <td class="num">$0.435</td>
             <td class="num">$0.87</td>
-            <td class="num">#31</td>
+            <td class="num">#25</td>
           </tr>
         </tbody>
       </table>

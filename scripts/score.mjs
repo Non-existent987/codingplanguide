@@ -111,7 +111,7 @@ const outOfBand = doc.plans
   .map(p => {
     const reasons = [];
     if (cnyPrice(p) > PRICE_CAP) reasons.push(`超预算(>¥${PRICE_CAP})`);
-    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前3`);
+    if (![1, 2, 3, 4].includes(p.capability_rank)) reasons.push(`模型未进国内前4`);
     return { ...p, oob_reason: reasons.join('；'), capa_pts: 0, price_pts: 0, quota_pts: 0, bonus_pts: 0, total_score: 0 };
   });
 
