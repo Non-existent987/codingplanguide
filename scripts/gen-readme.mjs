@@ -65,8 +65,8 @@ const ocModels = [
   { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 18 },
   { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: 22 },
   { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 24 },
-  { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 25 },
-  { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 26 },
+  { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 26 },
+  { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 27 },
   { name: 'Kimi K2.7 Code', h5: 1350, week: 3380, month: 6750, aa: 31 },
   { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 32 },
   { name: 'Hy3', h5: 4300, week: 10750, month: 21500, aa: 34 },
@@ -80,7 +80,7 @@ ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | #${m.aa} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-11）');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-12）');
 lines.push('>');
 lines.push('> DeepSeek V4 Flash 月请求 15.8 万次，搭配 Kimi K3 / Qwen3.8 Max 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
@@ -90,14 +90,16 @@ lines.push('---');
 lines.push('');
 lines.push('## DeepSeek V4 直连 API');
 lines.push('');
-lines.push('DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #25（国内第7）。如果只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。');
+lines.push('DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #26（国内第7）。如果只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。');
 lines.push('');
 lines.push('| 模型 | 输入 / 百万 tokens（缓存命中） | 输入 / 百万 tokens（未命中） | 输出 / 百万 tokens | AA 全球排名 |');
 lines.push('|---|---|---|---|---|');
 lines.push('| **DeepSeek V4 Flash** | $0.0028 | $0.14 | $0.28 | #18 |');
-lines.push('| **DeepSeek V4 Pro** | $0.003625 | $0.435 | $0.87 | #25 |');
+lines.push('| **DeepSeek V4 Pro** | $0.003625 | $0.435 | $0.87 | #26 |');
 lines.push('');
 lines.push('> 以 V4 Flash 为例：输出 100 万 tokens 只要 $0.28（约 ¥2），写一个月代码花不了几十块。而套餐里那些"月 ¥40 额度池"，大部分你根本用不完。');
+lines.push('>');
+lines.push('> 提示：2026-08-06 DeepSeek 官方公告，计划近期整体上调 API 服务定价（预计涨幅较大），具体方案以正式通知为准，当前表内价格仍有效。');
 lines.push('>');
 lines.push('> [DeepSeek 官方 API 定价 →](https://api-docs.deepseek.com/zh-cn/quick_start/pricing)');
 lines.push('');
@@ -132,7 +134,7 @@ const top25 = [
   { name: 'Qwen3.7 Max', score: 47, flag: '🇨🇳', cn: true },
   { name: 'GPT-5.3 Codex (xhigh)', score: 46, flag: '🇺🇸' },
   { name: 'MiniMax-M3', score: 45, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4 Pro', score: 45, flag: '🇨🇳', cn: true },
+  { name: 'Motif 3 (Beta)', score: 45, flag: '🇰🇷' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {

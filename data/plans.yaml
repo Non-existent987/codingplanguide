@@ -29,11 +29,11 @@
 
 meta:
   version: 2
-  updated: 2026-08-11
+  updated: 2026-08-12
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
   price_cap: 150
   scoring: "综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）"
-  capability_source: "Artificial Analysis Intelligence Index 全球排名（2026-08-11）"
+  capability_source: "Artificial Analysis Intelligence Index 全球排名（2026-08-12）"
 
 plans:
   # ═══════ Featured ═══════

@@ -2,7 +2,7 @@
 
 > AI 编程 · 怎么选最值。每月不超 ¥150，模型就得用最强的。
 >
-> 更新于 2026-08-11 · 数据驱动：[方法说明](https://codingplanguide.com/method)
+> 更新于 2026-08-12 · 数据驱动：[方法说明](https://codingplanguide.com/method)
 
 ---
 
@@ -40,8 +40,8 @@ OpenCode Go 包含 18 大模型，各模型独立请求配额如下：
 | DeepSeek V4 Flash | 31,650 | 79,050 | 158,150 | #18 |
 | Qwen3.7 Max | 340 | 840 | 1,690 | #22 |
 | MiniMax M3 | 3,200 | 8,000 | 16,000 | #24 |
-| DeepSeek V4 Pro | 3,450 | 8,550 | 17,150 | #25 |
-| Kimi K2.6 | 1,150 | 2,880 | 5,750 | #26 |
+| DeepSeek V4 Pro | 3,450 | 8,550 | 17,150 | #26 |
+| Kimi K2.6 | 1,150 | 2,880 | 5,750 | #27 |
 | Kimi K2.7 Code | 1,350 | 3,380 | 6,750 | #31 |
 | MiMo-V2.5-Pro | 3,250 | 8,150 | 16,300 | #32 |
 | Hy3 | 4,300 | 10,750 | 21,500 | #34 |
@@ -51,7 +51,7 @@ OpenCode Go 包含 18 大模型，各模型独立请求配额如下：
 | MiniMax M2.7 | 3,400 | 8,500 | 17,000 | #53 |
 | MiMo-V2.5 | 30,100 | 75,200 | 150,400 | #56 |
 
-> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-11）
+> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-12）
 >
 > DeepSeek V4 Flash 月请求 15.8 万次，搭配 Kimi K3 / Qwen3.8 Max 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。
 >
@@ -61,14 +61,16 @@ OpenCode Go 包含 18 大模型，各模型独立请求配额如下：
 
 ## DeepSeek V4 直连 API
 
-DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #25（国内第7）。如果只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
+DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #26（国内第7）。如果只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
 
 | 模型 | 输入 / 百万 tokens（缓存命中） | 输入 / 百万 tokens（未命中） | 输出 / 百万 tokens | AA 全球排名 |
 |---|---|---|---|---|
 | **DeepSeek V4 Flash** | $0.0028 | $0.14 | $0.28 | #18 |
-| **DeepSeek V4 Pro** | $0.003625 | $0.435 | $0.87 | #25 |
+| **DeepSeek V4 Pro** | $0.003625 | $0.435 | $0.87 | #26 |
 
 > 以 V4 Flash 为例：输出 100 万 tokens 只要 $0.28（约 ¥2），写一个月代码花不了几十块。而套餐里那些"月 ¥40 额度池"，大部分你根本用不完。
+>
+> 提示：2026-08-06 DeepSeek 官方公告，计划近期整体上调 API 服务定价（预计涨幅较大），具体方案以正式通知为准，当前表内价格仍有效。
 >
 > [DeepSeek 官方 API 定价 →](https://api-docs.deepseek.com/zh-cn/quick_start/pricing)
 
@@ -102,7 +104,7 @@ DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内�
 | 22 | **🇨🇳 Qwen3.7 Max** | ██████████████████████ | 47 |
 | 23 | 🇺🇸 GPT-5.3 Codex (xhigh) | ██████████████████████ | 46 |
 | 24 | **🇨🇳 MiniMax-M3** | █████████████████████ | 45 |
-| 25 | **🇨🇳 DeepSeek V4 Pro** | █████████████████████ | 45 |
+| 25 | 🇰🇷 Motif 3 (Beta) | █████████████████████ | 45 |
 
 > 来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index
 
