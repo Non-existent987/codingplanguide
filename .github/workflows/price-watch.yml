@@ -51,6 +51,7 @@ jobs:
           if [ -s diff-output.txt ] && grep -q '发现 [1-9]' diff-output.txt; then
             today=$(date -u +%Y-%m-%d)
             body=$(awk '/--- markdown summary ---/{flag=1; next} flag' diff-output.txt)
+            gh label create price-watch --description "价格/权益变更提醒" >/dev/null 2>&1 || true
             gh issue create \
               --title "价格/权益变更提醒 ${today}" \
               --body "${body:-无内容}" \
