@@ -1,0 +1,293 @@
+{
+  "date": "2026-08-31",
+  "plans": {
+    "volcengine-lite": {
+      "price_monthly": 40,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 250,
+      "refill_5h": 1200,
+      "refill_week": 9000,
+      "refill_month": 18000,
+      "updated": "2026-08-31"
+    },
+    "glm-lite": {
+      "price_monthly": 118,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 120,
+      "refill_5h": 2000,
+      "refill_week": 10000,
+      "refill_month": 43000,
+      "updated": "2026-08-31"
+    },
+    "xunfei-pro": {
+      "price_monthly": 39,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 250,
+      "refill_5h": 880,
+      "refill_week": 2150,
+      "refill_month": 4300,
+      "updated": "2026-08-31"
+    },
+    "opencode-go": {
+      "price_monthly": 10,
+      "capability_score": 9.2,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": 4300,
+      "updated": "2026-08-31"
+    },
+    "volcengine-pro": {
+      "price_monthly": 40,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 1249,
+      "refill_5h": 6000,
+      "refill_week": 45000,
+      "refill_month": 90000,
+      "updated": "2026-08-31"
+    },
+    "glm-pro": {
+      "price_monthly": 538,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 600,
+      "refill_5h": 12000,
+      "refill_week": 60000,
+      "refill_month": 240000,
+      "updated": "2026-08-31"
+    },
+    "glm-max": {
+      "price_monthly": 1078,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 28000,
+      "refill_week": 140000,
+      "refill_month": 560000,
+      "updated": "2026-08-31"
+    },
+    "xunfei-efficient": {
+      "price_monthly": 199,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 6000,
+      "refill_week": 45000,
+      "refill_month": 90000,
+      "updated": "2026-08-31"
+    },
+    "aliyun-bailian-pro": {
+      "price_monthly": 200,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 3000,
+      "refill_5h": 6000,
+      "refill_week": 45000,
+      "refill_month": 90000,
+      "updated": "2026-08-02"
+    },
+    "minimax-ultra": {
+      "price_monthly": 469,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 7100,
+      "refill_5h": 15000,
+      "refill_week": 150000,
+      "refill_month": 600000,
+      "updated": "2026-08-02"
+    },
+    "deepseek-flash-200": {
+      "price_monthly": 200,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 1462,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "glm-intl-lite": {
+      "price_monthly": 18,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 880,
+      "refill_week": 2150,
+      "refill_month": 4300,
+      "updated": "2026-08-31"
+    },
+    "glm-intl-pro": {
+      "price_monthly": 72,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": 600,
+      "refill_5h": 6000,
+      "refill_week": 30000,
+      "refill_month": 120000,
+      "updated": "2026-08-31"
+    },
+    "glm-intl-max": {
+      "price_monthly": 160,
+      "capability_score": 8.2,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 18000,
+      "refill_week": 90000,
+      "refill_month": 360000,
+      "updated": "2026-08-31"
+    },
+    "moore-free": {
+      "price_monthly": 1,
+      "capability_score": 6,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "aliyun-bailian-lite": {
+      "price_monthly": 39,
+      "capability_score": 8.8,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 700,
+      "refill_week": 2500,
+      "refill_month": 10000,
+      "updated": "2026-08-31"
+    },
+    "aliyun-bailian-token-standard": {
+      "price_monthly": 139,
+      "capability_score": 8.8,
+      "measured_monthly_tokens_M": null,
+      "refill_5h": 3000,
+      "refill_week": 10000,
+      "refill_month": 43000,
+      "updated": "2026-08-31"
+    },
+    "aliyun-bailian-token-advanced": {
+      "price_monthly": 698,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 12000,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "volcengine-token-small": {
+      "price_monthly": 40,
+      "capability_score": 7.2,
+      "measured_monthly_tokens_M": 400,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "volcengine-token-medium": {
+      "price_monthly": 200,
+      "capability_score": 7.2,
+      "measured_monthly_tokens_M": 2000,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "minimax-plus": {
+      "price_monthly": 49,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 710,
+      "refill_5h": 1500,
+      "refill_week": 15000,
+      "refill_month": 60000,
+      "updated": "2026-08-02"
+    },
+    "minimax-max": {
+      "price_monthly": 119,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 2367,
+      "refill_5h": 5000,
+      "refill_week": 50000,
+      "refill_month": 200000,
+      "updated": "2026-08-02"
+    },
+    "baidu-qianfan-lite": {
+      "price_monthly": 40,
+      "capability_score": 6,
+      "measured_monthly_tokens_M": 300,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "baidu-qianfan-pro": {
+      "price_monthly": 200,
+      "capability_score": 6,
+      "measured_monthly_tokens_M": 1500,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "jdcloud-lite": {
+      "price_monthly": 40,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 300,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "jdcloud-pro": {
+      "price_monthly": 200,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 1500,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "tencentcloud-lite": {
+      "price_monthly": 39,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 300,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "tencentcloud-standard": {
+      "price_monthly": 99,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 800,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "tencentcloud-pro": {
+      "price_monthly": 299,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 2500,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-31"
+    },
+    "huawei-lite": {
+      "price_monthly": 59,
+      "capability_score": 5.5,
+      "measured_monthly_tokens_M": 200,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "huawei-standard": {
+      "price_monthly": 149,
+      "capability_score": 5.5,
+      "measured_monthly_tokens_M": 600,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    },
+    "xiaomi-mimo-lite": {
+      "price_monthly": 39,
+      "capability_score": 7,
+      "measured_monthly_tokens_M": 250,
+      "refill_5h": null,
+      "refill_week": null,
+      "refill_month": null,
+      "updated": "2026-08-02"
+    }
+  }
+}
