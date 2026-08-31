@@ -79,7 +79,7 @@ git push
   - `scripts/gen-readme.mjs:110`（README前25）
   - **三处需同步更新**
 - 国内排名定义：按 AA Intelligence Index 分数降序
-  - 国内第1=Kimi K3(#4), 第2=Qwen3.8 Max(#5), 第3=GLM-5.2(#15), 第4=DeepSeek V4 Flash 0731(#18)
+  - 国内第1=Kimi K3(#5), 第2=GLM-5.3(#6), 第3=Qwen3.8 Max(#7), 第4=Qwen3.8 2.4T A95B(#8)
 
 ## 重要约定
 

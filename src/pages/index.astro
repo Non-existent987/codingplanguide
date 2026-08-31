@@ -148,13 +148,13 @@ function firstPrice(note) {
         { rank: 1, name: 'Claude Opus 5', org: 'Anthropic', score: 63, flag: '🇺🇸' },
         { rank: 2, name: 'Claude Fable 5', org: 'Anthropic', score: 62, flag: '🇺🇸' },
         { rank: 3, name: 'GPT-5.6 Sol', org: 'OpenAI', score: 61, flag: '🇺🇸' },
-        { rank: 4, name: 'Kimi K3', org: 'Kimi', score: 60, flag: '🇨🇳' },
-        { rank: 5, name: 'Qwen3.8 Max', org: 'Alibaba', score: 58, flag: '🇨🇳' },
-        { rank: 6, name: 'Claude Opus 4.8', org: 'Anthropic', score: 57, flag: '🇺🇸' },
-        { rank: 7, name: 'Muse Spark 1.2', org: 'Meta', score: 57, flag: '🇺🇸' },
-        { rank: 8, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 57, flag: '🇺🇸' },
-        { rank: 9, name: 'GPT-5.5', org: 'OpenAI', score: 56, flag: '🇺🇸' },
-        { rank: 10, name: 'Grok 4.5', org: 'xAI', score: 56, flag: '🇺🇸' },
+        { rank: 4, name: 'Grok 4.6', org: 'SpaceXAI', score: 61, flag: '🇺🇸' },
+        { rank: 5, name: 'Kimi K3', org: 'Kimi', score: 60, flag: '🇨🇳' },
+        { rank: 6, name: 'GLM-5.3', org: 'Z AI', score: 60, flag: '🇨🇳' },
+        { rank: 7, name: 'Qwen3.8 Max', org: 'Alibaba', score: 58, flag: '🇨🇳' },
+        { rank: 8, name: 'Qwen3.8 2.4T A95B', org: 'Alibaba', score: 58, flag: '🇨🇳' },
+        { rank: 9, name: 'GLM-5.3-Flash', org: 'Z AI', score: 57, flag: '🇨🇳' },
+        { rank: 10, name: 'Claude Opus 4.8', org: 'Anthropic', score: 57, flag: '🇺🇸' },
       ].map(m => {
         const pct = (m.score / 63) * 100;
         const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'Nex AGI'].includes(m.org);
@@ -178,54 +178,85 @@ function firstPrice(note) {
       <span><span style="display:inline-block;width:.8rem;height:.8rem;background:var(--ink-faint);border-radius:2px;vertical-align:middle;margin-right:.3rem"></span>海外为主</span>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">
-      评分截至 2026-08-12 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
+      评分截至 2026-08-31 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
     </p>
   </section>
 
   <section class="wrap" style="padding-bottom:3rem">
     <p class="eyebrow"><span class="bar"></span>DeepSeek V4 直连 API</p>
-    <h2>模型够强，就不用买套餐。</h2>
+    <h2>模型够强，直连也行——但要会错峰。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      DeepSeek V4 发布了，能力很强——V4 Flash 0731 全球排 #18（国内第4），V4 Pro 全球 #26（国内第7），都是开箱即用的推理模型。如果你只是自己写代码用，直连官方 API 按量付费，比任何套餐都便宜，也没有额度焦虑。
+      DeepSeek V4 很强——V4 Pro 0813 全球 #20（国内第7），V4 Flash 0731 全球 #26（国内第10），都是开箱即用的推理模型。8/17 起 API 整体提价并改峰谷计费：高峰 = 工作日 9:00-12:00、14:00-18:00（北京时间），闲时半价。
     </p>
     <div style="overflow-x:auto">
       <table class="thin-table">
         <thead>
           <tr>
             <th>模型</th>
-            <th>输入 / 百万 tokens（缓存命中）</th>
-            <th>输入 / 百万 tokens（未命中）</th>
-            <th>输出 / 百万 tokens</th>
+            <th>输入 / 百万 tokens（缓存命中）高峰 / 闲时</th>
+            <th>输入 / 百万 tokens（未命中）高峰 / 闲时</th>
+            <th>输出 / 百万 tokens 高峰 / 闲时</th>
             <th>AA 全球排名</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><b>DeepSeek V4 Flash</b></td>
-            <td class="num">$0.0028</td>
-            <td class="num">$0.14</td>
-            <td class="num">$0.28</td>
-            <td class="num">#18</td>
+            <td><b>DeepSeek V4 Flash 0731</b></td>
+            <td class="num">¥0.10 / ¥0.05</td>
+            <td class="num">¥3.0 / ¥1.5</td>
+            <td class="num">¥9.0 / ¥4.5</td>
+            <td class="num">#26</td>
           </tr>
           <tr>
-            <td><b>DeepSeek V4 Pro</b></td>
-            <td class="num">$0.003625</td>
-            <td class="num">$0.435</td>
-            <td class="num">$0.87</td>
-            <td class="num">#26</td>
+            <td><b>DeepSeek V4 Pro 0813</b></td>
+            <td class="num">¥0.30 / ¥0.15</td>
+            <td class="num">¥9.0 / ¥4.5</td>
+            <td class="num">¥27.0 / ¥13.5</td>
+            <td class="num">#20</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1rem">
-      以 V4 Flash 为例：输出 100 万 tokens 只要 $0.28（约 ¥2），写一个月代码花不了几十块。而套餐里那些"月 ¥40 额度池"，大部分你根本用不完。
-    </p>
-    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.4rem">
-      提示：2026-08-06 DeepSeek 官方公告，计划近期整体上调 API 服务定价（预计涨幅较大），具体方案以正式通知为准，当前表内价格仍有效。
+      以 V4 Flash 为例：输出 100 万 tokens 高峰 ¥9 / 闲时 ¥4.5，缓存命中输入只要 ¥0.05-0.10，已无"白菜价"。用量不大就直连 + 错峰，量大看下面的 Top 3。
     </p>
     <div style="margin-top:1.2rem">
       <a class="goto" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing" target="_blank" rel="noopener nofollow">DeepSeek 官方 API 定价 →</a>
     </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:3rem">
+    <p class="eyebrow"><span class="bar"></span>DeepSeek V4 Flash · 便宜用量 Top 3</p>
+    <h2>量大又不追顶尖，这样最省。</h2>
+    <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
+      V4 Flash 仍是够用的"便宜量大"模型（全球 #26 / 国内第10），但 8/17 官方 API 提价后直连已不划算。给"用量大、不需要顶尖模型"的用户，按性价比排出的 3 条路：
+    </p>
+    <div class="top3">
+      <div class="top3-card">
+        <div class="rank num">No. 1</div>
+        <div class="name">OpenCode Go</div>
+        <div class="price num">$10/月（≈¥72）</div>
+        <p>V4 Flash 月 3.78 万次，同类最低总价 + 最大量；GLM-5.3-Flash（2×活动约 1.6 万次）、Qwen3.8 Flash 2.7 万次同池共用，25 模型一个订阅全包。V4 Flash 涨价不涨订阅。</p>
+        <a class="goto" href="https://opencode.ai/go?ref=Z4S0MDY3TX" target="_blank" rel="noopener sponsored">官方订阅 →</a>
+      </div>
+      <div class="top3-card">
+        <div class="rank num">No. 2</div>
+        <div class="name">字节·方舟 Coding Plan</div>
+        <div class="price num">¥40/月（首两月 2.5 折）</div>
+        <p>额度池含 DeepSeek V4 Flash + GLM-5.2，走平台积分——API 怎么涨价，这 ¥40 都不变。全市场最低价的正牌 V4 Flash 订阅，量大还能切其它池内模型。</p>
+        <a class="goto" href="https://volcengine.com/L/ZggDsb8yNHE/" target="_blank" rel="noopener sponsored">官方订阅 →</a>
+      </div>
+      <div class="top3-card">
+        <div class="rank num">No. 3</div>
+        <div class="name">智谱 Coding Plan Lite（GLM-5.3-Flash 替代）</div>
+        <div class="price num">¥118/月</div>
+        <p>只要"便宜量大又够强"的 Flash 级模型，V4 Flash 的最强替代是 GLM-5.3-Flash：全球 #9 / 国内第5，性能追平 Opus 4.8，官方定价约为 GLM-5.3 的 1/10。Lite 积分制约 10,000/周，免抢购直购。</p>
+        <a class="goto" href="https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV" target="_blank" rel="noopener sponsored">官方订阅 →</a>
+      </div>
+    </div>
+    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1rem">
+      补充：DeepSeek 官方 API（8/17 起峰谷计价）——V4 Flash 输出高峰 ¥9 / 闲时 ¥4.5，缓存命中输入 ¥0.10 / ¥0.05。用量小就直连 + 错峰，正式量大走上面订阅。
+    </p>
   </section>
 
   <section class="wrap" style="padding-bottom:3rem">
@@ -310,6 +341,43 @@ function firstPrice(note) {
   }
   .github-link:hover {
     background: var(--accent-soft);
+  }
+  .top3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    max-width: 980px;
+  }
+  .top3-card {
+    border: 1px solid var(--rule-soft);
+    border-top: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .top3-card .rank {
+    font-size: .72rem;
+    color: var(--ink-faint);
+    margin-bottom: .4rem;
+  }
+  .top3-card .name {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .top3-card .price {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: .15rem 0 .55rem;
+  }
+  .top3-card p {
+    font-size: .85rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: .9rem;
+    flex: 1;
   }
   @media (max-width: 640px) {
     .bar-row {

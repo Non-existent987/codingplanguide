@@ -5,28 +5,28 @@ const models = [
   { rank: 1, name: 'Claude Opus 5', org: 'Anthropic', score: 63, flag: '🇺🇸', note: 'Adaptive Reasoning' },
   { rank: 2, name: 'Claude Fable 5', org: 'Anthropic', score: 62, flag: '🇺🇸', note: 'Adaptive Reasoning' },
   { rank: 3, name: 'GPT-5.6 Sol', org: 'OpenAI', score: 61, flag: '🇺🇸', note: 'max' },
-  { rank: 4, name: 'Kimi K3', org: 'Kimi', score: 60, flag: '🇨🇳', note: 'max' },
-  { rank: 5, name: 'Qwen3.8 Max', org: 'Alibaba', score: 58, flag: '🇨🇳' },
-  { rank: 6, name: 'Claude Opus 4.8', org: 'Anthropic', score: 57, flag: '🇺🇸', note: 'Adaptive Reasoning' },
-  { rank: 7, name: 'Muse Spark 1.2', org: 'Meta', score: 57, flag: '🇺🇸', note: 'xhigh' },
-  { rank: 8, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 57, flag: '🇺🇸', note: 'max' },
-  { rank: 9, name: 'GPT-5.5', org: 'OpenAI', score: 56, flag: '🇺🇸', note: 'xhigh' },
-  { rank: 10, name: 'Grok 4.5', org: 'xAI', score: 56, flag: '🇺🇸', note: 'high' },
-  { rank: 11, name: 'Claude Sonnet 5', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'Adaptive Reasoning' },
-  { rank: 12, name: 'Claude Opus 4.7', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'Adaptive Reasoning' },
-  { rank: 13, name: 'Muse Spark 1.1', org: 'Meta', score: 53, flag: '🇺🇸', note: 'xhigh' },
-  { rank: 14, name: 'GPT-5.4', org: 'OpenAI', score: 53, flag: '🇺🇸', note: 'xhigh' },
-  { rank: 15, name: 'GLM-5.2', org: 'Z AI', score: 53, flag: '🇨🇳', note: 'max' },
-  { rank: 16, name: 'GPT-5.6 Luna', org: 'OpenAI', score: 52, flag: '🇺🇸', note: 'max' },
-  { rank: 17, name: 'Gemini 3.5 Flash', org: 'Google', score: 52, flag: '🇺🇸', note: 'high' },
-  { rank: 18, name: 'DeepSeek V4 Flash 0731', org: 'DeepSeek', score: 52, flag: '🇨🇳', note: 'max' },
-  { rank: 19, name: 'Gemini 3.6 Flash', org: 'Google', score: 52, flag: '🇺🇸', note: 'high' },
-  { rank: 20, name: 'Claude Sonnet 4.6', org: 'Anthropic', score: 48, flag: '🇺🇸', note: 'Adaptive Reasoning' },
-  { rank: 21, name: 'Gemini 3.1 Pro Preview', org: 'Google', score: 48, flag: '🇺🇸' },
-  { rank: 22, name: 'Qwen3.7 Max', org: 'Alibaba', score: 47, flag: '🇨🇳' },
-  { rank: 23, name: 'GPT-5.3 Codex', org: 'OpenAI', score: 46, flag: '🇺🇸', note: 'xhigh' },
-  { rank: 24, name: 'MiniMax-M3', org: 'MiniMax', score: 45, flag: '🇨🇳' },
-  { rank: 25, name: 'Motif 3', org: 'Motif Technologies', score: 45, flag: '🇰🇷', note: 'Beta' },
+  { rank: 4, name: 'Grok 4.6', org: 'SpaceXAI', score: 61, flag: '🇺🇸' },
+  { rank: 5, name: 'Kimi K3', org: 'Kimi', score: 60, flag: '🇨🇳', note: 'max' },
+  { rank: 6, name: 'GLM-5.3', org: 'Z AI', score: 60, flag: '🇨🇳' },
+  { rank: 7, name: 'Qwen3.8 Max', org: 'Alibaba', score: 58, flag: '🇨🇳' },
+  { rank: 8, name: 'Qwen3.8 2.4T A95B', org: 'Alibaba', score: 58, flag: '🇨🇳' },
+  { rank: 9, name: 'GLM-5.3-Flash', org: 'Z AI', score: 57, flag: '🇨🇳' },
+  { rank: 10, name: 'Claude Opus 4.8', org: 'Anthropic', score: 57, flag: '🇺🇸', note: 'Adaptive Reasoning' },
+  { rank: 11, name: 'Muse Spark 1.2', org: 'Meta', score: 57, flag: '🇺🇸', note: 'xhigh' },
+  { rank: 12, name: 'GPT-5.6 Terra', org: 'OpenAI', score: 57, flag: '🇺🇸', note: 'max' },
+  { rank: 13, name: 'GPT-5.5', org: 'OpenAI', score: 56, flag: '🇺🇸', note: 'xhigh' },
+  { rank: 14, name: 'Gemini 3.7 Flash', org: 'Google', score: 56, flag: '🇺🇸', note: 'high' },
+  { rank: 15, name: 'Qwen3.8-Flash-Next', org: 'Alibaba', score: 56, flag: '🇨🇳' },
+  { rank: 16, name: 'Grok 4.5', org: 'SpaceXAI', score: 56, flag: '🇺🇸', note: 'high' },
+  { rank: 17, name: 'Claude Sonnet 5', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'Adaptive Reasoning' },
+  { rank: 18, name: 'Claude Opus 4.7', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'Adaptive Reasoning' },
+  { rank: 19, name: 'Muse Spark 1.1', org: 'Meta', score: 53, flag: '🇺🇸', note: 'xhigh' },
+  { rank: 20, name: 'DeepSeek V4 Pro 0813', org: 'DeepSeek', score: 53, flag: '🇨🇳' },
+  { rank: 21, name: 'GPT-5.4', org: 'OpenAI', score: 53, flag: '🇺🇸', note: 'xhigh' },
+  { rank: 22, name: 'GLM-5.2', org: 'Z AI', score: 53, flag: '🇨🇳', note: 'max' },
+  { rank: 23, name: 'GPT-5.6 Luna', org: 'OpenAI', score: 52, flag: '🇺🇸', note: 'max' },
+  { rank: 24, name: 'Qwen3.8 27B', org: 'Alibaba', score: 52, flag: '🇨🇳' },
+  { rank: 25, name: 'Gemini 3.5 Flash', org: 'Google', score: 52, flag: '🇺🇸', note: 'high' },
 ];
 
 const maxScore = models[0].score;
@@ -70,15 +70,15 @@ const minScore = models[models.length - 1].score;
     </div>
 
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.2rem">
-      评分截至 2026-08-12。完整榜单见 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>。
+      评分截至 2026-08-31。完整榜单见 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>。
     </p>
   </section>
 
   <section class="wrap" style="padding-bottom:3rem">
     <p class="eyebrow"><span class="bar"></span>OpenCode Go 模型用量</p>
-    <h2>18 大模型，各有多少请求？</h2>
+    <h2>25 大模型，各有多少请求？</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      OpenCode Go 包含 18 个模型，各模型独立请求配额。DeepSeek V4 Flash 月 15.8 万次，搭配 Kimi K3 / Qwen3.8 Max 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。
+      OpenCode Go 包含 25 个模型，各模型独立请求配额（额度按 $12/5小时、$30/周、$60/月折算）。DeepSeek V4 Flash 月 3.78 万次，GLM-5.3-Flash 限时 2× 用量；搭配 Kimi K3 / GLM-5.3 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。
     </p>
     <div style="overflow-x:auto">
       <table class="thin-table">
@@ -93,31 +93,38 @@ const minScore = models[models.length - 1].score;
         </thead>
         <tbody>
           {[
-            { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 4 },
-            { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 5 },
-            { name: 'Grok 4.5', h5: 120, week: 300, month: 600, aa: 10 },
-            { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 15 },
-            { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: 16 },
-            { name: 'DeepSeek V4 Flash', h5: 31650, week: 79050, month: 158150, aa: 18 },
-            { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: 22 },
-            { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 24 },
-            { name: 'DeepSeek V4 Pro', h5: 3450, week: 8550, month: 17150, aa: 26 },
-            { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 27 },
-            { name: 'Kimi K2.7 Code', h5: 1350, week: 3380, month: 6750, aa: 31 },
-            { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 32 },
-            { name: 'Hy3', h5: 4300, week: 10750, month: 21500, aa: 34 },
-            { name: 'GLM-5.1', h5: 880, week: 2150, month: 4300, aa: 42 },
-            { name: 'Qwen3.6 Plus', h5: 3300, week: 8200, month: 16300, aa: 47 },
-            { name: 'Qwen3.7 Plus', h5: 4300, week: 10800, month: 21600, aa: 51 },
-            { name: 'MiniMax M2.7', h5: 3400, week: 8500, month: 17000, aa: 53 },
-            { name: 'MiMo-V2.5', h5: 30100, week: 75200, month: 150400, aa: 56 },
+            { name: 'Grok 4.6', h5: 169, week: 423, month: 845, aa: 4 },
+            { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 5 },
+            { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 6 },
+            { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 7 },
+            { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 9 },
+            { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: 11 },
+            { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: 15 },
+            { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: 20 },
+            { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 22 },
+            { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: 23 },
+            { name: 'DeepSeek V4 Flash', h5: 7600, week: 18900, month: 37800, aa: 26 },
+            { name: 'DeepSeek V4 Flash Vision Exp', h5: 3800, week: 9450, month: 18900, aa: 28 },
+            { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: 33 },
+            { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 35 },
+            { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 37 },
+            { name: 'Kimi K2.7 Code', h5: 1350, week: 3380, month: 6750, aa: 42 },
+            { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 43 },
+            { name: 'Hy3', h5: 4300, week: 10750, month: 21500, aa: 45 },
+            { name: 'GLM-5.1', h5: 880, week: 2150, month: 4300, aa: 54 },
+            { name: 'Qwen3.6 Plus', h5: 3300, week: 8200, month: 16300, aa: 59 },
+            { name: 'Qwen3.7 Plus', h5: 4300, week: 10800, month: 21600, aa: 63 },
+            { name: 'MiniMax M2.7', h5: 3400, week: 8500, month: 17000, aa: 65 },
+            { name: 'MiMo-V2.5', h5: 30100, week: 75200, month: 150400, aa: 68 },
+            { name: 'LongCat-2.0', h5: 11400, week: 28600, month: 57200, aa: 97 },
+            { name: 'Hy4 preview', h5: 1350, week: 3380, month: 6770, aa: null },
           ].map(m => (
             <tr>
               <td><b>{m.name}</b></td>
               <td class="num">{m.h5.toLocaleString()}</td>
               <td class="num">{m.week.toLocaleString()}</td>
               <td class="num">{m.month.toLocaleString()}</td>
-              <td class="num">#{m.aa}</td>
+              <td class="num">{m.aa ? '#' + m.aa : '—'}</td>
             </tr>
           ))}
         </tbody>
