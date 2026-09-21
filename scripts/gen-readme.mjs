@@ -57,73 +57,71 @@ lines.push('');
 lines.push('| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 | AA全球排名 |');
 lines.push('|---|---|---|---|---|');
 const ocModels = [
-  { name: 'Grok 4.6', h5: 169, week: 423, month: 845, aa: 4 },
-  { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 5 },
-  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 6 },
-  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 7 },
-  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 9 },
-  { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: 11 },
-  { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: 15 },
-  { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: 20 },
-  { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: 22 },
-  { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: 23 },
-  { name: 'DeepSeek V4 Flash', h5: 7600, week: 18900, month: 37800, aa: 26 },
-  { name: 'DeepSeek V4 Flash Vision Exp', h5: 3800, week: 9450, month: 18900, aa: 28 },
-  { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: 33 },
-  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: 35 },
-  { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: 37 },
-  { name: 'Kimi K2.7 Code', h5: 1350, week: 3380, month: 6750, aa: 42 },
-  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: 43 },
-  { name: 'Hy3', h5: 4300, week: 10750, month: 21500, aa: 45 },
-  { name: 'GLM-5.1', h5: 880, week: 2150, month: 4300, aa: 54 },
-  { name: 'Qwen3.6 Plus', h5: 3300, week: 8200, month: 16300, aa: 59 },
-  { name: 'Qwen3.7 Plus', h5: 4300, week: 10800, month: 21600, aa: 63 },
-  { name: 'MiniMax M2.7', h5: 3400, week: 8500, month: 17000, aa: 65 },
-  { name: 'MiMo-V2.5', h5: 30100, week: 75200, month: 150400, aa: 68 },
-  { name: 'LongCat-2.0', h5: 11400, week: 28600, month: 57200, aa: 97 },
+  { name: 'Grok 4.6', h5: 169, week: 423, month: 845, aa: 8 },
+  { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 10 },
+  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 7 },
+  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 6 },
+  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 16 },
+  { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: 4 },
+  { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: 19 },
+  { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: null },
+  { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: null },
+  { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: 25 },
+  { name: 'DeepSeek V4 Flash', h5: 7600, week: 18900, month: 37800, aa: null },
+  { name: 'DeepSeek V4 Flash Vision Exp', h5: 3800, week: 9450, month: 18900, aa: null },
+  { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: null },
+  { name: 'MiniMax M3', h5: 3200, week: 8000, month: 16000, aa: null },
+  { name: 'Kimi K2.6', h5: 1150, week: 2880, month: 5750, aa: null },
+  { name: 'Kimi K2.7 Code', h5: 1350, week: 3380, month: 6750, aa: null },
+  { name: 'MiMo-V2.5-Pro', h5: 3250, week: 8150, month: 16300, aa: null },
+  { name: 'Hy3', h5: 4300, week: 10750, month: 21500, aa: null },
+  { name: 'GLM-5.1', h5: 880, week: 2150, month: 4300, aa: null },
+  { name: 'Qwen3.6 Plus', h5: 3300, week: 8200, month: 16300, aa: null },
+  { name: 'Qwen3.7 Plus', h5: 4300, week: 10800, month: 21600, aa: null },
+  { name: 'MiniMax M2.7', h5: 3400, week: 8500, month: 17000, aa: null },
+  { name: 'MiMo-V2.5', h5: 30100, week: 75200, month: 150400, aa: null },
+  { name: 'LongCat-2.0', h5: 11400, week: 28600, month: 57200, aa: null },
   { name: 'Hy4 preview', h5: 1350, week: 3380, month: 6770, aa: null },
 ];
 ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | ${m.aa ? '#' + m.aa : '—'} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-08-31）');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-09-21）');
 lines.push('>');
-lines.push('> DeepSeek V4 Flash 月请求 3.78 万次，GLM-5.3-Flash 限时 2× 用量；搭配 Kimi K3 / GLM-5.3 旗舰使用，日常编程几乎用不完。流畅无中断、无告警、无扣量问题。');
+lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max / GLM-5.3 并列全球 #17-18，GLM-5.3-Flash 全球 #25，Step 5 Preview 全球 #19；一个 $10 订阅覆盖国内前 3。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
 lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
 lines.push('---');
 lines.push('');
-lines.push('## DeepSeek V4 直连 API');
+lines.push('## 阶跃星辰 Step 5 Preview');
 lines.push('');
-lines.push('DeepSeek V4 很强——V4 Pro 0813 全球 #20（国内第7），V4 Flash 0731 全球 #26（国内第10）。8/17 起 API 整体提价并改峰谷计费：高峰 = 工作日 9:00-12:00、14:00-18:00（北京时间），闲时半价。');
+lines.push('9/19 发布的 Step 5 Preview，AA 智能指数 44 分，与 Kimi K3 持平，Terminal-Bench 4.0 拿到 33.3%（接近 GPT-5.6 Terra）。Step Plan 走月池 Credit（1M Credit = ¥1），月内任意时段消耗，**没有 5 小时限额**——不存在写着写着被掐断的体验。');
 lines.push('');
-lines.push('| 模型 | 输入·缓存命中（高峰/闲时） | 输入·未命中（高峰/闲时） | 输出（高峰/闲时） | AA 全球排名 |');
+lines.push('| 档位 | 月费 | 月度 Credit | 5 小时限额 | 备注 |');
 lines.push('|---|---|---|---|---|');
-lines.push('| **DeepSeek V4 Flash 0731** | ¥0.10 / ¥0.05 | ¥3.0 / ¥1.5 | ¥9.0 / ¥4.5 | #26 |');
-lines.push('| **DeepSeek V4 Pro 0813** | ¥0.30 / ¥0.15 | ¥9.0 / ¥4.5 | ¥27.0 / ¥13.5 | #20 |');
+lines.push('| **Flash Mini** | ¥49 | 400M | 无 | 入门够用，含全部旗舰模型 |');
+lines.push('| **Flash Plus** | ¥99 | 1600M | 无 | 加优先 API 速率 + 优先技术支持 |');
 lines.push('');
-lines.push('> 以 V4 Flash 为例：输出 100 万 tokens 高峰 ¥9 / 闲时 ¥4.5，缓存命中输入只要 ¥0.05-0.10，已无"白菜价"。用量不大就直连 + 错峰，量大看下方 Flash Top 3。');
+lines.push('> 另有 Pro ¥199/8000M、Max ¥699/40000M 两档（超个人预算上限）。新用户注册送 99 元套餐额度，完成首次调用再得 15 天，邀请好友累计最高 45 天。Step Plan 不适用按充值金额划分的阶梯限速。');
 lines.push('>');
-lines.push('> [DeepSeek 官方 API 定价 →](https://api-docs.deepseek.com/zh-cn/quick_start/pricing)');
+lines.push('> [阶跃 Step Plan 官网 →](https://platform.stepfun.com/docs/zh/step-plan/overview)');
 lines.push('');
 lines.push('---');
 lines.push('');
-lines.push('## DeepSeek V4 Flash · 便宜用量 Top 3');
+lines.push('## 便宜用量 · Top 3');
 lines.push('');
-lines.push('V4 Flash 仍是够用的"便宜量大"模型（全球 #26 / 国内第10），但 8/17 官方 API 提价后直连已不划算。给"用量大、不需要顶尖模型"的用户，按性价比排出的 3 条路：');
+lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-09-21）重新排出的 3 条路：');
 lines.push('');
-lines.push('**No.1 · OpenCode Go** — $10/月（≈¥72）。V4 Flash 月 3.78 万次，同类最低总价 + 最大量；GLM-5.3-Flash（2× 活动约 1.6 万次）、Qwen3.8 Flash 2.7 万次同池共用，25 模型一个订阅全包。V4 Flash 涨价不涨订阅。');
+lines.push('**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 现在是**国内第 1**（全球 #17，45 分），和 GLM-5.3 同分。¥39 拿到国内最强模型 + 2500 Credits/周，综合分 76.7 居首。');
+lines.push(`- [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)`);
+lines.push('');
+lines.push('**No.2 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash + Step 5 Preview，**国内前 3 全在池里**。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。');
 lines.push(`- [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
-lines.push('**No.2 · 字节·方舟 Coding Plan** — ¥40/月（首两月 2.5 折）。额度池含 DeepSeek V4 Flash + GLM-5.2，走平台积分——API 怎么涨价，这 ¥40 都不变。全市场最低价的正牌 V4 Flash 订阅。');
-lines.push(`- [官方订阅 字节·方舟 →](https://volcengine.com/L/ZggDsb8yNHE/)`);
-lines.push('');
-lines.push('**No.3 · 智谱 Coding Plan Lite（GLM-5.3-Flash 替代）** — ¥118/月。只要"便宜量大又够强"的 Flash 级模型，V4 Flash 的最强替代是 GLM-5.3-Flash：全球 #9 / 国内第5，性能追平 Opus 4.8，官方定价约为 GLM-5.3 的 1/10。Lite 积分制约 10,000/周，免抢购直购。');
-lines.push(`- [官方订阅 智谱 →](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV)`);
-lines.push('');
-lines.push('> 补充：DeepSeek 官方 API（8/17 起峰谷计价）——V4 Flash 输出高峰 ¥9 / 闲时 ¥4.5，缓存命中输入 ¥0.10 / ¥0.05。用量小就直连 + 错峰，正式量大走上面订阅。');
+lines.push('**No.3 · 阶跃星辰 Step Plan Flash Plus** — ¥99/月。Step 5 Preview 44 分追平 Kimi K3，1600M Credits 月池，**无 5 小时限额**。走量场景不用担心被掐断，新用户还有最长 75 天福利。');
+lines.push(`- [官方订阅 阶跃星辰 →](https://platform.stepfun.com/docs/zh/step-plan/overview)`);
 lines.push('');
 lines.push('---');
 lines.push('');
@@ -132,35 +130,35 @@ lines.push('');
 lines.push('| # | 模型 | 图 | 分数 |');
 lines.push('|---|---|---|---|');
 const top25 = [
-  { name: 'Claude Opus 5', score: 63, flag: '🇺🇸' },
-  { name: 'Claude Fable 5', score: 62, flag: '🇺🇸' },
-  { name: 'GPT-5.6 Sol (max)', score: 61, flag: '🇺🇸' },
-  { name: 'Grok 4.6', score: 61, flag: '🇺🇸' },
-  { name: 'Kimi K3 (max)', score: 60, flag: '🇨🇳', cn: true },
-  { name: 'GLM-5.3', score: 60, flag: '🇨🇳', cn: true },
-  { name: 'Qwen3.8 Max', score: 58, flag: '🇨🇳', cn: true },
-  { name: 'Qwen3.8 2.4T A95B', score: 58, flag: '🇨🇳', cn: true },
-  { name: 'GLM-5.3-Flash', score: 57, flag: '🇨🇳', cn: true },
-  { name: 'Claude Opus 4.8', score: 57, flag: '🇺🇸' },
-  { name: 'Muse Spark 1.2 (xhigh)', score: 57, flag: '🇺🇸' },
-  { name: 'GPT-5.6 Terra (max)', score: 57, flag: '🇺🇸' },
-  { name: 'GPT-5.5 (xhigh)', score: 56, flag: '🇺🇸' },
-  { name: 'Gemini 3.7 Flash (high)', score: 56, flag: '🇺🇸' },
-  { name: 'Qwen3.8-Flash-Next', score: 56, flag: '🇨🇳', cn: true },
-  { name: 'Grok 4.5 (high)', score: 56, flag: '🇺🇸' },
-  { name: 'Claude Sonnet 5', score: 55, flag: '🇺🇸' },
-  { name: 'Claude Opus 4.7', score: 55, flag: '🇺🇸' },
-  { name: 'Muse Spark 1.1 (xhigh)', score: 53, flag: '🇺🇸' },
-  { name: 'DeepSeek V4 Pro 0813', score: 53, flag: '🇨🇳', cn: true },
-  { name: 'GPT-5.4 (xhigh)', score: 53, flag: '🇺🇸' },
-  { name: 'GLM-5.2 (max)', score: 53, flag: '🇨🇳', cn: true },
-  { name: 'GPT-5.6 Luna (max)', score: 52, flag: '🇺🇸' },
-  { name: 'Qwen3.8 27B', score: 52, flag: '🇨🇳', cn: true },
-  { name: 'Gemini 3.5 Flash (high)', score: 52, flag: '🇺🇸' },
+  { name: 'Claude Fable 5.1 (max)', score: 53, flag: '🇺🇸' },
+  { name: 'GPT-6 Astra (max)', score: 53, flag: '🇺🇸' },
+  { name: 'Claude Opus 5 (max)', score: 51, flag: '🇺🇸' },
+  { name: 'Muse Spark 1.3 (max)', score: 48, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Sol (max)', score: 47, flag: '🇺🇸' },
+  { name: 'Qwen3.8 Max (0902)', score: 45, flag: '🇨🇳', cn: true },
+  { name: 'GLM-5.3 (max)', score: 45, flag: '🇨🇳', cn: true },
+  { name: 'Grok 4.6 (high)', score: 44, flag: '🇺🇸' },
+  { name: 'Step 5 Preview', score: 44, flag: '🇨🇳', cn: true },
+  { name: 'Kimi K3 (max)', score: 44, flag: '🇨🇳', cn: true },
+  { name: 'Grok 4.6 (xhigh)', score: 44, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Sol (xhigh)', score: 44, flag: '🇺🇸' },
+  { name: 'Grok 4.6 (medium)', score: 43, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Sol (high)', score: 42, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Terra (max)', score: 42, flag: '🇺🇸' },
+  { name: 'GLM-5.3-Flash', score: 42, flag: '🇨🇳', cn: true },
+  { name: 'Gemini 3.8 Flash (high)', score: 41, flag: '🇺🇸' },
+  { name: 'Qwen3.8 2.4T A95B', score: 40, flag: '🇨🇳', cn: true },
+  { name: 'Qwen3.8-Flash-Next', score: 40, flag: '🇨🇳', cn: true },
+  { name: 'Gemini 3.8 Flash (medium)', score: 40, flag: '🇺🇸' },
+  { name: 'DeepSeek V4.1 Flash (max)', score: 39, flag: '🇨🇳', cn: true },
+  { name: 'Claude Opus 5 (low)', score: 39, flag: '🇺🇸' },
+  { name: 'Claude Sonnet 5 (max)', score: 38, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Terra (xhigh)', score: 38, flag: '🇺🇸' },
+  { name: 'GPT-5.6 Luna (max)', score: 37, flag: '🇺🇸' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {
-  const bar = '█'.repeat(Math.round((m.score / 63) * barMax));
+  const bar = '█'.repeat(Math.round((m.score / 53) * barMax));
   const nameStr = m.cn ? `**${m.flag} ${m.name}**` : `${m.flag} ${m.name}`;
   lines.push(`| ${i + 1} | ${nameStr} | ${bar} | ${m.score} |`);
 });

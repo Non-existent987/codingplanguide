@@ -29,11 +29,16 @@
 
 meta:
   version: 2
-  updated: 2026-08-31
+  updated: 2026-09-21
   currency_note: "USD 按 1 USD ≈ 7.2 CNY 折算"
   price_cap: 150
   scoring: "综合分 = 能力分×0.80 + 价格分×0.60 + 用量分×0.60 + 体验加分（满分100，加分上限20）"
-  capability_source: "Artificial Analysis Intelligence Index 全球排名（2026-08-31）"
+  capability_source: "Artificial Analysis Intelligence Index 全球排名（2026-09-21）"
+  cn_rank_1: "Qwen3.8 Max (0902) — 全球 #17（45分）"
+  cn_rank_2: "GLM-5.3 (max) — 全球 #18（45分）"
+  cn_rank_3: "GLM-5.3-Flash — 全球 #25（42分）"
+  cn_rank_4: "Qwen3.8 2.4T A95B — 全球 #31（40分）"
+  note_new: "阶跃 Step 5 Preview（44分）非智谱/阿里系，不计入上表国内排名，已单独收录。"
 
 plans:
   # ═══════ Featured ═══════
@@ -54,15 +59,15 @@ plans:
     yuan_per_M_token: 0.16
     capability_tier: T0
     capability_rank: null
-    capability_score: 8.2
+    capability_score: 7.8
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/activity/codingplan
     affiliate_url: https://volcengine.com/L/ZggDsb8yNHE/
-    note: 额度池含DeepSeek V4 Flash+GLM-5.2，¥40最便宜的量大选择，首两月2.5折。
+    note: 额度池含GLM-5.2+DeepSeek V4.1 Flash，¥40最便宜的量大选择，首两月2.5折。模型池整体未进国内前4。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-lite
     platform: 智谱 AI
@@ -81,15 +86,15 @@ plans:
     yuan_per_M_token: 0.98
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9.0
     quota_score: null
     purchase_difficulty: easy
     official_url: https://bigmodel.cn/glm-coding
     affiliate_url: https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV
-    note: 新套餐免抢购直购，GLM-5.3国内第2直连，Lite¥118起含GLM-5.3-Flash。
+    note: GLM-5.3 国内第2（全球#18），免抢购直购，Lite¥118起含GLM-5.3-Flash。
     verdict: 推荐
     featured: true
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: xunfei-pro
     platform: 讯飞·星火
@@ -108,15 +113,15 @@ plans:
     yuan_per_M_token: 0.16
     capability_tier: T0
     capability_rank: null
-    capability_score: 8.2
+    capability_score: 6.5
     quota_score: null
     purchase_difficulty: easy
     official_url: https://maas.xfyun.cn/packageSubscription?tab=month
     affiliate_url: null
-    note: GLM-5.1全球排名#54，国内不在前4，未入榜。¥39价格虽低但模型不够强。
+    note: 旗舰GLM-5.1已明显落后，国内不在前4，未入榜。¥39价格虽低但模型不够强。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: opencode-go
     platform: OpenCode
@@ -125,7 +130,7 @@ plans:
     currency: usd
     region: cn
     type: token
-    model_flagship: Kimi K3 领衔
+    model_flagship: Qwen3.8 Max + GLM-5.3 领衔
     models: [Kimi-K3, GLM-5.3, GLM-5.3-Flash, Qwen-3.8-Max, Qwen-3.8-Flash, DeepSeek-V4-Pro, DeepSeek-V4-Flash, Grok-4.6, GPT-5.6-Luna, MiniMax-M3, Qwen-3.7-Max, Qwen-3.7-Plus, MiMo-V2.5, Hy3]
     multimodal: false
     refill_5h: null
@@ -140,12 +145,120 @@ plans:
     purchase_difficulty: easy
     official_url: https://opencode.ai/go
     affiliate_url: https://opencode.ai/go?ref=Z4S0MDY3TX
-    note: 25模型一key全包：Kimi K3+GLM-5.3+Qwen3.8 Max+DeepSeek V4 Flash，国内前三+第4档旗舰全在池里。$10流畅不中断。
+    note: 25模型一key全包：Qwen3.8 Max+GLM-5.3+GLM-5.3-Flash+Step 5 Preview，国内前3全在池里。$10流畅不中断。
     verdict: 推荐
     featured: true
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   # ═══════ 备选 / 高预算 ═══════
+  - id: stepfun-flash-mini
+    platform: 阶跃星辰
+    plan: Step Plan Flash Mini
+    price_monthly: 49
+    currency: cny
+    region: cn
+    type: token
+    model_flagship: Step 5 Preview
+    models: [Step-5-Preview, Step-3.7-Flash, Step-3.5-Flash, StepAudio-2.5-Realtime, StepAudio-2.5-Chat, StepAudio-2.5-TTS, StepAudio-2.5-ASR, Step-Router-V1]
+    multimodal: true
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: 400
+    yuan_per_M_token: 0.12
+    capability_tier: T0
+    capability_rank: null
+    capability_score: 8.6
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://platform.stepfun.com/docs/zh/step-plan/overview
+    affiliate_url: null
+    note: Step 5 Preview 全球#19（44分，追平Kimi K3、超过Qwen3.8 2.4T），¥49/400M Credits，无5小时限额。
+    verdict: 推荐
+    featured: true
+    updated: 2026-09-21
+
+  - id: stepfun-flash-plus
+    platform: 阶跃星辰
+    plan: Step Plan Flash Plus
+    price_monthly: 99
+    currency: cny
+    region: cn
+    type: token
+    model_flagship: Step 5 Preview
+    models: [Step-5-Preview, Step-3.7-Flash, Step-3.5-Flash, StepAudio-2.5-Realtime, StepAudio-2.5-Chat, StepAudio-2.5-TTS, StepAudio-2.5-ASR, Step-Router-V1]
+    multimodal: true
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: 1600
+    yuan_per_M_token: 0.06
+    capability_tier: T0
+    capability_rank: null
+    capability_score: 8.6
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://platform.stepfun.com/docs/zh/step-plan/overview
+    affiliate_url: null
+    note: Step 5 Preview 1600M Credits，¥99加优先API速率+优先技术支持，量大首选。
+    verdict: 推荐
+    featured: true
+    updated: 2026-09-21
+
+  - id: stepfun-flash-pro
+    platform: 阶跃星辰
+    plan: Step Plan Flash Pro
+    price_monthly: 199
+    currency: cny
+    region: cn
+    type: token
+    model_flagship: Step 5 Preview
+    models: [Step-5-Preview, Step-3.7-Flash, Step-3.5-Flash, StepAudio-2.5-Realtime, StepAudio-2.5-Chat, StepAudio-2.5-TTS, StepAudio-2.5-ASR, Step-Router-V1]
+    multimodal: true
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: 8000
+    yuan_per_M_token: 0.02
+    capability_tier: T0
+    capability_rank: null
+    capability_score: 8.6
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://platform.stepfun.com/docs/zh/step-plan/overview
+    affiliate_url: null
+    note: 8000M Credits/月，重度用户档，超预算上限但每M成本极低。
+    verdict: 谨慎
+    featured: false
+    updated: 2026-09-21
+
+  - id: stepfun-flash-max
+    platform: 阶跃星辰
+    plan: Step Plan Flash Max
+    price_monthly: 699
+    currency: cny
+    region: cn
+    type: token
+    model_flagship: Step 5 Preview
+    models: [Step-5-Preview, Step-3.7-Flash, Step-3.5-Flash, StepAudio-2.5-Realtime, StepAudio-2.5-Chat, StepAudio-2.5-TTS, StepAudio-2.5-ASR, Step-Router-V1]
+    multimodal: true
+    refill_5h: null
+    refill_week: null
+    refill_month: null
+    measured_monthly_tokens_M: 40000
+    yuan_per_M_token: 0.02
+    capability_tier: T0
+    capability_rank: null
+    capability_score: 8.6
+    quota_score: null
+    purchase_difficulty: easy
+    official_url: https://platform.stepfun.com/docs/zh/step-plan/overview
+    affiliate_url: null
+    note: 40000M Credits/月 专业档，远超个人预算，团队/工作室考虑。
+    verdict: 谨慎
+    featured: false
+    updated: 2026-09-21
+
   - id: volcengine-pro
     platform: 字节·方舟
     plan: Coding Plan Pro
@@ -163,15 +276,15 @@ plans:
     yuan_per_M_token: 0.03
     capability_tier: T0
     capability_rank: null
-    capability_score: 8.2
+    capability_score: 7.8
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/activity/codingplan
     affiliate_url: https://volcengine.com/L/ZggDsb8yNHE/
-    note: 与 Lite 同价¥40，全家桶额度大，重度用户走量首选。
+    note: 与 Lite 同价¥40，全家桶额度大，重度用户走量首选。模型池未进国内前4。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-pro
     platform: 智谱 AI
@@ -190,7 +303,7 @@ plans:
     yuan_per_M_token: 0.9
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9
     quota_score: null
     purchase_difficulty: easy
     official_url: https://bigmodel.cn/glm-coding
@@ -198,7 +311,7 @@ plans:
     note: 改版积分制后¥538/月，远超预算。额度Lite的6倍，重度智谱用户考虑。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-max
     platform: 智谱 AI
@@ -217,7 +330,7 @@ plans:
     yuan_per_M_token: null
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9
     quota_score: null
     purchase_difficulty: easy
     official_url: https://bigmodel.cn/glm-coding
@@ -225,7 +338,7 @@ plans:
     note: 改版积分制后¥1078/月，量管够但价格离谱。免抢购直购，仅重度用户。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: xunfei-efficient
     platform: 讯飞·星火
@@ -244,15 +357,15 @@ plans:
     yuan_per_M_token: null
     capability_tier: T0
     capability_rank: null
-    capability_score: 8.2
+    capability_score: 7.8
     quota_score: null
     purchase_difficulty: easy
     official_url: https://maas.xfyun.cn/packageSubscription?tab=month
     affiliate_url: null
-    note: 高效版加GLM-5.2(国内第8)，超预算且旗舰不够顶，仅走量考虑。
+    note: 高效版含GLM-5.2，超预算且旗舰不够顶，仅走量考虑。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: aliyun-bailian-pro
     platform: 阿里·百炼
@@ -271,7 +384,7 @@ plans:
     yuan_per_M_token: 0.07
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6.5
     quota_score: null
     purchase_difficulty: normal
     official_url: https://www.aliyun.com/benefit/scene/codingplan
@@ -279,7 +392,7 @@ plans:
     note: Token量很大但旗舰模型非T0，适合高用量但对模型不苛求的。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: minimax-ultra
     platform: MiniMax
@@ -298,7 +411,7 @@ plans:
     yuan_per_M_token: 0.07
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: easy
     official_url: https://platform.minimaxi.com/subscribe/token-plan
@@ -306,7 +419,7 @@ plans:
     note: 多模态+海量额度，4百多值但超预算太多。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: deepseek-flash-200
     platform: DeepSeek
@@ -325,15 +438,15 @@ plans:
     yuan_per_M_token: 0.14
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: easy
     official_url: https://api-docs.deepseek.com/zh-cn/quick_start/pricing
     affiliate_url: null
-    note: V4 Flash已跌出国内前4，直连涨价后走量不划算，便宜走法看首页Flash Top3。
+    note: V4 Flash 0731 已退役（更名为V4.1 Flash），AA榜上已不在前列，直连走量不划算。DeepSeek 9/10 起降价+峰谷计费，用量小可直接调 API。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-intl-lite
     platform: 智谱国际版
@@ -352,7 +465,7 @@ plans:
     yuan_per_M_token: null
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9
     quota_score: null
     purchase_difficulty: easy
     official_url: https://z.ai/subscribe
@@ -360,7 +473,7 @@ plans:
     note: 国际版Lite，GLM-5.3国内第2直连，首年$12.6/月(7折)。海外稳定支付。
     verdict: 推荐
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-intl-pro
     platform: 智谱国际版
@@ -379,7 +492,7 @@ plans:
     yuan_per_M_token: 0.86
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9
     quota_score: null
     purchase_difficulty: easy
     official_url: https://z.ai/subscribe
@@ -387,7 +500,7 @@ plans:
     note: GLM-5.3海外版Pro，5倍Lite用量，首年$50.4/月(7折)。海外用户友好。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: glm-intl-max
     platform: 智谱国际版
@@ -406,7 +519,7 @@ plans:
     yuan_per_M_token: null
     capability_tier: T0
     capability_rank: 2
-    capability_score: 8.2
+    capability_score: 9
     quota_score: null
     purchase_difficulty: easy
     official_url: https://z.ai/subscribe
@@ -414,7 +527,7 @@ plans:
     note: 国际版Max，20倍Lite用量，首年$112/月(7折)。首发最新旗舰，高峰专属资源。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: moore-free
     platform: 摩尔线程
@@ -433,7 +546,7 @@ plans:
     yuan_per_M_token: 0
     capability_tier: T2
     capability_rank: null
-    capability_score: 6.0
+    capability_score: 5.5
     quota_score: null
     purchase_difficulty: hard
     official_url: https://www.mthreads.com/
@@ -441,7 +554,7 @@ plans:
     note: 白嫖福利。但限量、模型比T0差一档，只能应急。
     verdict: 平替
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   # ═══════ 新增 2026-07-03 ═══════
   - id: aliyun-bailian-lite
@@ -460,16 +573,16 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 3
-    capability_score: 8.8
+    capability_rank: 1
+    capability_score: 9.2
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.aliyun.com/benefit/scene/tokenplan
     affiliate_url: null
-    note: Qwen3.8 Max国产第3，Token Plan个人版¥39低价，2500 Credits/周。Coding Plan Lite已停售。
+    note: Qwen3.8 Max 国内第1（全球#17），Token Plan个人版¥39低价，2500 Credits/周。
     verdict: 推荐
     featured: true
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: aliyun-bailian-token-standard
     platform: 阿里·百炼
@@ -487,8 +600,8 @@ plans:
     measured_monthly_tokens_M: null
     yuan_per_M_token: null
     capability_tier: T0
-    capability_rank: 3
-    capability_score: 8.8
+    capability_rank: 1
+    capability_score: 9.2
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.aliyun.com/benefit/scene/tokenplan
@@ -496,7 +609,7 @@ plans:
     note: Standard档10,000 Credits/周，Qwen3.8 Max额度充足，¥139卡预算上限。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: aliyun-bailian-token-advanced
     platform: 阿里·百炼
@@ -515,7 +628,7 @@ plans:
     yuan_per_M_token: 0.06
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6.5
     quota_score: null
     purchase_difficulty: normal
     official_url: https://www.aliyun.com/product/bailian
@@ -523,7 +636,7 @@ plans:
     note: 高级Token包，额度巨大但价格远超预算，企业用户考虑。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: volcengine-token-small
     platform: 字节·方舟
@@ -542,7 +655,7 @@ plans:
     yuan_per_M_token: 0.10
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.2
+    capability_score: 6.8
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/product/ark
@@ -550,7 +663,7 @@ plans:
     note: 方舟Token入门，首月¥9.9，Doubao-2.0-Pro尚可但非T0。
     verdict: 平替
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: volcengine-token-medium
     platform: 字节·方舟
@@ -569,7 +682,7 @@ plans:
     yuan_per_M_token: 0.10
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.2
+    capability_score: 6.8
     quota_score: null
     purchase_difficulty: easy
     official_url: https://www.volcengine.com/product/ark
@@ -577,7 +690,7 @@ plans:
     note: 中档Token包，超预算但模型池比Coding Plan窄。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: minimax-plus
     platform: MiniMax
@@ -596,7 +709,7 @@ plans:
     yuan_per_M_token: 0.07
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: easy
     official_url: https://platform.minimaxi.com/subscribe/token-plan
@@ -604,7 +717,7 @@ plans:
     note: MiniMax入门，多模态+M3，¥49性价比不错但非T0。
     verdict: 平替
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: minimax-max
     platform: MiniMax
@@ -623,7 +736,7 @@ plans:
     yuan_per_M_token: 0.05
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: easy
     official_url: https://platform.minimaxi.com/subscribe/token-plan
@@ -631,7 +744,7 @@ plans:
     note: Max额度是Plus三倍多，¥119在预算内，多模态加分。
     verdict: 平替
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: baidu-qianfan-lite
     platform: 百度·千帆
@@ -650,7 +763,7 @@ plans:
     yuan_per_M_token: 0.13
     capability_tier: T2
     capability_rank: null
-    capability_score: 6.0
+    capability_score: 5.5
     quota_score: null
     purchase_difficulty: normal
     official_url: https://qianfan.baidubce.com/
@@ -658,7 +771,7 @@ plans:
     note: 千帆入门，ERNIE-4.5代码能力偏弱，¥40不如方舟Lite。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: baidu-qianfan-pro
     platform: 百度·千帆
@@ -677,7 +790,7 @@ plans:
     yuan_per_M_token: 0.13
     capability_tier: T2
     capability_rank: null
-    capability_score: 6.0
+    capability_score: 5.5
     quota_score: null
     purchase_difficulty: normal
     official_url: https://qianfan.baidubce.com/
@@ -685,7 +798,7 @@ plans:
     note: 千帆Pro，超预算且旗舰偏弱，不推荐个人开发者。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: jdcloud-lite
     platform: 京东云
@@ -704,15 +817,15 @@ plans:
     yuan_per_M_token: 0.13
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: normal
     official_url: https://www.jdcloud.com/cn/products/nlp-model
     affiliate_url: null
-    note: 京东云入门，转售DeepSeek/Qwen，¥40还行但V4 Flash已跌出前4。
+    note: 京东云入门，转售DeepSeek/Qwen，¥40还行但转售模型均未进国内前4。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: jdcloud-pro
     platform: 京东云
@@ -731,7 +844,7 @@ plans:
     yuan_per_M_token: 0.13
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: normal
     official_url: https://www.jdcloud.com/cn/products/nlp-model
@@ -739,7 +852,7 @@ plans:
     note: 京东云Pro，超预算且转售无优势，不如方舟Coding Plan走量。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: tencentcloud-lite
     platform: 腾讯云
@@ -758,7 +871,7 @@ plans:
     yuan_per_M_token: 0.13
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: normal
     official_url: https://cloud.tencent.com/product/lke
@@ -766,7 +879,7 @@ plans:
     note: 腾讯云入门，¥39最低档，转售模型无独特优势。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: tencentcloud-standard
     platform: 腾讯云
@@ -785,7 +898,7 @@ plans:
     yuan_per_M_token: 0.12
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: normal
     official_url: https://cloud.tencent.com/product/lke
@@ -793,7 +906,7 @@ plans:
     note: 腾讯云标准，¥99在预算内，额度适中但模型池一般。
     verdict: 平替
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: tencentcloud-pro
     platform: 腾讯云
@@ -812,7 +925,7 @@ plans:
     yuan_per_M_token: 0.12
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: normal
     official_url: https://cloud.tencent.com/product/lke
@@ -820,7 +933,7 @@ plans:
     note: 腾讯云Pro，远超预算，转售无独特优势不推荐。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-31
+    updated: 2026-09-21
 
   - id: huawei-lite
     platform: 华为云
@@ -839,7 +952,7 @@ plans:
     yuan_per_M_token: 0.30
     capability_tier: T2
     capability_rank: null
-    capability_score: 5.5
+    capability_score: 5
     quota_score: null
     purchase_difficulty: hard
     official_url: https://www.huaweicloud.com/product/modelarts.html
@@ -847,7 +960,7 @@ plans:
     note: 华为云入门，盘古代码能力弱，¥59偏贵且开通繁琐。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: huawei-standard
     platform: 华为云
@@ -866,7 +979,7 @@ plans:
     yuan_per_M_token: 0.25
     capability_tier: T2
     capability_rank: null
-    capability_score: 5.5
+    capability_score: 5
     quota_score: null
     purchase_difficulty: hard
     official_url: https://www.huaweicloud.com/product/modelarts.html
@@ -874,7 +987,7 @@ plans:
     note: 华为云标准，卡在¥150边缘但盘古偏弱，不如选方舟。
     verdict: 谨慎
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21
 
   - id: xiaomi-mimo-lite
     platform: 小米·MiMo
@@ -893,7 +1006,7 @@ plans:
     yuan_per_M_token: 0.16
     capability_tier: T1
     capability_rank: null
-    capability_score: 7.0
+    capability_score: 6
     quota_score: null
     purchase_difficulty: easy
     official_url: https://mimo.xiaomi.com/
@@ -901,4 +1014,4 @@ plans:
     note: 小米MiMo入门，¥39最低价之一，MiMo-V2.5-Pro代码能力尚可。
     verdict: 平替
     featured: false
-    updated: 2026-08-02
+    updated: 2026-09-21

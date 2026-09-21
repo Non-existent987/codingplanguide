@@ -27,3 +27,6 @@ Thumbs.db
 
 # runtime artifacts
 reports/
+
+# agent workspace (本地记忆/日志，不入库)
+.workbuddy/
