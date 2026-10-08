@@ -74,12 +74,13 @@ git push
 
 - 数据来源：`https://artificialanalysis.ai/leaderboards/models` Intelligence Index
 - 排名数据硬编码在：
-  - `src/pages/index.astro:148`（首页前10）
-  - `src/pages/rankings.astro:4`（排名页前25）
-  - `scripts/gen-readme.mjs:110`（README前25）
+  - `src/pages/index.astro`（首页前10）
+  - `src/pages/rankings.astro` 顶部（排名页前25）
+  - `scripts/gen-readme.mjs`（README前25）
   - **三处需同步更新**
-- 国内排名定义：按 AA Intelligence Index 分数降序
-  - 国内第1=Kimi K3(#5), 第2=GLM-5.3(#6), 第3=Qwen3.8 Max(#7), 第4=Qwen3.8 2.4T A95B(#8)
+- OpenCode Go 池内模型的 AA 排名另有两处硬编码：`src/pages/rankings.astro` 表格 + `scripts/gen-readme.mjs` 的 `ocModels`，**两处也要同步**
+- 国内排名定义：按 AA Intelligence Index 分数降序，同一模型只取最高分档位（max / xhigh 等）
+  - 国内第1=MiMo-V2.6-Pro(46分), 第2=Qwen3.8 Max(45分), 第3=GLM-5.3(45分), 第4=Step 5 Preview(44分，与 Kimi K3 并列)
 
 ## 重要约定
 
