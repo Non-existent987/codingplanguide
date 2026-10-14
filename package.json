@@ -7,7 +7,7 @@
   "license": "CC-BY-4.0",
   "scripts": {
     "dev": "astro check && astro dev",
-    "build": "astro build",
+    "build": "node scripts/gen-weekly.mjs && astro build",
     "preview": "astro preview",
     "validate": "node scripts/validate.mjs",
     "gen:readme": "node scripts/gen-readme.mjs",

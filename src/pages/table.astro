@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { base } from '../base';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -110,7 +111,7 @@ function fmtPrice(p) { return p.currency === 'usd' ? `$${p.price_monthly}` : `¥
       </table>
     </div>
 
-    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.4rem">评分公式见 <a href="/method">方法说明</a>。</p>
+    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.4rem">评分公式见 <a href={`${base()}method`}>方法说明</a>。</p>
   </section>
 </Base>
 

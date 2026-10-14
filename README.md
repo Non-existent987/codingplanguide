@@ -190,6 +190,19 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 数据以官方公布为准。
 
+---
+
+## English TL;DR
+
+**Coding Plan Guide** is a weekly-updated, formula-ranked buyer's guide for AI coding subscriptions in China — 8 plans from Zhipu GLM, Aliyun Bailian (Qwen), Volcengine Ark, Xiaomi MiMo, StepFun, MiniMax, iFlytek, Baidu, OpenCode and more. Ranking formula: capability×0.80 + price×0.60 + quota×0.60 + experience bonus (max 100). No pay-to-rank, no editorial overrides.
+
+Top value picks right now:
+1. **小米·MiMo · Lite** — ¥39/mo. MiMo-V2.6-Pro (AA Intelligence Index 9.2). Score 70.2.
+2. **阿里·百炼 · Token Plan Lite** — ¥39/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 55.7.
+3. **OpenCode · Go（$10/月）** — $10/mo. Qwen3.8 Max + GLM-5.3 + Step 5 Preview 领衔 (AA Intelligence Index 9). Score 48.25.
+
+Live site (GitHub Pages mirror): [non-existent987.github.io/codingplanguide](https://non-existent987.github.io/codingplanguide/)
+
 ## License
 
 CC BY 4.0

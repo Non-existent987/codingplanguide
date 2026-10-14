@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import weekly from '../../data/weekly.json';
+
+const FIELD_LABEL = {
+  price_monthly: '月费',
+  price_first_month: '首月价',
+  refill_5h: '5小时额度',
+  refill_week: '周额度',
+  refill_month: '月额度',
+  capability_score: '能力分',
+  capability_rank: '国内排名',
+  model_flagship: '旗舰模型',
+  verdict: '结论',
+  featured: '精选',
+  note: '备注',
+};
+function fmt(v) {
+  if (v === null || v === undefined) return '—';
+  if (typeof v === 'boolean') return v ? '是' : '否';
+  return String(v);
+}
+const changed = weekly.changes.filter(c => c.type === 'changed');
+const added = weekly.changes.filter(c => c.type === 'new');
+const removed = weekly.changes.filter(c => c.type === 'removed');
+const hasData = weekly.from && weekly.to;
+const period = hasData ? `${weekly.from} → ${weekly.to}` : '';
+---
+
+<Base path="/weekly" title="周报 · Coding Plan Guide" description="每周自动对比价格快照：哪些套餐变了价、换了额度、动了排名。">
+  <section class="wrap" style="padding-top:3rem;padding-bottom:2rem">
+    <p class="eyebrow"><span class="bar"></span>每周变动</p>
+    <h1>这周，价格和排名动了什么。</h1>
+    <p style="color:var(--ink-soft);max-width:62ch">
+      自动对比相邻两期价格快照（每周一生成），只报实际变化：调价、额度、排名、上下架。没有变化就是没有变化，不凑内容。
+    </p>
+    {hasData && <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">本期对比区间：{period}</p>}
+  </section>
+
+  <section class="wrap" style="padding-bottom:3rem">
+    {!hasData && <p style="color:var(--ink-faint)">快照数据积累中，下周出第一期。</p>}
+    {hasData && changed.length === 0 && added.length === 0 && removed.length === 0 && (
+      <div class="result-card" style="padding:2rem">
+        <div class="name">本期无变化。</div>
+        <p class="why">所有在售套餐的价格、额度、排名与上期一致。</p>
+      </div>
+    )}
+    {added.length > 0 && (
+      <div style="margin-bottom:2rem">
+        <h2 style="font-size:1.1rem">新增套餐（{added.length}）</h2>
+        <ul style="color:var(--ink-soft);line-height:2">
+          {added.map(c => <li><b>{c.platform} · {c.plan}</b></li>)}
+        </ul>
+      </div>
+    )}
+    {removed.length > 0 && (
+      <div style="margin-bottom:2rem">
+        <h2 style="font-size:1.1rem">下架套餐（{removed.length}）</h2>
+        <ul style="color:var(--ink-soft);line-height:2">
+          {removed.map(c => <li><b>{c.platform} · {c.plan}</b></li>)}
+        </ul>
+      </div>
+    )}
+    {changed.length > 0 && (
+      <div style="overflow-x:auto">
+        <table class="thin-table">
+          <thead>
+            <tr><th>平台 · 套餐</th><th>字段</th><th>上期</th><th>本期</th></tr>
+          </thead>
+          <tbody>
+            {changed.map(c => c.diffs.map(d => (
+              <tr>
+                <td><b>{c.platform} · {c.plan}</b></td>
+                <td>{FIELD_LABEL[d.field] || d.field}</td>
+                <td class="num">{fmt(d.from)}</td>
+                <td class="num">{fmt(d.to)}</td>
+              </tr>
+            )))}
+          </tbody>
+        </table>
+      </div>
+    )}
+    <p style="color:var(--ink-faint);font-size:.82rem;margin-top:1.4rem">
+      数据来源：每周一自动抓取的 <a href={`${import.meta.env.BASE_URL}table`}>全量套餐表</a> 快照，仅记录实际差异。
+    </p>
+  </section>
+</Base>

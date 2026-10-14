@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { base } from '../base';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -66,7 +67,7 @@ function firstPrice(note) {
   <section class="wrap hero">
     <p class="eyebrow"><span class="bar"></span>AI 编程 · 怎么选最值</p>
     <h1>每月不超<span class="accent">¥{PRICE_CAP}</span>，<br/>模型就得用最强的。</h1>
-    <p class="lede">从几十款套餐里筛出真正值得买的——价格不超¥{PRICE_CAP}、模型T0、用量扛造。不藏着掖着，怎么算的写在<a href="/method">方法页</a>里。</p>
+    <p class="lede">从几十款套餐里筛出真正值得买的——价格不超¥{PRICE_CAP}、模型T0、用量扛造。不藏着掖着，怎么算的写在<a href={`${base()}method`}>方法页</a>里。</p>
     <p class="meta">更新于 {meta.updated} · {featured.length} 款过线</p>
   </section>
 
@@ -128,20 +129,20 @@ function firstPrice(note) {
       ))}
     </div>
     <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem">
-      综合分 = 能力×40% + 价格×30% + 用量×30%。不超过¥{PRICE_CAP}、模型≥国内前4。<a href="/method">方法说明 →</a>
+      综合分 = 能力×40% + 价格×30% + 用量×30%。不超过¥{PRICE_CAP}、模型≥国内前4。<a href={`${base()}method`}>方法说明 →</a>
     </p>
   </section>
 
   <section class="wrap" style="margin-top:4rem;padding-bottom:2rem">
-    <p style="color:var(--ink-soft)"><b>不确定买哪个？</b> <a href="/calculator">用计算器，4 个问题给一个答案 →</a></p>
-    <p style="color:var(--ink-soft);margin-top:.5rem">或者 <a href="/table">直接看 {doc.plans.length - featured.length} 款未过线的全套 →</a></p>
+    <p style="color:var(--ink-soft)"><b>不确定买哪个？</b> <a href={`${base()}calculator`}>用计算器，4 个问题给一个答案 →</a></p>
+    <p style="color:var(--ink-soft);margin-top:.5rem">或者 <a href={`${base()}table`}>直接看 {doc.plans.length - featured.length} 款未过线的全套 →</a></p>
   </section>
 
   <section class="wrap" style="padding-bottom:2rem">
     <p class="eyebrow"><span class="bar"></span>模型能力排名</p>
     <h2>谁最强，一目了然。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      数据来自 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a> Intelligence Index，综合 9 项独立评测。前 10 名如下，<a href="/rankings">完整 25 名 →</a>
+      数据来自 <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a> Intelligence Index，综合 9 项独立评测。前 10 名如下，<a href={`${base()}rankings`}>完整 25 名 →</a>
     </p>
     <div class="chart-home">
       {[

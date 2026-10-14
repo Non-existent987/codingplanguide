@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { base } from '../base';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -249,7 +250,7 @@ const plans = doc.plans.map(p => ({
 }
 </style>
 
-<script is:inline define:vars={{ plans, USD2CNY }}>
+<script is:inline define:vars={{ plans, USD2CNY, TABLE_URL: base() + 'table' }}>
   const $ = (s) => document.querySelector(s);
   const budget = $('#budget');
   const budgetOut = $('#budgetOut');
@@ -326,7 +327,7 @@ const plans = doc.plans.map(p => ({
   function render(scored, ctx) {
     if (scored.length === 0) {
       result.style.display = 'block';
-      result.innerHTML = '<div class="result-card" style="padding:2rem 0"><div class="name">没找着符合条件的。</div><p class="why">放宽预算、降低模型要求、或允许抢购试试。或者<a href="/table" style="color:var(--accent)">自己看全部</a>。</p></div>';
+      result.innerHTML = '<div class="result-card" style="padding:2rem 0"><div class="name">没找着符合条件的。</div><p class="why">放宽预算、降低模型要求、或允许抢购试试。或者<a href="${TABLE_URL}" style="color:var(--accent)">自己看全部</a>。</p></div>';
       return;
     }
 

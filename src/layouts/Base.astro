@@ -1,7 +1,11 @@
 ---
 import '../styles/global.css';
 const { title = 'AI 编程订阅精选导购', description = '2026 年最该买的 AI 编程订阅。给一个答案，不是列一堆。透明打分、精选 Top、可查全量。', path = '/' } = Astro.props;
-const site = 'https://codingplanguide.com';
+// BASE_URL：'/'（主站）或 '/codingplanguide/'（GitHub Pages 镜像）
+const B0 = import.meta.env.BASE_URL;
+const B = B0.endsWith('/') ? B0 : B0 + '/';
+const siteHost = (Astro.site ?? new URL('https://codingplanguide.com')).href.replace(/\/$/, '');
+const canon = B === '/' ? `${siteHost}${path}` : `${siteHost}${B.replace(/\/$/, '')}${path}`;
 ---
 
 <!doctype html>
@@ -11,7 +15,7 @@ const site = 'https://codingplanguide.com';
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={`${site}${path}`} />
+  <link rel="canonical" href={canon} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" />
@@ -19,14 +23,15 @@ const site = 'https://codingplanguide.com';
 </head>
 <body>
   <nav class="site-nav">
-    <a class="brand" href="/">Coding Plan<span class="dot">·</span>Guide</a>
+    <a class="brand" href={B}>Coding Plan<span class="dot">·</span>Guide</a>
     <div class="links">
-      <a href="/" class={path === '/' ? 'active' : ''}>精选</a>
-      <a href="/calculator" class={path === '/calculator' ? 'active' : ''}>选哪个</a>
-      <a href="/rankings" class={path === '/rankings' ? 'active' : ''}>模型排名</a>
-      <a href="/leaderboard" class={path === '/leaderboard' ? 'active' : ''}>多维排名</a>
-      <a href="/table" class={path === '/table' ? 'active' : ''}>全部</a>
-      <a href="/method" class={path === '/method' ? 'active' : ''}>方法</a>
+      <a href={`${B}`} class={path === '/' ? 'active' : ''}>精选</a>
+      <a href={`${B}calculator`} class={path === '/calculator' ? 'active' : ''}>选哪个</a>
+      <a href={`${B}rankings`} class={path === '/rankings' ? 'active' : ''}>模型排名</a>
+      <a href={`${B}leaderboard`} class={path === '/leaderboard' ? 'active' : ''}>多维排名</a>
+      <a href={`${B}table`} class={path === '/table' ? 'active' : ''}>全部</a>
+      <a href={`${B}weekly`} class={path === '/weekly' ? 'active' : ''}>周报</a>
+      <a href={`${B}method`} class={path === '/method' ? 'active' : ''}>方法</a>
     </div>
   </nav>
 

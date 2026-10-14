@@ -28,5 +28,8 @@ Thumbs.db
 # runtime artifacts
 reports/
 
+# generated weekly digest (build-time artifact)
+data/weekly.json
+
 # agent workspace (本地记忆/日志，不入库)
 .workbuddy/
