@@ -67,8 +67,12 @@ git push
 
 ## 部署
 
-- `main` 分支 push → GitHub Actions 自动：npm ci → validate → gen:readme → build → SCP dist/ 到腾讯云 → nginx reload
+- `main` 分支 push → GitHub Actions 两个并行 job：
+  - `build-and-deploy`：npm ci → validate → gen:readme → build → SCP dist/ 到腾讯云 → nginx reload
+  - `deploy-pages`：build → GitHub Pages（**生产入口**，自定义域名 `codingplanguide.com`，`public/CNAME` 指定）
 - GitHub Secrets：`DEPLOY_SSH_KEY`、`SERVER_HOST`(124.222.157.181)、`SERVER_PORT`(22)、`REMOTE_PATH`(/var/www/codingplanguide)、`SERVER_HOST_KEY`
+- 备案已放弃：域名 DNS 指向 GitHub Pages（海外），不再走国内服务器；腾讯云 job 保留作后备
+- 域名 DNS 记录（DNSPod）：A `@` → 185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153；CNAME `www` → `non-existent987.github.io`
 
 ## 模型能力排名
 

@@ -233,7 +233,7 @@ featured.slice(0, 3).forEach((p, i) => {
   lines.push(`${i + 1}. **${p.platform} · ${p.plan}** — ${fmtPrice(p)}/mo. ${p.model_flagship || ''} (AA Intelligence Index ${p.capability_score}). Score ${p.total_score}.`);
 });
 lines.push('');
-lines.push(`Live site (GitHub Pages mirror): [non-existent987.github.io/codingplanguide](https://non-existent987.github.io/codingplanguide/)`);
+lines.push(`Live site: [codingplanguide.com](https://codingplanguide.com) (hosted on GitHub Pages)`);
 lines.push('');
 lines.push('## License');
 lines.push('');
