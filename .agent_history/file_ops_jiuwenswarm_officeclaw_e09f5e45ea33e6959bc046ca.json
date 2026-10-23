@@ -1,0 +1,10 @@
+{
+  "D:\\codetools\\codingplan\\.gitignore": [
+    {
+      "action": "edit",
+      "timestamp": "2026-10-23T01:35:49.273875+00:00",
+      "old_content": "# build output\ndist/\n.output/\n.astro/\n\n# deps\nnode_modules/\n\n# secrets / env\n.env\n.env.*\n!.env.example\n\n# misc\n.DS_Store\n*.log\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n\n# os\nThumbs.db\n\n# editor\n.vscode/\n.idea/\n\n# runtime artifacts\nreports/\n\n# generated weekly digest (build-time artifact)\ndata/weekly.json\n\n# agent workspace (本地记忆/日志，不入库)\n.workbuddy/\n",
+      "new_content": "# build output\ndist/\n.output/\n.astro/\n\n# deps\nnode_modules/\n\n# secrets / env\n.env\n.env.*\n!.env.example\n\n# misc\n.DS_Store\n*.log\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n\n# os\nThumbs.db\n\n# editor\n.vscode/\n.idea/\n\n# runtime artifacts\nreports/\n\n# generated weekly digest (build-time artifact)\ndata/weekly.json\n\n# agent workspace (本地记忆/日志，不入库)\n.workbuddy/\n.office-claw/\n"
+    }
+  ]
+}

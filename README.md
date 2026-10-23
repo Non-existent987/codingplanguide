@@ -201,7 +201,7 @@ Top value picks right now:
 2. **阿里·百炼 · Token Plan Lite** — ¥39/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 55.7.
 3. **OpenCode · Go（$10/月）** — $10/mo. Qwen3.8 Max + GLM-5.3 + Step 5 Preview 领衔 (AA Intelligence Index 9). Score 48.25.
 
-Live site (GitHub Pages mirror): [non-existent987.github.io/codingplanguide](https://non-existent987.github.io/codingplanguide/)
+Live site: [codingplanguide.com](https://codingplanguide.com) (hosted on GitHub Pages)
 
 ## License
 
