@@ -34,3 +34,4 @@ data/weekly.json
 # agent workspace (本地记忆/日志，不入库)
 .workbuddy/
 .office-claw/
+.agent_history/
