@@ -1,3 +1,4 @@
+// AI生成
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -58,15 +59,15 @@ lines.push('| 模型 | 每5小时请求数 | 每周请求数 | 每月请求数 |
 lines.push('|---|---|---|---|---|');
 const ocModels = [
   { name: 'Grok 4.6', h5: 169, week: 423, month: 845, aa: null },
-  { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 13 },
-  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 11 },
-  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 10 },
-  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 16 },
+  { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 16 },
+  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 13 },
+  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 11 },
+  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 20 },
   { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: null },
   { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: null },
   { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: null },
   { name: 'GLM-5.2', h5: 880, week: 2150, month: 4300, aa: null },
-  { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: 23 },
+  { name: 'GPT-5.6 Luna', h5: 2050, week: 5100, month: 10250, aa: null },
   { name: 'DeepSeek V4 Flash', h5: 7600, week: 18900, month: 37800, aa: null },
   { name: 'DeepSeek V4 Flash Vision Exp', h5: 3800, week: 9450, month: 18900, aa: null },
   { name: 'Qwen3.7 Max', h5: 340, week: 840, month: 1690, aa: null },
@@ -87,9 +88,9 @@ ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | ${m.aa ? '#' + m.aa : '—'} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-10-08）；「—」表示未进全球前 25。');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-10-23）；「—」表示未进全球前 25。');
 lines.push('>');
-lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第3）、Step 5 Preview（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 3 席。流畅无中断、无告警、无扣量问题。');
+lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
 lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
@@ -97,7 +98,7 @@ lines.push('---');
 lines.push('');
 lines.push('## 阶跃星辰 Step 5 Preview');
 lines.push('');
-lines.push('9/19 发布的 Step 5 Preview，AA 智能指数 44 分，**国内第 4**（与 Kimi K3 并列），Terminal-Bench 4.0 拿到 33.3%。Step Plan 走月池 Credit（1M Credit = ¥1），月内任意时段消耗，**没有 5 小时限额**——不存在写着写着被掐断的体验。');
+lines.push('9/19 发布的 Step 5 Preview，AA 智能指数 44 分（未进国内前4），Terminal-Bench 4.0 拿到 33.3%。Step Plan 走月池 Credit（1M Credit = ¥1），月内任意时段消耗，**没有 5 小时限额**——不存在写着写着被掐断的体验。');
 lines.push('');
 lines.push('| 档位 | 月费 | 月度 Credit | 5 小时限额 | 备注 |');
 lines.push('|---|---|---|---|---|');
@@ -112,7 +113,7 @@ lines.push('---');
 lines.push('');
 lines.push('## 便宜用量 · Top 3');
 lines.push('');
-lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-08）重新排出的 3 条路：');
+lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-23）重新排出的 3 条路：');
 lines.push('');
 lines.push('**No.1 · 小米 · MiMo Lite** — ¥39/月。MiMo-V2.6-Pro 现在**国内第 1**（AA 46 分，9/22 发布），超过 Qwen3.8 Max 与 GLM-5.3，也是目前开源权重里的最高分。¥39 是全市场价格最低档之一，41 亿 Credits/月，支持 Cursor / Cline / Zed。');
 lines.push(`- [官方订阅 小米 MiMo →](https://mimo.xiaomi.com/)`);
@@ -120,7 +121,7 @@ lines.push('');
 lines.push('**No.2 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（45 分），与 GLM-5.3 同分。¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。');
 lines.push(`- [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)`);
 lines.push('');
-lines.push('**No.3 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash + Step 5 Preview，**国内前 4 占 3 席**。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。');
+lines.push('**No.3 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash，**国内前 4 占 2 席**。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。');
 lines.push(`- [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
 lines.push('---');
@@ -132,29 +133,29 @@ lines.push('|---|---|---|---|');
 const top25 = [
   { name: 'Claude Opus 5.5 (max)', score: 58, flag: '🇺🇸' },
   { name: 'Claude Sonnet 5.5 (max)', score: 56, flag: '🇺🇸' },
+  { name: 'Muse Wonder Full (max)', score: 56, flag: '🇺🇸' },
   { name: 'Claude Fable 5.1 (max)', score: 53, flag: '🇺🇸' },
   { name: 'GPT-6 Astra (max)', score: 53, flag: '🇺🇸' },
   { name: 'Gemini 4 Argon (high)', score: 53, flag: '🇺🇸' },
+  { name: 'Muse Wonder (max)', score: 52, flag: '🇺🇸' },
   { name: 'GPT-6.1 Sol (max)', score: 52, flag: '🇺🇸' },
-  { name: 'Muse Spark 1.3 (max)', score: 48, flag: '🇺🇸' },
   { name: 'Grok 4.7 (xhigh)', score: 46, flag: '🇺🇸' },
   { name: 'MiMo-V2.6-Pro', score: 46, flag: '🇨🇳', cn: true },
   { name: 'Qwen3.8 Max (0902)', score: 45, flag: '🇨🇳', cn: true },
+  { name: 'DeepSeek V4.1 Flash 1017', score: 45, flag: '🇨🇳', cn: true },
   { name: 'GLM-5.3 (max)', score: 45, flag: '🇨🇳', cn: true },
+  { name: 'Ling 3.1 Flash 1019', score: 44, flag: '🇨🇳', cn: true },
   { name: 'Step 5 Preview', score: 44, flag: '🇨🇳', cn: true },
   { name: 'Kimi K3 (max)', score: 44, flag: '🇨🇳', cn: true },
   { name: 'Claude Haiku 5.5 (max)', score: 43, flag: '🇺🇸' },
+  { name: 'MiniMax-M3.1-Flash', score: 43, flag: '🇨🇳', cn: true },
   { name: 'GPT-5.6 Terra (max)', score: 42, flag: '🇺🇸' },
   { name: 'GLM-5.3-Flash', score: 42, flag: '🇨🇳', cn: true },
   { name: 'Ling 3.1 Flash', score: 41, flag: '🇨🇳', cn: true },
   { name: 'Gemini 3.8 Flash (high)', score: 41, flag: '🇺🇸' },
   { name: 'Qwen3.8 2.4T A95B', score: 40, flag: '🇨🇳', cn: true },
   { name: 'Qwen3.8-Flash-Next', score: 40, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4.1 Flash (max)', score: 39, flag: '🇨🇳', cn: true },
-  { name: 'Mistral Large 4 Preview', score: 38, flag: '🇺🇸' },
-  { name: 'GPT-6 Luna (max)', score: 38, flag: '🇺🇸' },
-  { name: 'MiMo-V2.6-Flash', score: 38, flag: '🇨🇳', cn: true },
-  { name: 'DeepSeek V4 Pro (max)', score: 36, flag: '🇨🇳', cn: true },
+  { name: 'Muse Spark Open (xhigh)', score: 39, flag: '🇺🇸' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {
@@ -163,7 +164,7 @@ top25.forEach((m, i) => {
   lines.push(`| ${i + 1} | ${nameStr} | ${bar} | ${m.score} |`);
 });
 lines.push('');
-lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-10-08）');
+lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-10-23）');
 lines.push('');
 lines.push('---');
 lines.push('');

@@ -148,14 +148,14 @@ function firstPrice(note) {
       {[
         { rank: 1, name: 'Claude Opus 5.5', org: 'Anthropic', score: 58, flag: '🇺🇸', note: 'max' },
         { rank: 2, name: 'Claude Sonnet 5.5', org: 'Anthropic', score: 56, flag: '🇺🇸', note: 'max' },
-        { rank: 3, name: 'Claude Fable 5.1', org: 'Anthropic', score: 53, flag: '🇺🇸', note: 'max' },
-        { rank: 4, name: 'GPT-6 Astra', org: 'OpenAI', score: 53, flag: '🇺🇸', note: 'max' },
-        { rank: 5, name: 'Gemini 4 Argon', org: 'Google', score: 53, flag: '🇺🇸', note: 'high' },
-        { rank: 6, name: 'GPT-6.1 Sol', org: 'OpenAI', score: 52, flag: '🇺🇸', note: 'max' },
-        { rank: 7, name: 'Muse Spark 1.3', org: 'Meta', score: 48, flag: '🇺🇸', note: 'max' },
-        { rank: 8, name: 'Grok 4.7', org: 'SpaceXAI', score: 46, flag: '🇺🇸', note: 'xhigh' },
-        { rank: 9, name: 'MiMo-V2.6-Pro', org: 'Xiaomi', score: 46, flag: '🇨🇳', note: '国内第1' },
-        { rank: 10, name: 'Qwen3.8 Max', org: 'Alibaba', score: 45, flag: '🇨🇳', note: '0902 · 国内第2' },
+        { rank: 3, name: 'Muse Wonder Full', org: 'Meta', score: 56, flag: '🇺🇸', note: 'max' },
+        { rank: 4, name: 'Claude Fable 5.1', org: 'Anthropic', score: 53, flag: '🇺🇸', note: 'max' },
+        { rank: 5, name: 'GPT-6 Astra', org: 'OpenAI', score: 53, flag: '🇺🇸', note: 'max' },
+        { rank: 6, name: 'Gemini 4 Argon', org: 'Google', score: 53, flag: '🇺🇸', note: 'high' },
+        { rank: 7, name: 'Muse Wonder', org: 'Meta', score: 52, flag: '🇺🇸', note: 'max' },
+        { rank: 8, name: 'GPT-6.1 Sol', org: 'OpenAI', score: 52, flag: '🇺🇸', note: 'max' },
+        { rank: 9, name: 'Grok 4.7', org: 'SpaceXAI', score: 46, flag: '🇺🇸', note: 'xhigh' },
+        { rank: 10, name: 'MiMo-V2.6-Pro', org: 'Xiaomi', score: 46, flag: '🇨🇳', note: '国内第1' },
       ].map(m => {
         const pct = (m.score / 58) * 100;
         const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'StepFun', 'InclusionAI', 'Nex AGI'].includes(m.org);
@@ -179,7 +179,7 @@ function firstPrice(note) {
       <span><span style="display:inline-block;width:.8rem;height:.8rem;background:var(--ink-faint);border-radius:2px;vertical-align:middle;margin-right:.3rem"></span>海外为主</span>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">
-      评分截至 2026-10-08 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
+      评分截至 2026-10-23 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
     </p>
   </section>
 
@@ -187,7 +187,7 @@ function firstPrice(note) {
     <p class="eyebrow"><span class="bar"></span>阶跃星辰 Step 5 Preview</p>
     <h2>6000 亿参数，追平 2.8 万亿的 K3。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      9/19 发布的 Step 5 Preview，AA 智能指数 44 分，<b>国内第 4</b>（与 Kimi K3 并列），Terminal-Bench 4.0 拿到 33.3%。Step Plan 走月池 Credit（1M Credit = ¥1），月内任意时段消耗，<b>没有 5 小时限额</b>——不存在写着写着被掐断的体验。
+      9/19 发布的 Step 5 Preview，AA 智能指数 44 分（未进国内前4），Terminal-Bench 4.0 拿到 33.3%。Step Plan 走月池 Credit（1M Credit = ¥1），月内任意时段消耗，<b>没有 5 小时限额</b>——不存在写着写着被掐断的体验。
     </p>
     <div style="overflow-x:auto">
       <table class="thin-table">
@@ -230,7 +230,7 @@ function firstPrice(note) {
     <p class="eyebrow"><span class="bar"></span>便宜用量 · Top 3</p>
     <h2>量大又不追顶尖，这样最省。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-08）重新排出的 3 条路：
+      旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-23）重新排出的 3 条路：
     </p>
     <div class="top3">
       <div class="top3-card">
@@ -251,7 +251,7 @@ function firstPrice(note) {
         <div class="rank num">No. 3</div>
         <div class="name">OpenCode Go</div>
         <div class="price num">$10/月（≈¥72）</div>
-        <p>25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash + Step 5 Preview，<b>国内前 4 占 3 席</b>。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。</p>
+        <p>25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash，<b>国内前 4 占 2 席</b>。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。</p>
         <a class="goto" href="https://opencode.ai/go?ref=Z4S0MDY3TX" target="_blank" rel="noopener sponsored">官方订阅 →</a>
       </div>
     </div>
