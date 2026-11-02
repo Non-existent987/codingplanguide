@@ -62,7 +62,7 @@ const ocModels = [
   { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 10 },
   { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 16 },
   { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 14 },
-  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: null },
+  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 23 },
   { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: null },
   { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: null },
   { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: null },
@@ -88,7 +88,7 @@ ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | ${m.aa ? '#' + m.aa : '—'} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-10-29）；「—」表示未进全球前 25。');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-02）；「—」表示未进全球前 25。');
 lines.push('>');
 lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
@@ -113,7 +113,7 @@ lines.push('---');
 lines.push('');
 lines.push('## 便宜用量 · Top 3');
 lines.push('');
-lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-29）重新排出的 3 条路：');
+lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-02）重新排出的 3 条路：');
 lines.push('');
 lines.push('**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（AA 34 分），¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。');
 lines.push(`- [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)`);
@@ -153,9 +153,9 @@ const top25 = [
   { name: 'MiniMax-M3.1-Flash', score: 29, flag: '🇨🇳', cn: true },
   { name: 'Step 5 Preview', score: 29, flag: '🇨🇳', cn: true },
   { name: 'GPT-6 Luna (max)', score: 28, flag: '🇺🇸' },
+  { name: 'GLM-5.3-Flash', score: 28, flag: '🇨🇳', cn: true },
   { name: 'MiMo-V2.6-Flash', score: 27, flag: '🇨🇳', cn: true },
-  { name: 'Mistral Large 4 Preview', score: 25, flag: '🇺🇸' },
-  { name: 'Muse Spark Open (xhigh)', score: 25, flag: '🇺🇸' },
+  { name: 'Mistral Large 4', score: 26, flag: '🇺🇸' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {
@@ -164,7 +164,7 @@ top25.forEach((m, i) => {
   lines.push(`| ${i + 1} | ${nameStr} | ${bar} | ${m.score} |`);
 });
 lines.push('');
-lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-10-29）');
+lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-02）');
 lines.push('');
 lines.push('---');
 lines.push('');

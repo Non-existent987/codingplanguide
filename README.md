@@ -2,7 +2,7 @@
 
 > AI 编程 · 怎么选最值。每月不超 ¥150，模型就得用最强的。
 >
-> 更新于 2026-10-29 · 数据驱动：[方法说明](https://codingplanguide.com/method)
+> 更新于 2026-11-02 · 数据驱动：[方法说明](https://codingplanguide.com/method)
 
 ---
 
@@ -35,7 +35,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | Kimi K3 | 110 | 250 | 490 | #10 |
 | GLM-5.3 | 220 | 540 | 1,080 | #16 |
 | Qwen3.8 Max | 160 | 400 | 810 | #14 |
-| GLM-5.3-Flash | 1,580 | 3,950 | 7,900 | — |
+| GLM-5.3-Flash | 1,580 | 3,950 | 7,900 | #23 |
 | Muse Spark 1.2 Contributor | 45,300 | 113,300 | 226,600 | — |
 | Qwen3.8 Flash | 5,400 | 13,500 | 27,000 | — |
 | DeepSeek V4 Pro | 1,050 | 2,600 | 5,200 | — |
@@ -57,7 +57,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | LongCat-2.0 | 11,400 | 28,600 | 57,200 | — |
 | Hy4 preview | 1,350 | 3,380 | 6,770 | — |
 
-> AA全球排名 = Artificial Analysis Intelligence Index（2026-10-29）；「—」表示未进全球前 25。
+> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-02）；「—」表示未进全球前 25。
 >
 > OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。
 >
@@ -82,7 +82,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 ## 便宜用量 · Top 3
 
-旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-10-29）重新排出的 3 条路：
+旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-02）重新排出的 3 条路：
 
 **No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（AA 34 分），¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。
 - [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)
@@ -121,11 +121,11 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | 20 | **🇨🇳 MiniMax-M3.1-Flash** | ███████████████ | 29 |
 | 21 | **🇨🇳 Step 5 Preview** | ███████████████ | 29 |
 | 22 | 🇺🇸 GPT-6 Luna (max) | ██████████████ | 28 |
-| 23 | **🇨🇳 MiMo-V2.6-Flash** | ██████████████ | 27 |
-| 24 | 🇺🇸 Mistral Large 4 Preview | █████████████ | 25 |
-| 25 | 🇺🇸 Muse Spark Open (xhigh) | █████████████ | 25 |
+| 23 | **🇨🇳 GLM-5.3-Flash** | ██████████████ | 28 |
+| 24 | **🇨🇳 MiMo-V2.6-Flash** | ██████████████ | 27 |
+| 25 | 🇺🇸 Mistral Large 4 | █████████████ | 26 |
 
-> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-10-29）
+> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-02）
 
 ---
 
