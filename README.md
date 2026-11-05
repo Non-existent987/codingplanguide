@@ -2,7 +2,7 @@
 
 > AI 编程 · 怎么选最值。每月不超 ¥150，模型就得用最强的。
 >
-> 更新于 2026-11-02 · 数据驱动：[方法说明](https://codingplanguide.com/method)
+> 更新于 2026-11-05 · 数据驱动：[方法说明](https://codingplanguide.com/method)
 
 ---
 
@@ -57,7 +57,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | LongCat-2.0 | 11,400 | 28,600 | 57,200 | — |
 | Hy4 preview | 1,350 | 3,380 | 6,770 | — |
 
-> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-02）；「—」表示未进全球前 25。
+> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-05）；「—」表示未进全球前 25。
 >
 > OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。
 >
@@ -82,7 +82,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 ## 便宜用量 · Top 3
 
-旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-02）重新排出的 3 条路：
+旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-05）重新排出的 3 条路：
 
 **No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（AA 34 分），¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。
 - [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)
@@ -99,25 +99,25 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 | # | 模型 | 图 | 分数 |
 |---|---|---|---|
-| 1 | 🇺🇸 Gemini 4 Carbon (high) | ██████████████████████████████ | 59 |
-| 2 | 🇺🇸 Claude Opus 5.5 (max) | █████████████████████████████ | 58 |
+| 1 | 🇺🇸 Gemini 4 Carbon (high) | ██████████████████████████████ | 60 |
+| 2 | 🇺🇸 Claude Opus 5.5 (max) | ██████████████████████████████ | 59 |
 | 3 | 🇺🇸 GPT-6 Astra (max) | █████████████████████████████ | 57 |
 | 4 | 🇺🇸 GPT-6.1 Sol (max) | ████████████████████████████ | 55 |
-| 5 | 🇺🇸 Claude Sonnet 5.5 (max) | ███████████████████████████ | 54 |
+| 5 | 🇺🇸 Claude Sonnet 5.5 (max) | ████████████████████████████ | 55 |
 | 6 | 🇺🇸 GPT-6.1 Terra (max) | ██████████████████████████ | 51 |
 | 7 | 🇺🇸 Gemini 4 Argon (high) | █████████████████████████ | 50 |
 | 8 | 🇺🇸 Muse Wonder Full (max) | █████████████████████████ | 50 |
 | 9 | 🇺🇸 Claude Fable 5.1 (xhigh) | █████████████████████████ | 50 |
 | 10 | **🇨🇳 Kimi K3.1 Pro** | ███████████████████████ | 46 |
-| 11 | 🇺🇸 Muse Wonder (max) | ██████████████████████ | 43 |
+| 11 | 🇺🇸 Muse Wonder (max) | ██████████████████████ | 44 |
 | 12 | 🇺🇸 Claude Haiku 5.5 (max) | ██████████████████ | 36 |
 | 13 | 🇺🇸 Grok 4.7 (high) | ██████████████████ | 35 |
 | 14 | **🇨🇳 Qwen3.8 Max (0902)** | █████████████████ | 34 |
-| 15 | **🇨🇳 DeepSeek V4.1 Flash 1017** | ████████████████ | 32 |
+| 15 | **🇨🇳 DeepSeek V4.1 Flash 1017** | █████████████████ | 33 |
 | 16 | **🇨🇳 GLM-5.3 (max)** | ████████████████ | 32 |
 | 17 | 🇺🇸 Gemini 3.8 Flash (high) | ████████████████ | 31 |
 | 18 | **🇨🇳 MiMo-V2.6-Pro** | ███████████████ | 30 |
-| 19 | **🇨🇳 Ling 3.1 Flash 1019** | ███████████████ | 29 |
+| 19 | **🇨🇳 Ling 3.1 Flash 1019** | ███████████████ | 30 |
 | 20 | **🇨🇳 MiniMax-M3.1-Flash** | ███████████████ | 29 |
 | 21 | **🇨🇳 Step 5 Preview** | ███████████████ | 29 |
 | 22 | 🇺🇸 GPT-6 Luna (max) | ██████████████ | 28 |
@@ -125,7 +125,7 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | 24 | **🇨🇳 MiMo-V2.6-Flash** | ██████████████ | 27 |
 | 25 | 🇺🇸 Mistral Large 4 | █████████████ | 26 |
 
-> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-02）
+> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-05）
 
 ---
 
