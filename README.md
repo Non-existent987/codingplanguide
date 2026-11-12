@@ -2,26 +2,24 @@
 
 > AI 编程 · 怎么选最值。每月不超 ¥150，模型就得用最强的。
 >
-> 更新于 2026-11-05 · 数据驱动：[方法说明](https://codingplanguide.com/method)
+> 更新于 2026-11-12 · 数据驱动：[方法说明](https://codingplanguide.com/method)
 
 ---
 
 ## 最值的一单：[阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan)
 
-Qwen3.8 Max 国内第2（AA 34分），Token Plan个人版¥39低价，2500 Credits/周。 — 综合分 55.7（能力 25 + 价格 37 + 用量 2.5 + 加分 12）。
+Qwen3.8 Max 国内第3（AA 34分），Token Plan个人版¥39低价，2500 Credits/周。 — 综合分 42.7（能力 10 + 价格 37 + 用量 2.5 + 加分 11）。
 [官方订阅 →](https://www.aliyun.com/benefit/scene/tokenplan)
 
-## 过线排名 Top 5
+## 过线排名 Top 3
 
 | # | 平台 · 套餐 | 月费 | 旗舰模型 | 模型排名 | 月请求数 | 综合分 | 加分 | 结论 |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | Qwen-3.8-Max | 国内第2 | 1.0万 | 55.7 | +12 | 推荐 |
-| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | Qwen3.8 Max + GLM-5.3 领衔 | 国内第2 | 4,300 | 48.25 | +12 | 推荐 |
-| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | Qwen-3.8-Max | 国内第2 | 4.3万 | 40.65 | +12 | 推荐 |
-| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥118 | GLM-5.3 | 国内第4 | 4.3万 | 22.85 | +6 | 推荐 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.3 | 国内第4 | 4,300 | 12.72 | +4 | 推荐 |
+| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | Qwen-3.8-Max | 国内第3 | 1.0万 | 42.7 | +11 | 推荐 |
+| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | Qwen3.8 Max + GLM-5.3 领衔 | 国内第3 | 4,300 | 35.25 | +11 | 推荐 |
+| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | Qwen-3.8-Max | 国内第3 | 4.3万 | 27.65 | +11 | 推荐 |
 
-> 未过线套餐（31 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplanguide/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
+> 未过线套餐（33 款）见 [data/plans.yaml](https://github.com/Non-existent987/codingplanguide/blob/main/data/plans.yaml) 或 [codingplanguide.com/table](https://codingplanguide.com/table)
 
 ---
 
@@ -33,9 +31,9 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 |---|---|---|---|---|
 | Grok 4.6 | 169 | 423 | 845 | — |
 | Kimi K3 | 110 | 250 | 490 | #10 |
-| GLM-5.3 | 220 | 540 | 1,080 | #16 |
-| Qwen3.8 Max | 160 | 400 | 810 | #14 |
-| GLM-5.3-Flash | 1,580 | 3,950 | 7,900 | #23 |
+| GLM-5.3 | 220 | 540 | 1,080 | #18 |
+| Qwen3.8 Max | 160 | 400 | 810 | #16 |
+| GLM-5.3-Flash | 1,580 | 3,950 | 7,900 | — |
 | Muse Spark 1.2 Contributor | 45,300 | 113,300 | 226,600 | — |
 | Qwen3.8 Flash | 5,400 | 13,500 | 27,000 | — |
 | DeepSeek V4 Pro | 1,050 | 2,600 | 5,200 | — |
@@ -57,9 +55,9 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 | LongCat-2.0 | 11,400 | 28,600 | 57,200 | — |
 | Hy4 preview | 1,350 | 3,380 | 6,770 | — |
 
-> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-05）；「—」表示未进全球前 25。
+> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-12）；「—」表示未进全球前 25。
 >
-> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。
+> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第3）、GLM-5.3（国内第5）、GLM-5.3-Flash；$10 一个订阅覆盖多家旗舰。流畅无中断、无告警、无扣量问题。
 >
 > [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)
 
@@ -82,12 +80,12 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 ## 便宜用量 · Top 3
 
-旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-05）重新排出的 3 条路：
+旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-12）重新排出的 3 条路：
 
-**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（AA 34 分），¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。
+**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 3（AA 34 分），¥39 拿到国内前列模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。
 - [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)
 
-**No.2 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash，**国内前 4 占 2 席**。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。
+**No.2 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max（国内第3）+ GLM-5.3 + GLM-5.3-Flash。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。
 - [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)
 
 **No.3 · 阶跃 Step Plan Flash Mini** — ¥49/月。Step 5 Preview（AA 29 分，未进国内前4），400M Credits/月，无 5 小时限额、月内任意时段消耗。
@@ -99,33 +97,33 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 | # | 模型 | 图 | 分数 |
 |---|---|---|---|
-| 1 | 🇺🇸 Gemini 4 Carbon (high) | ██████████████████████████████ | 60 |
-| 2 | 🇺🇸 Claude Opus 5.5 (max) | ██████████████████████████████ | 59 |
-| 3 | 🇺🇸 GPT-6 Astra (max) | █████████████████████████████ | 57 |
-| 4 | 🇺🇸 GPT-6.1 Sol (max) | ████████████████████████████ | 55 |
-| 5 | 🇺🇸 Claude Sonnet 5.5 (max) | ████████████████████████████ | 55 |
-| 6 | 🇺🇸 GPT-6.1 Terra (max) | ██████████████████████████ | 51 |
-| 7 | 🇺🇸 Gemini 4 Argon (high) | █████████████████████████ | 50 |
-| 8 | 🇺🇸 Muse Wonder Full (max) | █████████████████████████ | 50 |
-| 9 | 🇺🇸 Claude Fable 5.1 (xhigh) | █████████████████████████ | 50 |
-| 10 | **🇨🇳 Kimi K3.1 Pro** | ███████████████████████ | 46 |
-| 11 | 🇺🇸 Muse Wonder (max) | ██████████████████████ | 44 |
-| 12 | 🇺🇸 Claude Haiku 5.5 (max) | ██████████████████ | 36 |
-| 13 | 🇺🇸 Grok 4.7 (high) | ██████████████████ | 35 |
-| 14 | **🇨🇳 Qwen3.8 Max (0902)** | █████████████████ | 34 |
-| 15 | **🇨🇳 DeepSeek V4.1 Flash 1017** | █████████████████ | 33 |
-| 16 | **🇨🇳 GLM-5.3 (max)** | ████████████████ | 32 |
-| 17 | 🇺🇸 Gemini 3.8 Flash (high) | ████████████████ | 31 |
-| 18 | **🇨🇳 MiMo-V2.6-Pro** | ███████████████ | 30 |
-| 19 | **🇨🇳 Ling 3.1 Flash 1019** | ███████████████ | 30 |
-| 20 | **🇨🇳 MiniMax-M3.1-Flash** | ███████████████ | 29 |
-| 21 | **🇨🇳 Step 5 Preview** | ███████████████ | 29 |
-| 22 | 🇺🇸 GPT-6 Luna (max) | ██████████████ | 28 |
-| 23 | **🇨🇳 GLM-5.3-Flash** | ██████████████ | 28 |
-| 24 | **🇨🇳 MiMo-V2.6-Flash** | ██████████████ | 27 |
-| 25 | 🇺🇸 Mistral Large 4 | █████████████ | 26 |
+| 1 | 🇺🇸 Claude Fable 5.2 (max) | ██████████████████████████████ | 65 |
+| 2 | 🇺🇸 Gemini 4 Carbon (high) | ████████████████████████████ | 60 |
+| 3 | 🇺🇸 Claude Opus 5.5 (max) | ███████████████████████████ | 59 |
+| 4 | 🇺🇸 GPT-6 Astra (max) | ██████████████████████████ | 57 |
+| 5 | 🇺🇸 GPT-6.1 Sol (max) | █████████████████████████ | 55 |
+| 6 | 🇺🇸 Claude Sonnet 5.5 (max) | █████████████████████████ | 55 |
+| 7 | 🇺🇸 GPT-6.1 Terra (max) | ████████████████████████ | 51 |
+| 8 | 🇺🇸 Gemini 4 Argon (high) | ███████████████████████ | 50 |
+| 9 | 🇺🇸 Muse Wonder Full (max) | ███████████████████████ | 50 |
+| 10 | **🇨🇳 Kimi K3.1 Pro** | █████████████████████ | 46 |
+| 11 | 🇺🇸 Muse Wonder (max) | ████████████████████ | 44 |
+| 12 | 🇺🇸 Claude Haiku 5.5 (max) | █████████████████ | 36 |
+| 13 | 🇺🇸 Muse Ember (max) | █████████████████ | 36 |
+| 14 | 🇺🇸 Grok 4.7 (xhigh) | ████████████████ | 35 |
+| 15 | **🇨🇳 Tencent Hy4** | ████████████████ | 35 |
+| 16 | **🇨🇳 Qwen3.8 Max (0902)** | ████████████████ | 34 |
+| 17 | **🇨🇳 DeepSeek V4.1 Flash 1017** | ███████████████ | 33 |
+| 18 | **🇨🇳 GLM-5.3 (max)** | ███████████████ | 32 |
+| 19 | 🇺🇸 Gemini 3.8 Flash (high) | ██████████████ | 31 |
+| 20 | 🇺🇸 Inkling 2 Small | ██████████████ | 31 |
+| 21 | **🇨🇳 MiMo-V2.6-Pro** | ██████████████ | 30 |
+| 22 | **🇨🇳 Ling 3.1 Flash 1019** | ██████████████ | 30 |
+| 23 | **🇨🇳 MiniMax-M3.1-Flash** | █████████████ | 29 |
+| 24 | **🇨🇳 Qwen3.8-Flash-Next** | █████████████ | 29 |
+| 25 | **🇨🇳 Step 5 Preview** | █████████████ | 29 |
 
-> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-05）
+> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-12）
 
 ---
 
@@ -137,41 +135,33 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 | # | 平台 · 套餐 | 月费 | 综合分 | 能力分 | 价格分 | 用量分 | 体验加分 |
 |---|---|---|---|---|---|---|---|
-| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | 55.7 | 25 | 37 | 2.5 | +12 |
-| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | 48.25 | 25 | 26 | 1.07 | +12 |
-| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | 40.65 | 25 | 3.67 | 10.75 | +12 |
-| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥118 | 22.85 | 5 | 10.67 | 10.75 | +6 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 12.72 | 5 | 6.8 | 1.07 | +4 |
+| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | 42.7 | 10 | 37 | 2.5 | +11 |
+| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | 35.25 | 10 | 26 | 1.07 | +11 |
+| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | 27.65 | 10 | 3.67 | 10.75 | +11 |
 
 ### 能力排名 TOP 6
 
 | # | 平台 · 套餐 | 月费 | 旗舰模型 | 能力分 |
 |---|---|---|---|---|
-| 1 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | Qwen-3.8-Max | 25 |
-| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | Qwen3.8 Max + GLM-5.3 领衔 | 25 |
-| 3 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | Qwen-3.8-Max | 25 |
-| 4 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | GLM-5.3 | 5 |
-| 5 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥118 | GLM-5.3 | 5 |
+| 1 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | Qwen-3.8-Max | 10 |
+| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | Qwen3.8 Max + GLM-5.3 领衔 | 10 |
+| 3 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | Qwen-3.8-Max | 10 |
 
 ### 性价比排名 TOP 6
 
 | # | 平台 · 套餐 | 月费 | 性价比分 | 能力分 | 价格分 |
 |---|---|---|---|---|---|
-| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | 64.1 | 25 | 37 |
-| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | 34.7 | 25 | 26 |
-| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | 18.0 | 25 | 3.67 |
-| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥118 | 4.2 | 5 | 10.67 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | 3.9 | 5 | 6.8 |
+| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | 25.6 | 10 | 37 |
+| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | 13.9 | 10 | 26 |
+| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | 7.2 | 10 | 3.67 |
 
 ### 体验排名 TOP 6
 
 | # | 平台 · 套餐 | 月费 | 体验加分 | 模型数 | 难度 | 首月优惠 |
 |---|---|---|---|---|---|---|
-| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | +12 | 9 | 简单 | 否 |
-| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | +12 | 14 | 简单 | 否 |
-| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | +12 | 9 | 简单 | 否 |
-| 4 | [智谱 AI · Coding Plan Lite](https://www.bigmodel.cn/glm-coding?ic=QLFXUYQFFV) | ¥118 | +6 | 6 | 简单 | 否 |
-| 5 | [智谱国际版 · Coding Plan Lite](https://z.ai/subscribe?ic=SUYV1380ZT) | $18 | +4 | 4 | 简单 | 否 |
+| 1 | [阿里·百炼 · Token Plan Lite](https://www.aliyun.com/benefit/scene/tokenplan) | ¥39 | +11 | 9 | 简单 | 否 |
+| 2 | [OpenCode · Go（$10/月）](https://opencode.ai/go?ref=Z4S0MDY3TX) | $10 | +11 | 14 | 简单 | 否 |
+| 3 | [阿里·百炼 · Token Plan Standard](https://www.aliyun.com/benefit/scene/tokenplan) | ¥139 | +11 | 9 | 简单 | 否 |
 
 > 完整多维排名见 [codingplanguide.com/leaderboard](https://codingplanguide.com/leaderboard)
 
@@ -189,12 +179,12 @@ OpenCode Go 包含 25 大模型，各模型独立请求配额如下（额度按 
 
 ## English TL;DR
 
-**Coding Plan Guide** is a weekly-updated, formula-ranked buyer's guide for AI coding subscriptions in China — 5 plans from Zhipu GLM, Aliyun Bailian (Qwen), Volcengine Ark, Xiaomi MiMo, StepFun, MiniMax, iFlytek, Baidu, OpenCode and more. Ranking formula: capability×0.80 + price×0.60 + quota×0.60 + experience bonus (max 100). No pay-to-rank, no editorial overrides.
+**Coding Plan Guide** is a weekly-updated, formula-ranked buyer's guide for AI coding subscriptions in China — 3 plans from Zhipu GLM, Aliyun Bailian (Qwen), Volcengine Ark, Xiaomi MiMo, StepFun, MiniMax, iFlytek, Baidu, OpenCode and more. Ranking formula: capability×0.80 + price×0.60 + quota×0.60 + experience bonus (max 100). No pay-to-rank, no editorial overrides.
 
 Top value picks right now:
-1. **阿里·百炼 · Token Plan Lite** — ¥39/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 55.7.
-2. **OpenCode · Go（$10/月）** — $10/mo. Qwen3.8 Max + GLM-5.3 领衔 (AA Intelligence Index 9). Score 48.25.
-3. **阿里·百炼 · Token Plan Standard** — ¥139/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 40.65.
+1. **阿里·百炼 · Token Plan Lite** — ¥39/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 42.7.
+2. **OpenCode · Go（$10/月）** — $10/mo. Qwen3.8 Max + GLM-5.3 领衔 (AA Intelligence Index 9). Score 35.25.
+3. **阿里·百炼 · Token Plan Standard** — ¥139/mo. Qwen-3.8-Max (AA Intelligence Index 9). Score 27.65.
 
 Live site: [codingplanguide.com](https://codingplanguide.com) (hosted on GitHub Pages)
 

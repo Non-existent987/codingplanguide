@@ -84,7 +84,7 @@ git push
   - **三处需同步更新**
 - OpenCode Go 池内模型的 AA 排名另有两处硬编码：`src/pages/rankings.astro` 表格 + `scripts/gen-readme.mjs` 的 `ocModels`，**两处也要同步**
 - 国内排名定义：按 AA Intelligence Index 分数降序，同一模型只取最高分档位（max / xhigh 等）
-  - 国内第1=MiMo-V2.6-Pro(46分), 第2=Qwen3.8 Max(45分), 第3=GLM-5.3(45分), 第4=Step 5 Preview(44分，与 Kimi K3 并列)
+  - 当前（AA 2026-11-12）：国内第1=Kimi K3.1 Pro(46分), 第2=Tencent Hy4(35分), 第3=Qwen3.8 Max(34分), 第4=DeepSeek V4.1 Flash 1017(33分)；GLM-5.3(32分)退居第5
 
 ## 重要约定
 

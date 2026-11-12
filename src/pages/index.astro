@@ -146,19 +146,19 @@ function firstPrice(note) {
     </p>
     <div class="chart-home">
       {[
-        { rank: 1, name: 'Gemini 4 Carbon', org: 'Google', score: 60, flag: '🇺🇸', note: 'high' },
-        { rank: 2, name: 'Claude Opus 5.5', org: 'Anthropic', score: 59, flag: '🇺🇸', note: 'max' },
-        { rank: 3, name: 'GPT-6 Astra', org: 'OpenAI', score: 57, flag: '🇺🇸', note: 'max' },
-        { rank: 4, name: 'GPT-6.1 Sol', org: 'OpenAI', score: 55, flag: '🇺🇸', note: 'max' },
-        { rank: 5, name: 'Claude Sonnet 5.5', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'max' },
-        { rank: 6, name: 'GPT-6.1 Terra', org: 'OpenAI', score: 51, flag: '🇺🇸', note: 'max' },
-        { rank: 7, name: 'Gemini 4 Argon', org: 'Google', score: 50, flag: '🇺🇸', note: 'high' },
-        { rank: 8, name: 'Muse Wonder Full', org: 'Meta', score: 50, flag: '🇺🇸', note: 'max' },
-        { rank: 9, name: 'Claude Fable 5.1', org: 'Anthropic', score: 50, flag: '🇺🇸', note: 'xhigh' },
+        { rank: 1, name: 'Claude Fable 5.2', org: 'Anthropic', score: 65, flag: '🇺🇸', note: 'max' },
+        { rank: 2, name: 'Gemini 4 Carbon', org: 'Google', score: 60, flag: '🇺🇸', note: 'high' },
+        { rank: 3, name: 'Claude Opus 5.5', org: 'Anthropic', score: 59, flag: '🇺🇸', note: 'max' },
+        { rank: 4, name: 'GPT-6 Astra', org: 'OpenAI', score: 57, flag: '🇺🇸', note: 'max' },
+        { rank: 5, name: 'GPT-6.1 Sol', org: 'OpenAI', score: 55, flag: '🇺🇸', note: 'max' },
+        { rank: 6, name: 'Claude Sonnet 5.5', org: 'Anthropic', score: 55, flag: '🇺🇸', note: 'max' },
+        { rank: 7, name: 'GPT-6.1 Terra', org: 'OpenAI', score: 51, flag: '🇺🇸', note: 'max' },
+        { rank: 8, name: 'Gemini 4 Argon', org: 'Google', score: 50, flag: '🇺🇸', note: 'high' },
+        { rank: 9, name: 'Muse Wonder Full', org: 'Meta', score: 50, flag: '🇺🇸', note: 'max' },
         { rank: 10, name: 'Kimi K3.1 Pro', org: 'Kimi', score: 46, flag: '🇨🇳', note: '国内第1' },
       ].map(m => {
-        const pct = (m.score / 60) * 100;
-        const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'StepFun', 'InclusionAI', 'Nex AGI'].includes(m.org);
+        const pct = (m.score / 65) * 100;
+        const isCN = ['Z AI', 'Alibaba', 'MiniMax', 'DeepSeek', 'Kimi', 'Xiaomi', 'StepFun', 'InclusionAI', 'Nex AGI', 'Tencent'].includes(m.org);
         return (
           <div class="bar-row">
             <div class="bar-rank num">{m.rank}</div>
@@ -179,7 +179,7 @@ function firstPrice(note) {
       <span><span style="display:inline-block;width:.8rem;height:.8rem;background:var(--ink-faint);border-radius:2px;vertical-align:middle;margin-right:.3rem"></span>海外为主</span>
     </div>
     <p style="color:var(--ink-faint);font-size:.82rem;margin-top:.8rem">
-      评分截至 2026-11-05 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
+      评分截至 2026-11-12 · 来源：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>
     </p>
   </section>
 
@@ -230,21 +230,21 @@ function firstPrice(note) {
     <p class="eyebrow"><span class="bar"></span>便宜用量 · Top 3</p>
     <h2>量大又不追顶尖，这样最省。</h2>
     <p style="color:var(--ink-soft);max-width:62ch;margin-bottom:1.5rem">
-      旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-05）重新排出的 3 条路：
+      旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-12）重新排出的 3 条路：
     </p>
     <div class="top3">
       <div class="top3-card">
         <div class="rank num">No. 1</div>
         <div class="name">阿里·百炼 Token Plan Lite</div>
         <div class="price num">¥39/月</div>
-        <p>Qwen3.8 Max 国内第 2（AA 34 分），¥39 即可上手第一梯队模型 + 2500 Credits/周。个人版低价档，Coding Plan Lite 已停售，Token Plan 现在是入口。</p>
+        <p>Qwen3.8 Max 国内第 3（AA 34 分），¥39 即可上手国内前列模型 + 2500 Credits/周。个人版低价档，Coding Plan Lite 已停售，Token Plan 现在是入口。</p>
         <a class="goto" href="https://www.aliyun.com/benefit/scene/tokenplan" target="_blank" rel="noopener">官方订阅 →</a>
       </div>
       <div class="top3-card">
         <div class="rank num">No. 2</div>
         <div class="name">OpenCode Go</div>
         <div class="price num">$10/月（≈¥72）</div>
-        <p>25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash，<b>国内前 4 占 2 席</b>。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。</p>
+        <p>25 模型一 key 全包：Qwen3.8 Max（国内第3）+ GLM-5.3 + GLM-5.3-Flash。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。</p>
         <a class="goto" href="https://opencode.ai/go?ref=Z4S0MDY3TX" target="_blank" rel="noopener sponsored">官方订阅 →</a>
       </div>
       <div class="top3-card">

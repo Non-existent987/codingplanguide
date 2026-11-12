@@ -60,9 +60,9 @@ lines.push('|---|---|---|---|---|');
 const ocModels = [
   { name: 'Grok 4.6', h5: 169, week: 423, month: 845, aa: null },
   { name: 'Kimi K3', h5: 110, week: 250, month: 490, aa: 10 },
-  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 16 },
-  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 14 },
-  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: 23 },
+  { name: 'GLM-5.3', h5: 220, week: 540, month: 1080, aa: 18 },
+  { name: 'Qwen3.8 Max', h5: 160, week: 400, month: 810, aa: 16 },
+  { name: 'GLM-5.3-Flash', h5: 1580, week: 3950, month: 7900, aa: null },
   { name: 'Muse Spark 1.2 Contributor', h5: 45300, week: 113300, month: 226600, aa: null },
   { name: 'Qwen3.8 Flash', h5: 5400, week: 13500, month: 27000, aa: null },
   { name: 'DeepSeek V4 Pro', h5: 1050, week: 2600, month: 5200, aa: null },
@@ -88,9 +88,9 @@ ocModels.forEach(m => {
   lines.push(`| ${m.name} | ${m.h5.toLocaleString()} | ${m.week.toLocaleString()} | ${m.month.toLocaleString()} | ${m.aa ? '#' + m.aa : '—'} |`);
 });
 lines.push('');
-lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-05）；「—」表示未进全球前 25。');
+lines.push('> AA全球排名 = Artificial Analysis Intelligence Index（2026-11-12）；「—」表示未进全球前 25。');
 lines.push('>');
-lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第2）、GLM-5.3（国内第4）、GLM-5.3-Flash；一个 $10 订阅覆盖国内前 4 中的 2 席。流畅无中断、无告警、无扣量问题。');
+lines.push('> OpenCode Go 池内旗舰：Qwen3.8 Max（国内第3）、GLM-5.3（国内第5）、GLM-5.3-Flash；$10 一个订阅覆盖多家旗舰。流畅无中断、无告警、无扣量问题。');
 lines.push('>');
 lines.push(`> [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
@@ -113,12 +113,12 @@ lines.push('---');
 lines.push('');
 lines.push('## 便宜用量 · Top 3');
 lines.push('');
-lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-05）重新排出的 3 条路：');
+lines.push('旗舰模型换代很快，但"够用 + 量大"的需求没变。按当前榜单（2026-11-12）重新排出的 3 条路：');
 lines.push('');
-lines.push('**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 2（AA 34 分），¥39 拿到第一梯队模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。');
+lines.push('**No.1 · 阿里·百炼 Token Plan Lite** — ¥39/月。Qwen3.8 Max 国内第 3（AA 34 分），¥39 拿到国内前列模型 + 2500 Credits/周。Coding Plan Lite 已停售，Token Plan 现在是个人版入口。');
 lines.push(`- [官方订阅 阿里·百炼 →](https://www.aliyun.com/benefit/scene/tokenplan)`);
 lines.push('');
-lines.push('**No.2 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max + GLM-5.3 + GLM-5.3-Flash，**国内前 4 占 2 席**。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。');
+lines.push('**No.2 · OpenCode Go** — $10/月（≈¥72）。25 模型一 key 全包：Qwen3.8 Max（国内第3）+ GLM-5.3 + GLM-5.3-Flash。$10 一个订阅覆盖多家旗舰，不用为换模型重新付费。');
 lines.push(`- [官方订阅 OpenCode Go →](https://opencode.ai/go?ref=Z4S0MDY3TX)`);
 lines.push('');
 lines.push('**No.3 · 阶跃 Step Plan Flash Mini** — ¥49/月。Step 5 Preview（AA 29 分，未进国内前4），400M Credits/月，无 5 小时限额、月内任意时段消耗。');
@@ -131,6 +131,7 @@ lines.push('');
 lines.push('| # | 模型 | 图 | 分数 |');
 lines.push('|---|---|---|---|');
 const top25 = [
+  { name: 'Claude Fable 5.2 (max)', score: 65, flag: '🇺🇸' },
   { name: 'Gemini 4 Carbon (high)', score: 60, flag: '🇺🇸' },
   { name: 'Claude Opus 5.5 (max)', score: 59, flag: '🇺🇸' },
   { name: 'GPT-6 Astra (max)', score: 57, flag: '🇺🇸' },
@@ -139,32 +140,31 @@ const top25 = [
   { name: 'GPT-6.1 Terra (max)', score: 51, flag: '🇺🇸' },
   { name: 'Gemini 4 Argon (high)', score: 50, flag: '🇺🇸' },
   { name: 'Muse Wonder Full (max)', score: 50, flag: '🇺🇸' },
-  { name: 'Claude Fable 5.1 (xhigh)', score: 50, flag: '🇺🇸' },
   { name: 'Kimi K3.1 Pro', score: 46, flag: '🇨🇳', cn: true },
   { name: 'Muse Wonder (max)', score: 44, flag: '🇺🇸' },
   { name: 'Claude Haiku 5.5 (max)', score: 36, flag: '🇺🇸' },
-  { name: 'Grok 4.7 (high)', score: 35, flag: '🇺🇸' },
+  { name: 'Muse Ember (max)', score: 36, flag: '🇺🇸' },
+  { name: 'Grok 4.7 (xhigh)', score: 35, flag: '🇺🇸' },
+  { name: 'Tencent Hy4', score: 35, flag: '🇨🇳', cn: true },
   { name: 'Qwen3.8 Max (0902)', score: 34, flag: '🇨🇳', cn: true },
   { name: 'DeepSeek V4.1 Flash 1017', score: 33, flag: '🇨🇳', cn: true },
   { name: 'GLM-5.3 (max)', score: 32, flag: '🇨🇳', cn: true },
   { name: 'Gemini 3.8 Flash (high)', score: 31, flag: '🇺🇸' },
+  { name: 'Inkling 2 Small', score: 31, flag: '🇺🇸' },
   { name: 'MiMo-V2.6-Pro', score: 30, flag: '🇨🇳', cn: true },
   { name: 'Ling 3.1 Flash 1019', score: 30, flag: '🇨🇳', cn: true },
   { name: 'MiniMax-M3.1-Flash', score: 29, flag: '🇨🇳', cn: true },
+  { name: 'Qwen3.8-Flash-Next', score: 29, flag: '🇨🇳', cn: true },
   { name: 'Step 5 Preview', score: 29, flag: '🇨🇳', cn: true },
-  { name: 'GPT-6 Luna (max)', score: 28, flag: '🇺🇸' },
-  { name: 'GLM-5.3-Flash', score: 28, flag: '🇨🇳', cn: true },
-  { name: 'MiMo-V2.6-Flash', score: 27, flag: '🇨🇳', cn: true },
-  { name: 'Mistral Large 4', score: 26, flag: '🇺🇸' },
 ];
 const barMax = 30;
 top25.forEach((m, i) => {
-  const bar = '█'.repeat(Math.round((m.score / 60) * barMax));
+  const bar = '█'.repeat(Math.round((m.score / 65) * barMax));
   const nameStr = m.cn ? `**${m.flag} ${m.name}**` : `${m.flag} ${m.name}`;
   lines.push(`| ${i + 1} | ${nameStr} | ${bar} | ${m.score} |`);
 });
 lines.push('');
-lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-05）');
+lines.push('> 取每个模型的最高分档位（max / xhigh 等）。来源：[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) Intelligence Index（2026-11-12）');
 lines.push('');
 lines.push('---');
 lines.push('');
